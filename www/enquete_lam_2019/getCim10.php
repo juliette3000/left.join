@@ -6,7 +6,10 @@ if(isset($_POST['search'])){
  $search = $_POST['search'];
 
  $query = "SELECT * FROM Cim10 WHERE nom like'%".$search."%'";
- $result = mysqli_query($con,$query);
+ 
+ $conn = new mysqli($servername, $username, $password, $dbname);
+ 
+ $result = mysqli_query($conn, $query);
 
  $response = array();
  while($row = mysqli_fetch_array($result) ){
