@@ -1,8 +1,0 @@
-tototototot
-<?php  
-
-echo 'fff' 
-
-
-
-?>

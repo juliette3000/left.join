@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Page de juju</title>
+    </head>
+
+    <body bgcolor="white" text="black" link="blue" vlink="maroon">
+    <!-- Commence pas à critiquer mon code ;) -->
+	
+	
+	<CENTER><H1>je mets ce que je veux sur mon site d'abord !!</H1></CENTER>
+	<img src="images/Schtroumpf-grognon_original_backup.jpg" align=middle >
+	
+	<H1> Nombre de personnes accueillies dans les LHSS du samusocial de Paris </H1>
+
+<form method="post" action="traitement.php">
+   <p>
+   <label for="lhss">Votre LHSS</label> : 
+   <input type="text" placeholder="Ex : Plaisance" name="lhss" id="lhss" /></p>
+    <p>
+   <label for="date">Date du jour</label> : 
+   <input type="date" name="date" id="date" /><p>
+   
+   <input type="submit" value="Envoyer" />
+   
+          <p>Aujourd'hui nous sommes le <?php echo date('d/m/Y h:i:s'); ?>.</p>
+   
+</form>
+	
+	
+	
+    </body>
+</html>
+
