@@ -8,9 +8,15 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<script src="js/autocomplete.min.js"></script>
+
+<!-- Script -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- jQuery UI -->
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
 
 </head>
 <body>
@@ -52,7 +58,7 @@
 		<div class="form-group">
 			<label class="control-label col-sm-3" for="cim10">CIM-10</label>
 			<div class="col-sm-3">
-				<input type="text" class="form-control cim10"/>
+				<input id="autocomplete" type="text" class="form-control cim10">
 				<input type="hidden" id="hidden-field"/>
 			</div>
 		</div>
@@ -113,108 +119,85 @@
 
 </div>
 
-	<!-- https://www.jqueryscript.net/form/Autocomplete-Dropdown-Bootstrap-jQuery.html -->
+	<!-- https://makitweb.com/jquery-ui-autocomplete-with-php-and-ajax/ -->
     <script type="application/javascript">
+    
+    
+$( function() {
 
-        const filter = function (input, data) {
-            return data.filter(x => {
-                return (!x.ignore && ~x.name.indexOf(input)) || x.name === input
-            });
-        };
+ // Single Select
+ $( "#autocomplete" ).autocomplete({
+  source: function( request, response ) {
+   // Fetch data
+   $.ajax({
+    url: "http://localhost/getCim10.php",
+    type: 'post',
+    dataType: "json",
+    data: {
+     search: request.term
+    },
+    success: function( data ) {
+     response( data );
+    }
+   });
+  },
+  select: function (event, ui) {
+   // Set selection
+   $('#autocomplete').val(ui.item.label); // display the selected text
+   $('#selectuser_id').val(ui.item.value); // save selected id to input
+   return false;
+  }
+ });
 
-        function preAppendDataItem(li, item) {
-            if(item.name == 'jul'){
-                $(li).addClass("test")
-            }
-        }
+ // Multiple select
+ $( "#multi_autocomplete" ).autocomplete({
+    source: function( request, response ) {
+                
+      var searchText = extractLast(request.term);
+      $.ajax({
+         url: "getCim10.php",
+         type: 'post',
+         dataType: "json",
+         data: {
+           search: searchText
+         },
+         success: function( data ) {
+           response( data );
+         }
+       });
+    },
+    select: function( event, ui ) {
+        var terms = split( $('#multi_autocomplete').val() );
+                
+        terms.pop();
+                
+        terms.push( ui.item.label );
+                
+        terms.push( "" );
+        $('#multi_autocomplete').val(terms.join( ", " ));
 
-        $('.cim10').autocomplete({
-            validation,
-            filter,
-            appendToBody: true,
-            valueProperty: 'id',
-            openOnInput: true,
-            nameProperty: 'name',
-            valueField: '#hidden-field',
-            dataSource: [{
-                "id": 1,
-                "name": 'This',
-                "ignore": false
-            },
-            {
-                "id": 2,
-                "name": 'is',
-                "ignore": false
-            },
-            {
-                "id": 3,
-                "name": 'test',
-                "ignore": false
-            },
-            {
-                "id": 4,
-                "name": 'data',
-                "ignore": false
-            },
-            {
-                "id": 5,
-                "name": 'to',
-                "ignore": false
-            },
-            {
-                "id": 6,
-                "name": 'show',
-                "ignore": false
-            },
-            {
-                "id": 7,
-                "name": 'the',
-                "ignore": false
-            },
-            {
-                "id": 8,
-                "name": 'usage',
-                "ignore": false
-            },
-            {
-                "id": 9,
-                "name": 'of',
-                "ignore": false
-            },
-            {
-                "id": 10,
-                "name": 'the',
-                "ignore": false
-            },
-            {
-                "id": 11,
-                "name": 'autocomplete',
-                "ignore": false
-            },
-            {
-                "id": 12,
-                "name": 'component',
-                "ignore": false
-            },
-            {
-                "id": 13,
-                "name": 'This',
-                "ignore": true
-            },
-            {
-                "id": 14,
-                "name": 'is',
-                "ignore": true
-            },
-            {
-                "id": 15,
-                "name": 'ignored',
-                "ignore": true
-            }
-            ]
-        });
+        // Id
+        terms = split( $('#selectuser_ids').val() );
+                
+        terms.pop();
+                
+        terms.push( ui.item.value );
+                
+        terms.push( "" );
+        $('#selectuser_ids').val(terms.join( ", " ));
 
+        return false;
+     }
+           
+ });
 
-    </script>
+});
+function split( val ) {
+   return val.split( /,\s*/ );
+}
+function extractLast( term ) {
+   return split( term ).pop();
+}    
+</script>
 </body>
 </html>
