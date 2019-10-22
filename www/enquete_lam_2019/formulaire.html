@@ -122,24 +122,11 @@
             });
         };
 
-        const validation = function (inputValue, data) {
-            if (inputValue) {
-                let matches = data.filter(x => x.id === +this.selected.value && x.name === inputValue);
-                if (!matches || !matches.length) {
-					// alert('Es wurde ein falscher Wert eingegeben!');
-					// return false;
-                }
-                return true;
-            }
-        };
-
         function preAppendDataItem(li, item) {
-            if(item.name == 'is'){
+            if(item.name == 'jul'){
                 $(li).addClass("test")
             }
         }
-
-
 
         $('.cim10').autocomplete({
             validation,
