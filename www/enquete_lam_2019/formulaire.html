@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>LAM - Enquête flash sur les situations de handicap - novembre 2019 - Volet Social</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="js/autocomplete.min.js"></script>
+
+</head>
+<body>
+
+	<div class="content">
+		<div class="col-sm-offset-3 col-sm-6" >
+			<h4 align="center" class="bg-info" style="padding:20px; margin: 50px">LAM - Enquête flash sur les situations de handicap - novembre 2019 - Volet Social</h4>
+		</div>
+	<div style="clear:both"></div>
+
+
+	<!-- class="form-horizontal"  -->
+	<form class="form-horizontal" action="/save.php">
+	
+		<div class="form-group">
+			<label class="control-label col-sm-3" for="email">Nom et prénom de l'intervenant</label>
+			<div class="col-sm-3">
+				<input type="email" class="form-control" id="email" placeholder="nom">
+			</div>
+			<label class="control-label col-sm-2" for="pwd">Date du jour</label>
+			<div class="col-sm-2">
+				<input type="date" class="form-control" id="date">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-3" for="codePersonneHeberge">Code identifiant de la personne hébergée</label>
+			<div class="col-sm-2">
+				<input type="text" class="form-control" id="codePersonneHeberge">
+			</div>
+			<label class="control-label col-sm-3" for="sexe">Sexe</label>
+			<div class="col-sm-2">
+				  <input type="radio" name="sexe" value="H" checked="checked">
+				  <span>Homme</span>
+				  <input class="form-check-input" type="radio" name="sexe" value="F">
+				  <span>Femme</span>
+			</div>				
+		</div>		
+		
+		<div class="form-group">
+			<label class="control-label col-sm-3" for="cim10">CIM-10</label>
+			<div class="col-sm-3">
+				<input type="text" class="form-control cim10"/>
+				<input type="hidden" id="hidden-field"/>
+			</div>
+		</div>
+		
+		
+		<div class="form-group">
+			<div class="col-sm-offset-3 col-sm-3">
+				<div class="checkbox">
+					<label><input type="checkbox"> Remember me</label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-3 col-sm-10">
+				<!-- btn-default -->
+				<button type="submit" class="btn btn-default">Submit</button>
+			</div>
+		</div>
+	</form>
+
+
+	Nom et prénom de l'intervenant : Date du jour : __/__/____ Code identifiant de la personne hébergée : _______________ Sexe : Homme Femme Date de naissance :
+	__/__/____ (âge actuel si ND) : ____ ans Date d'entrée dans le centre (séjour actuel) : __/__/____ Mode d’admission : LHSS SSR Hôpitaux Rue Autre : préciser
+	_____________ Statut administratif : En possession de documents permettant l’ouverture de droits Sans document permettant l’ouverture de droits (et ne pouvant
+	pas en avoir) Couverture sociale : Sécu hors PUMA PUMA AME Aucune Couverture maladie complémentaire : CMUc Mutuelle, assurance privée ou institution de
+	prévoyance Ayant droit Aucune Cette personne a-t-elle ou pourrait-elle bénéficier … D’une AAH ? sans objet impossible déjà obtenue refusée demande en cours a
+	été envisagé mais ROPP à envisager NSP D’une PCH ? sans objet impossible déjà obtenue refusée demande en cours a été envisagé mais ROPP à envisager NSP D’une
+	pension d’invalidité ? sans objet impossible déjà obtenue refusée demande en cours a été envisagé mais ROPP à envisager NSP D’un accord de la MDPH pour une
+	place en FAM ou MAS ? sans objet impossible déjà obtenue refusée demande en cours a été envisagé mais ROPP à envisager NSP Si accord MDPH pour FAM/ MAS: de
+	l’aide sociale pour un tel service ? sans objet déjà obtenue refusée demande en cours a été envisagé mais ROPP à envisager NSP D’un accord de la MDPH pour un
+	SAVS** ? sans objet impossible déjà obtenue refusée demande en cours a été envisagé mais ROPP à envisager NSP D’un accord de la MDPH pour un SAMSAH ** ? sans
+	objet impossible déjà obtenue refusée demande en cours a été envisagé mais ROPP à envisager NSP Si accord MDPH pour SAVS ou SAMSAH : de l’aide sociale pour un
+	tel service ? sans objet déjà obtenue refusée demande en cours a été envisagé mais ROPP à envisager NSP D’une dérogation d’âge pour une place en EHPAD ? sans
+	objet impossible déjà obtenue refusée demande en cours a été envisagé mais ROPP à envisager NSP Quel que soit l’âge : de l’aide sociale pour une place en EHPAD
+	? sans objet déjà obtenue refusée demande en cours a été envisagé mais ROPP à envisager NSP * sans objet : absence manifeste de troubles/ impossible : âge ou
+	situation administrative incompatibles avec ce type de demande / ROPP : refus d’orientation par la personne ; ** rappel des missions Si demande auprès d’une
+	MDPH : Indiquer le numéro du département : ______ Si accord MDPH obtenu pour FAM, MAS, SAVS ou SAMSAH : Situation actuelle / recherche de place en FAM, MAS,
+	SAVS, SAMSAH : Place trouvée recherche en cours annulée/ROPP* NSP Date de 1ère demande de place : __/__/____ Nombre de refus depuis la 1ère demande : ______
+	Recherche de place en EHPAD (avec ou sans dérogation d’âge) Situation actuelle : sans objet* impossible* place trouvée recherche en cours a été envisagée mais
+	ROPP* à envisager NSP Existe-t-il une protection juridique ? oui non demandée en cours Si oui ou en cours, précisez : tutelle curatelle curatelle renforcée
+	sauvegarde de justice * sans objet : absence manifeste de troubles/ impossible : âge ou situation administrative incompatibles avec ce type de demande / ROPP :
+	refus d’orientation par la personne LAM - Enquête flash sur les situations de handicap – novembre 2019 – Volet Médical Nom du médecin : Code identifiant de la
+	personne hébergée : _______________ Poids : __ kg Taille : __ cm Motif d’entrée au LAM : Si oui, le médecin devra préciser/ coder à partir de la classification
+	CISP ou CIM10 o Psychiatrique : oui non o Neurologique : oui non o Cardiovasculaire : oui non o Diabète : oui non o Pneumologique : oui non o Néphrologique :
+	oui non o Immunodéficience : oui non o Néoplasique : oui non o Autre, précisez : _____________ Pathologies présentes au moment de l’enquête Si oui, le médecin
+	devra préciser/ coder à partir de la classification CISP ou CIM10 o Psychiatrique : oui non o Neurologique : oui non o Cardiovasculaire : oui non o Diabète :
+	oui non o Pneumologique : oui non o Néphrologique : oui non o Soins palliatifs : oui non o Urologique : oui non o Dermatologique : oui non o Hématologique :
+	oui non o Ophtalmologique : oui non o ORL : oui non o Immunodéficience : oui non o Hépatites : oui non Si oui :  VHB oui non, si oui, date du diagnostic :
+	__/__/____  VHC oui non, si oui, date du diagnostic : __/__/____ o Néoplasique : oui non o Dénutrition : oui non o Autre, précisez : _____________ Douleurs
+	oui non Si oui, EVA (de 0 à 10) : ___ Besoin de rééducation Kinésithérapeute oui non Ergothérapie oui non Régime adapté oui non Addictions présentes au cours
+	des 12 derniers mois ? o Alcool oui non o Tabac oui non o Consommation de drogue oui non Si oui :  Cannabis oui non  Crack / cocaïne oui non  Opiacés oui
+	non  Autres : préciser _________________ LAM - Enquête flash sur les situations de handicap – novembre 2019 – Volet Equipe (médecin, IDE, aide-soignant.e.s)
+	Nom du médecin/ IDE/ aide-soignant.e. : Code identifiant de la personne hébergée : _______________ La personne dispose-t-elle d’aides techniques o Lunettes :
+	oui non o Appareil auditif : oui non o Sonde urinaire : oui non o Ventilation non invasive : oui non o Dialyse oui non o Prothèses (si amputation) : oui non
+	sans objet o Aide technique aux déplacements : sans objet aucune 1 canne ou béquille 2 cannes ou béquilles déambulateur fauteuil roulant Autonomie
+	Participation aux activités d’animation o Sorties : oui non o Gym douce : oui non o Relaxation active : oui non o Jardinage : oui non Grille AGGIR Cf pdf guide
+	pour le codage des variables 8 à 29
+
+</div>
+
+	<!-- https://www.jqueryscript.net/form/Autocomplete-Dropdown-Bootstrap-jQuery.html -->
+    <script type="application/javascript">
+
+        const filter = function (input, data) {
+            return data.filter(x => {
+                return (!x.ignore && ~x.name.indexOf(input)) || x.name === input
+            });
+        };
+
+        const validation = function (inputValue, data) {
+            if (inputValue) {
+                let matches = data.filter(x => x.id === +this.selected.value && x.name === inputValue);
+                if (!matches || !matches.length) {
+					// alert('Es wurde ein falscher Wert eingegeben!');
+					// return false;
+                }
+                return true;
+            }
+        };
+
+        function preAppendDataItem(li, item) {
+            if(item.name == 'is'){
+                $(li).addClass("test")
+            }
+        }
+
+
+
+        $('.cim10').autocomplete({
+            validation,
+            filter,
+            appendToBody: true,
+            valueProperty: 'id',
+            openOnInput: true,
+            nameProperty: 'name',
+            valueField: '#hidden-field',
+            dataSource: [{
+                "id": 1,
+                "name": 'This',
+                "ignore": false
+            },
+            {
+                "id": 2,
+                "name": 'is',
+                "ignore": false
+            },
+            {
+                "id": 3,
+                "name": 'test',
+                "ignore": false
+            },
+            {
+                "id": 4,
+                "name": 'data',
+                "ignore": false
+            },
+            {
+                "id": 5,
+                "name": 'to',
+                "ignore": false
+            },
+            {
+                "id": 6,
+                "name": 'show',
+                "ignore": false
+            },
+            {
+                "id": 7,
+                "name": 'the',
+                "ignore": false
+            },
+            {
+                "id": 8,
+                "name": 'usage',
+                "ignore": false
+            },
+            {
+                "id": 9,
+                "name": 'of',
+                "ignore": false
+            },
+            {
+                "id": 10,
+                "name": 'the',
+                "ignore": false
+            },
+            {
+                "id": 11,
+                "name": 'autocomplete',
+                "ignore": false
+            },
+            {
+                "id": 12,
+                "name": 'component',
+                "ignore": false
+            },
+            {
+                "id": 13,
+                "name": 'This',
+                "ignore": true
+            },
+            {
+                "id": 14,
+                "name": 'is',
+                "ignore": true
+            },
+            {
+                "id": 15,
+                "name": 'ignored',
+                "ignore": true
+            }
+            ]
+        });
+
+
+    </script>
+</body>
+</html>
