@@ -119,7 +119,8 @@
 					<h3>Couverture sociale complémentaire</h3>
 
 					<div>
-						<input type="radio" name="couvc" value="cmuc" id="cmuc" /> <label for="cmuc"><abbr title="couverture maladie universelle complémentaire">CMUc</abbr></label>
+						<input type="radio" name="couvc" value="cmuc" id="cmuc" /> <label for="cmuc"><abbr
+							title="couverture maladie universelle complémentaire">CMUc</abbr></label>
 					</div>
 					<div>
 						<input type="radio" name="couvc" value="mutuelle" id="mutuelle" /> <label for="mutuelle">Mutuelle, assurance privée ou prevoyance</label>
@@ -128,50 +129,50 @@
 						<input type="radio" name="couvc" value="ayantdroit" id="ayantdroit" /> <label for="ayantdroit">Ayant droit</label>
 					</div>
 					<div>
-						<input type="radio" name="couvc" value="aucune" id="aucune" />
-						<label for="aucune">Aucune</label>
+						<input type="radio" name="couvc" value="aucune" id="aucune" /> <label for="aucune">Aucune</label>
 					</div>
 				</div>
 			</div>
-			
-			
+
+
 			<div>
-						Cette personne a t'elle ou pourrait elle bénéficier : <strong>sans objet : absence manifeste de
-							troubles/ impossible : âge ou situation administrative incompatibles avec ce type de demande / ROPP : refus d’orientation par la personne ; **
-							rappel des missions</strong>
+				Cette personne a t'elle ou pourrait elle bénéficier : <strong>sans objet : absence manifeste de troubles/ impossible : âge ou situation
+					administrative incompatibles avec ce type de demande / ROPP : refus d’orientation par la personne ; ** rappel des missions</strong>
 			</div>
 			<!-- 
 					div parent : <div class="row">
 					et les 3 fils <div class="md-4">
 					-->
 
+			<div>
+				<label for="aah">D'une AAH?</label><input type="radio" name="aah" value="sansobjet" id="sansobjet" />
+			</div>
 
-			<label for="aah">D'une AAH?</label><input type="radio" name="aah" value="sansobjet" id="sansobjet" /> <label for="sansobjet">Sans objet</label><input
-				type="radio" name="aah" value="impossible" id="impossible" /> <label for="impossible">Impossible</label><input type="radio" name="aah"
-				value="obtenu" id="obtenu" /> <label for="obtenu">Déjà obtenu</label><input type="radio" name="aah" value="refus" id="refus" /> <label
-				for="refus">Refusée</label><input type="radio" name="aah" value="demande" id="demande" /> <label for="demande">Demande en cours</label><input
-				type="radio" name="aah" value="ropp" id="ropp" /> <label for="ropp">A été envisagée mais ROPP</label><input type="radio" name="aah"
-				value="envisager" id="envisager" /> <label for="envisager">A envisager</label><input type="radio" name="aah" value="nsp" id="nsp" /> <label
-				for="nsp">NSP</label><label for="pch">D'une PCH?</label><input type="radio" name="pch" value="sansobjet" id="sansobjet" /> <label for="sansobjet">Sans
-				objet</label><input type="radio" name="pch" value="impossible" id="impossible" /> <label for="impossible">Impossible</label><input type="radio"
-				name="pch" value="obtenu" id="obtenu" /> <label for="obtenu">Déjà obtenu</label><input type="radio" name="pch" value="refus" id="refus" /> <label
-				for="refus">Refusée</label><input type="radio" name="pch" value="demande" id="demande" /> <label for="demande">Demande en cours</label><input
-				type="radio" name="pch" value="ropp" id="ropp" /> <label for="ropp">A été envisagée mais ROPP</label><input type="radio" name="pch"
-				value="envisager" id="envisager" /> <label for="envisager">A envisager</label><input type="radio" name="pch" value="nsp" id="nsp" /> <label
-				for="nsp">NSP</label><br /> <label for="inv">D'une pension d'invalidité?</label><input type="radio" name="inv" value="sansobjet" id="sansobjet" />
-			<label for="sansobjet">Sans objet</label><input type="radio" name="inv" value="impossible" id="impossible" /> <label for="impossible">Impossible</label><br />
-			<input type="radio" name="inv" value="obtenu" id="obtenu" /> <label for="obtenu">Déjà obtenu</label><input type="radio" name="inv" value="refus"
-				id="refus" /> <label for="refus">Refusée</label><input type="radio" name="inv" value="demande" id="demande" /> <label for="demande">Demande
-				en cours</label><input type="radio" name="inv" value="ropp" id="ropp" /> <label for="ropp">A été envisagée mais ROPP</label><input type="radio"
-				name="inv" value="envisager" id="envisager" /> <label for="envisager">A envisager</label><input type="radio" name="inv" value="nsp" id="nsp" />
-			<label for="nsp">NSP</label><label for="mdph">D'un accord de la MDPH pour une place en FAM ou MAS?</label><input type="radio" id="mdph" name="mdph"
-				value="sansobjet" onchange="selection_mdph()" /> <label for="sansobjet"> Sans objet</label><input type="radio" id="mdph" name="mdph"
-				value="impossible" onchange="selection_mdph()" /> <label for="impossible">Impossible</label><br /> <input type="radio" id="mdph" name="mdph"
-				value="obtenu" onchange="selection_mdph()" /> <label for="obtenu">Déjà obtenu</label><input type="radio" id="mdph" name="mdph" value="refus"
-				onchange="selection_mdph()" /> <label for="refus">Refusée</label><input type="radio" id="mdph" name="mdph" value="demande"
-				onchange="selection_mdph()" /> <label for="demande">Demande en cours</label><input type="radio" id="mdph" name="mdph" value="ropp"
-				onchange="selection_mdph()" /> <label for="ropp">A été envisagée mais ROPP</label><input type="radio" id="mdph" name="mdph" value="envisager"
-				onchange="selection_mdph()" /> <label for="envisager">A envisager</label><input type="radio" id="mdph" name="mdph" value="nsp"
+			<label for="sansobjet">Sans objet</label><input type="radio" name="aah" value="impossible" id="impossible" /> <label for="impossible">Impossible</label><input
+				type="radio" name="aah" value="obtenu" id="obtenu" /> <label for="obtenu">Déjà obtenu</label><input type="radio" name="aah" value="refus"
+				id="refus" /> <label for="refus">Refusée</label><input type="radio" name="aah" value="demande" id="demande" /> <label for="demande">Demande
+				en cours</label><input type="radio" name="aah" value="ropp" id="ropp" /> <label for="ropp">A été envisagée mais ROPP</label><input type="radio"
+				name="aah" value="envisager" id="envisager" /> <label for="envisager">A envisager</label><input type="radio" name="aah" value="nsp" id="nsp" />
+			<label for="nsp">NSP</label><label for="pch">D'une PCH?</label><input type="radio" name="pch" value="sansobjet" id="sansobjet" /> <label
+				for="sansobjet">Sans objet</label><input type="radio" name="pch" value="impossible" id="impossible" /> <label for="impossible">Impossible</label><input
+				type="radio" name="pch" value="obtenu" id="obtenu" /> <label for="obtenu">Déjà obtenu</label><input type="radio" name="pch" value="refus"
+				id="refus" /> <label for="refus">Refusée</label><input type="radio" name="pch" value="demande" id="demande" /> <label for="demande">Demande
+				en cours</label><input type="radio" name="pch" value="ropp" id="ropp" /> <label for="ropp">A été envisagée mais ROPP</label><input type="radio"
+				name="pch" value="envisager" id="envisager" /> <label for="envisager">A envisager</label><input type="radio" name="pch" value="nsp" id="nsp" />
+			<label for="nsp">NSP</label><br /> <label for="inv">D'une pension d'invalidité?</label><input type="radio" name="inv" value="sansobjet"
+				id="sansobjet" /> <label for="sansobjet">Sans objet</label><input type="radio" name="inv" value="impossible" id="impossible" /> <label
+				for="impossible">Impossible</label><br /> <input type="radio" name="inv" value="obtenu" id="obtenu" /> <label for="obtenu">Déjà obtenu</label><input
+				type="radio" name="inv" value="refus" id="refus" /> <label for="refus">Refusée</label><input type="radio" name="inv" value="demande" id="demande" />
+			<label for="demande">Demande en cours</label><input type="radio" name="inv" value="ropp" id="ropp" /> <label for="ropp">A été envisagée
+				mais ROPP</label><input type="radio" name="inv" value="envisager" id="envisager" /> <label for="envisager">A envisager</label><input type="radio"
+				name="inv" value="nsp" id="nsp" /> <label for="nsp">NSP</label><label for="mdph">D'un accord de la MDPH pour une place en FAM ou MAS?</label><input
+				type="radio" id="mdph" name="mdph" value="sansobjet" onchange="selection_mdph()" /> <label for="sansobjet"> Sans objet</label><input type="radio"
+				id="mdph" name="mdph" value="impossible" onchange="selection_mdph()" /> <label for="impossible">Impossible</label><br /> <input type="radio"
+				id="mdph" name="mdph" value="obtenu" onchange="selection_mdph()" /> <label for="obtenu">Déjà obtenu</label><input type="radio" id="mdph"
+				name="mdph" value="refus" onchange="selection_mdph()" /> <label for="refus">Refusée</label><input type="radio" id="mdph" name="mdph"
+				value="demande" onchange="selection_mdph()" /> <label for="demande">Demande en cours</label><input type="radio" id="mdph" name="mdph"
+				value="ropp" onchange="selection_mdph()" /> <label for="ropp">A été envisagée mais ROPP</label><input type="radio" id="mdph" name="mdph"
+				value="envisager" onchange="selection_mdph()" /> <label for="envisager">A envisager</label><input type="radio" id="mdph" name="mdph" value="nsp"
 				onchange="selection_mdph()" /> <label for="nsp">NSP</label><br />
 
 			<!--si on a selectionne "obtenu" : questions suivantes-->
