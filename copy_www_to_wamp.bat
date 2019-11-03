@@ -1,1 +1,1 @@
-xcopy .\www\enquete_lam_2019 C:\wamp\www\left.join\enquete_lam_2019 /E
+xcopy .\www\enquete_lam_2019 C:\wamp64\www\enquete_lam_2019 /E
