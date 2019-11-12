@@ -110,7 +110,7 @@ h3 {
 background-color:#FAFAFA;
  font-family:"trebuchet ms",sans-serif;
   width: 90%;
-  border: 2px solid blue;
+  border: 1px solid black;
   padding: 10px;
   margin: 10px;
   }
@@ -120,7 +120,7 @@ background-color:#FAFAFA;
 background-color:#FAFAFA;
  font-family:"trebuchet ms",sans-serif;
   width: 90%;
-  border: 2px solid blue;
+  border: 1px solid blue;
   padding: 10px;
   margin: 10px;
   }
