@@ -36,11 +36,11 @@ label.inline {
  margin-right:50px;
  }
 input, textarea, select, option {
- background-color:#FFF3F3;
+ background-color:#d4e7ff;
  }
 input[type=text], textarea, select {
  padding:3px;
- border:1px solid #F5C5C5;
+ border:1px solid #black;
  border-radius:5px;
  width:200px;
  box-shadow:1px 1px 2px #C0C0C0 inset;
@@ -50,7 +50,6 @@ select {
  }
 input[type=radio]{
 /* display:inline; */
- background-color:red;
  border:none;
 /*  width:2px; */
 
@@ -65,7 +64,7 @@ input[type=submit], input[type=reset] {
 form > fieldset > div > div {
 /* 	background-color: purple; */
 	display: inline-block;
-	margin-right: 80px;
+	margin-right: 70px;
 }
 
 html body form fieldset#fs_vos_coord div div div {
@@ -78,10 +77,7 @@ html body form fieldset div div div label {
 	color : #002a4f
 }
 
-html body form fieldset div div div {
-	display: inline- block;
-	
-}
+
 
 
 
@@ -102,7 +98,7 @@ content: attr(title);
 
 h3 {
 	font-size:90%;
-	 width: 70%;
+	 
 }
 
 .toto 
@@ -124,4 +120,22 @@ background-color:#FAFAFA;
   padding: 10px;
   margin: 10px;
   }
+  
+  .boutonvalid 
+   {
+background-color:#318CE7;
+ font-family:"trebuchet ms",sans-serif;
+ border-radius: 4px;
+  width: 5%;
+  border: yes;
+ color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 15px;
+  width: 200px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+
   
