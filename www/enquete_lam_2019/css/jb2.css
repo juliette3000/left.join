@@ -68,7 +68,6 @@ form > fieldset > div > div {
 	margin-right: 80px;
 }
 
-
 html body form fieldset#fs_vos_coord div div div {
 	display: inline-block;
 	
@@ -81,7 +80,10 @@ html body form fieldset div div div label {
 
 html body form fieldset div div div {
 	display: inline- block;
+	
 }
+
+
 
 abbr {
 position: relative;
@@ -100,4 +102,26 @@ content: attr(title);
 
 h3 {
 	font-size:90%;
+	 width: 70%;
 }
+
+.toto 
+	{
+background-color:#FAFAFA;
+ font-family:"trebuchet ms",sans-serif;
+  width: 90%;
+  border: 2px solid blue;
+  padding: 10px;
+  margin: 10px;
+  }
+  
+  .toto2
+  {
+background-color:#FAFAFA;
+ font-family:"trebuchet ms",sans-serif;
+  width: 90%;
+  border: 2px solid blue;
+  padding: 10px;
+  margin: 10px;
+  }
+  
