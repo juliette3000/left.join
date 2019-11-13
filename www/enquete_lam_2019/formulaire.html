@@ -18,9 +18,9 @@
 
 	<form method="post" action="traitement.php">
 
-		<fieldset id="fs_vos_coord">
+	<!-- 	<fieldset id="fs_vos_coord">
 			<legend>Vos coordonnées</legend>
-			<!-- Titre du fieldset -->
+			
 
 			<div>
 				<div>
@@ -38,7 +38,7 @@
 						name="datejour" id="datejour" />
 				</div>
 			</div>
-		</fieldset>
+		</fieldset>-->
 
 
 
@@ -47,7 +47,7 @@
 			<legend>Personne accueillie</legend>
 			<div>
 				<div>
-					<label for="numerosiris">Numéro osiris :</label> <input
+					<label for="numerosiris">Numéro (auto):</label> <input
 						type="number" name="numerosiris" id="numerosiris" />
 				</div>
 				<div>
@@ -62,8 +62,8 @@
 					</div>
 				</div>
 				<div>
-					<label for="datenaiss">Date de naissance:</label> <input
-						type="date" name="datenaiss" id="datenaiss" />
+					<label for="datenaiss">Année de naissance:</label> <input
+						type="number" name="datenaiss" id="datenaiss" placeholder="format 19-- ou 20--" />
 				</div>
 				<div>
 					<label for="dateentree">Date d'entrée dans le centre
