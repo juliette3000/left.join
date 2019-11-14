@@ -34,17 +34,21 @@
 				<h3>Motifs d'entrée au LAM</h3>
 	
 			<div>
-				 <input type="checkbox" name="psy" value="psy" required> Psychiatrique
-				 <input type="checkbox" name="neuro" value="neuro" required> Neurologique
-				 <input type="checkbox" name="cardio" value="cardio" required> Cardiologique
-				 <input type="checkbox" name="diab" value="diab" required> Diabète
-				 <input type="checkbox" name="pneumo" value="pneumo" required> Pneumologique
-				 <input type="checkbox" name="nephro" value="nephro" required> Néphrologique
-				 <input type="checkbox" name="immuno" value="immuno" required> Immunodéficience
-				 <input type="checkbox" name="neo" value="neo" required> Néoplasique
-				 <input type="checkbox" name="autre" value="autre" required> Autre (précisez):
+				 <input type="checkbox" name="psy" value="psy" > Psychiatrique
+				 <input type="checkbox" name="neuro" value="neuro" > Neurologique
+				 <input type="checkbox" name="cardio" value="cardio" > Cardiologique
+				 <input type="checkbox" name="diab" value="diab" > Diabète
+				 <input type="checkbox" name="pneumo" value="pneumo" > Pneumologique
+				 <input type="checkbox" name="nephro" value="nephro" > Néphrologique
+				 <input type="checkbox" name="immuno" value="immuno" > Immunodéficience
+				 <input type="checkbox" name="neo" value="neo" > Néoplasique
+				 <input type="checkbox" name="autre" value="autre"> Autre
 				</div>
-
+<div>
+					<label for="autreentree" id="autreentreelabel"
+						style="display: none">précisez :</label> <input type="text"
+						name="autreentree" id="autreentree" style="display: none" />
+				</div>
 	
 			</div>
 		</fieldset>
@@ -54,3 +58,28 @@
 			<button type="submit" class=boutonvalid>Valider</button>
 		</div>
 	</form>
+	
+	
+	<script type="text/javascript">
+		function selection_motif_entree() {
+
+			var motifentreelam = $("#autre");
+
+			if (motifentreelam.val() === 'autre') {
+
+				$('#autreentree').show(); // ça c'est l input
+				$('#autreentreelabel').show(); // ça c'est le label 
+
+
+			} else {
+				$('#autreentree').hide();
+				$('#autreentreelabel').hide();
+				$('#autreentree').val('');
+			}
+		}
+		
+		</script>
+
+		</body>
+		</html>
+	
