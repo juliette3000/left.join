@@ -42,13 +42,20 @@
 				 <input type="checkbox" name="motifentree" value="nephro" > Néphrologique
 				 <input type="checkbox" name="motifentree" value="immuno" > Immunodéficience
 				 <input type="checkbox" name="motifentree" value="neo" > Néoplasique
-				 <input type="checkbox" name="motifentree" value="autre" onchange= "selection_motif_entree()"> Autre
+				 <input type="checkbox" name="motifentree" value="autre" id="autre"  onchange= "selection_motif_entree()"> Autre
 				</div>
 <div>
 					<label for="autreentree" id="autreentreelabel"
 						style="display: none">précisez :</label> <input type="text"
 						name="autreentree" id="autreentree" style="display: none" />
 				</div>
+				
+			<div>
+					<label for="cim10">Pathologies d'entrée (cim10):</label> <input
+						type="text" name="cim10" id="entreecim10" />
+				</div>
+	
+	
 	
 			</div>
 		</fieldset>
@@ -63,7 +70,7 @@
 	<script type="text/javascript">
 		function selection_motif_entree() {
 
-			var motifentreelam = $("#motifentree");
+			var motifentreelam = $("#autre:checked");
 
 			if (motifentreelam.val() === 'autre') {
 
