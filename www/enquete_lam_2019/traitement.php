@@ -1,34 +1,42 @@
 <?php  
-$nom = '';
-if (isset($_POST['nom']))
+
+$datenaiss = '';
+if (isset($_POST['datenaiss']))
 {
-	$nom = $_POST['nom'];
+	$datenaiss = $_POST['datenaiss'];
+	echo $datenaiss. " a bien été enregistré !" ;	
+	
 }
-	include 'constantes.php';
-	// Create connection http://php.net/manual/fr/function.mysql-connect.php
-	
-	// 	$link  =  mysql_connect($servername, $username, $password) or die( "Impossible de se connecter : "  .  mysql_error ()); // version 5
-	
-	
-	$conn = new mysqli($servername, $username, $password, $dbname); // php version 7 en local
-	// Check connection
-	if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
-	
-	$sql = "INSERT INTO enquete (nom) VALUES ('$nom')";
-
-	
-	if ($conn->query($sql) === TRUE) 
-		{	echo $nom . " a bien été enregistré !" ;
-			}
 
 
+include 'constantes.php';
+// Create connection http://php.net/manual/fr/function.mysql-connect.php
 
- 	else {
-    echo "Error: " . $sql . "<br>" . $conn->error;}
+// 	$link  =  mysql_connect($servername, $username, $password) or die( "Impossible de se connecter : "  .  mysql_error ()); // version 5
 
-$conn->close();
+
+$conn = new mysqli($servername, $username, $password, $dbname); // php version 7 en local
+// Check connection
+if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
+
+$sql = "INSERT INTO enquete (sexe, annee_naissance, date_entree, mode_admission, statut_admin, couv_sociale, couvsocialec, aah, pch, invalidite, accord_mdph_fam, accord_mdph_savs, accord_mdph_samsah, aide_soc_fam, aide_soc_savs, aide_soc_samsah, departement_mdph, situation_recherche_place, date_demande, nombre_refus, derogation_age_ehpad, aide_soc_ehpad, situation_place_ehpad, protection_juridique, protection_juridique_precision, mode_admission_autre) VALUES ('h', '$datenaiss','','tt','uu','ii','aa','rr','bb','xx','ii','ll','qq','','','','','','','','kk','hh','cc','pp','',''  )";
+
+
+if ($conn->query($sql) === TRUE)
+{	echo $datenaiss. " a bien été enregistré !" ;
+}
+
+
+
+else {
+	echo "Error: " . $sql . "<br>" . $conn->error;}
+	
+	$conn->close();
+	
+
 ?>
 	
+
 
 	
 	
