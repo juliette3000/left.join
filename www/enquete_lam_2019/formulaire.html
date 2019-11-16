@@ -18,7 +18,7 @@
 
 	<form method="post" action="traitement.php">
 
-	<!-- 	<fieldset id="fs_vos_coord">
+		<!-- 	<fieldset id="fs_vos_coord">
 			<legend>Vos coordonnées</legend>
 			
 
@@ -45,35 +45,31 @@
 
 		<fieldset>
 			<legend>Personne accueillie</legend>
-			<div>
+			<div class="etalement25">
 				<div>
-					<label for="numerosiris">Numéro (auto):</label> <input
-						type="number" name="numerosiris" id="numerosiris" />
+					<label for="numerosiris">Numéro (auto):</label>
+					<input type="number" name="numerosiris" id="numerosiris" style="margin-top:10px"/>
+				</div>
+
+				<div>
+					<label>Sexe:</label>
+					
+						<label for="homme" style="display: inline-block;"><input type="radio" name="sexe" value="homme" id="homme" />Homme</label>
+						<label for="femme" style="display: inline-block;"><input type="radio" name="sexe" value="femme" id="femme" />Femme</label>
+					
+				</div>
+
+				<div>
+					<label for="datenaiss">Année de naissance:</label>
+					<input type="number" name="datenaiss" id="datenaiss" placeholder="format 19-- ou 20--" style="margin-top:10px"/>
 				</div>
 				<div>
-					<h3>Sexe:</h3>
-					<div>
-						<input type="radio" name="sexe" value="homme" id="homme" /><label
-							for="homme">Homme</label>
-					</div>
-					<div>
-						<input type="radio" name="sexe" value="femme" id="femme" /><label
-							for="femme">Femme</label>
-					</div>
+					<label for="dateentree">Date d'entrée dans le centre (séjour actuel):</label>
+						<input type="date" name="dateentree" id="dateentree" style="margin-top:10px"/>
 				</div>
 				<div>
-					<label for="datenaiss">Année de naissance:</label> <input
-						type="number" name="datenaiss" id="datenaiss" placeholder="format 19-- ou 20--" />
-				</div>
-				<div>
-					<label for="dateentree">Date d'entrée dans le centre
-						(séjour actuel):</label> <input type="date" name="dateentree"
-						id="dateentree" />
-				</div>
-				<div>
-					<label for="mode_entree">Mode d'admission au LAM:</label> <select
-						name="mode_entree" id="mode_entree"
-						onchange="selection_mode_entree()">
+					<label for="mode_entree">Mode d'admission au LAM:</label>
+					<select name="mode_entree" id="mode_entree" onchange="selection_mode_entree()" style="margin-top:10px">
 						<option value="">Selectionnez le mode d'arrivée au LAM</option>
 						<option value="lhss">LHSS</option>
 						<option value="ssr">SSR</option>
@@ -83,9 +79,8 @@
 					</select>
 				</div>
 				<div>
-					<label for="autreentree" id="autreentreelabel"
-						style="display: none">précisez :</label> <input type="text"
-						name="autreentree" id="autreentree" style="display: none" />
+					<label for="autreentree" id="autreentreelabel" style="display: none">précisez :</label>
+					<input type="text" name="autreentree" id="autreentree" style="display: none;margin-top:10px"/>
 				</div>
 			</div>
 		</fieldset>
@@ -93,69 +88,30 @@
 
 		<fieldset>
 			<legend>Données médico-sociales de la personne acceuillie</legend>
-			<div>
+			<div class="etalement25">
 				<div>
-					<div>
-						<h3>Statut administratif :</h3>
-						<div>
-							<input type="radio" name="droits" value="droitsO" id="droitsO" />
-							<label for="droitsO">En possesssion de documents
-								permettant l'ouverture de droits</label>
-						</div>
-						<div>
-
-							<input type="radio" name="droits" value="droitsN" id="droitsN" />
-							<label for="drtoisN">Sans document permettant l'ouverture
-								de droits</label>
-						</div>
-					</div>
+					<label>Statut administratif :</label>
+					<label for="droitsO"><input type="radio" name="droits" value="droitsO" id="droitsO" /><span>En possesssion de documents permettant l'ouverture de droits</span></label>
+					<label for="drtoisN"><input type="radio" name="droits" value="droitsN" id="droitsN" />Sans document permettant l'ouverture de droits</label>
 				</div>
 
 				<div>
-					<div>
-						<h3>Couverture sociale</h3>
+					<label>Couverture sociale</label>
 
-						<div>
-							<input type="radio" name="couv" value="secu" id="secu" /> <label
-								for="secu">Sécu hors PUMA</label>
-						</div>
-						<div>
-							<input type="radio" name="couv" value="puma" id="puma" /> <label
-								for="puma">PUMA</label>
-						</div>
-						<div>
-							<input type="radio" name="couv" value="ame" id="ame" /> <label
-								for="ame">AME</label>
-						</div>
-						<div>
-							<input type="radio" name="couv" value="aucune" id="aucune" /> <label
-								for="aucune">Aucune</label>
-						</div>
-					</div>
+					<label for="secu"><input type="radio" name="couv" value="secu" id="secu" /> Sécu hors PUMA</label>
+					<label for="puma"><input type="radio" name="couv" value="puma" id="puma" />PUMA</label>
+					<label for="ame"><input type="radio" name="couv" value="ame" id="ame" /> AME</label>
+					<label for="aucune"><input type="radio" name="couv" value="aucune" id="aucune" />Aucune</label>
+
 				</div>
-				<div>
-					<div>
-						<h3>Couverture sociale complémentaire</h3>
 
-						<div>
-							<input type="radio" name="couvc" value="cmuc" id="cmuc" /> <label
-								for="cmuc"><abbr
-								title="couverture maladie universelle complémentaire">CMUc</abbr></label>
-						</div>
-						<div>
-							<input type="radio" name="couvc" value="mutuelle" id="mutuelle" />
-							<label for="mutuelle">Mutuelle, assurance privée ou
-								prevoyance</label>
-						</div>
-						<div>
-							<input type="radio" name="couvc" value="ayantdroit"
-								id="ayantdroit" /> <label for="ayantdroit">Ayant droit</label>
-						</div>
-						<div>
-							<input type="radio" name="couvc" value="aucune" id="aucune" /> <label
-								for="aucune">Aucune</label>
-						</div>
-					</div>
+				<div>
+					<label>Couverture sociale complémentaire</label>
+
+					<label for="cmuc"><input type="radio" name="couvc" value="cmuc" id="cmuc" /><abbr title="couverture maladie universelle complémentaire">CMUc</abbr></label>
+					<label for="mutuelle">	<input type="radio" name="couvc" value="mutuelle"	id="mutuelle" />Mutuelle, assurance privée ou prévoyance</label>
+					<label for="ayantdroit"><input type="radio" name="couvc" value="ayantdroit" id="ayantdroit" /> Ayant droit</label>
+					<label for="aucune">	<input type="radio" name="couvc" value="aucune"		id="aucune" />Aucune</label>
 				</div>
 			</div>
 
@@ -635,8 +591,8 @@
 						</div>
 					</div>
 				</div>
-</div>
-<div class=toto2>
+			</div>
+			<div class=toto2>
 				<div>
 					<div>
 						<h3>Existe t'il une protection juridique</h3>
@@ -660,21 +616,21 @@
 						</div>
 					</div>
 				</div>
-			
 
-			<div>
-				<label for="precisionprotection" id="precisionprotection_label"
-					style="display: none">Il existe une protection juridique
-					(ou en cours), précisez laquelle :</label> <select
-					name="precisionprotection" id="precisionprotection"
-					style="display: none">
-					<option value="">Selectionnez</option>
-					<option value="trouvee">Tutelle</option>
-					<option value="rencours">Curatelle</option>
-					<option value="ropp">Curatelle renforcée</option>
-					<option value="nsp">Sauvegarde de justice</option>
-				</select>
-			</div>
+
+				<div>
+					<label for="precisionprotection" id="precisionprotection_label"
+						style="display: none">Il existe une protection juridique
+						(ou en cours), précisez laquelle :</label> <select
+						name="precisionprotection" id="precisionprotection"
+						style="display: none">
+						<option value="">Selectionnez</option>
+						<option value="trouvee">Tutelle</option>
+						<option value="rencours">Curatelle</option>
+						<option value="ropp">Curatelle renforcée</option>
+						<option value="nsp">Sauvegarde de justice</option>
+					</select>
+				</div>
 			</div>
 		</fieldset>
 
