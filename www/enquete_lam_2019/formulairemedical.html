@@ -120,16 +120,14 @@
 				</div>
 
 
-				<label>Douleurs</label> <label for="oui"
-					style="display: inline-block;"><input type="radio"
-					name="douleur" value="oui" id="oui" onchange="eva()" />Oui</label> <label
-					for="non" style="display: inline-block;"><input
-					type="radio" name="douleur" value="non" id="non" />Non</label>
+				<label>Douleurs</label>
+				
+				<label for="oui" style="display: inline-block;"><input type="radio" name="douleur" value="oui" id="oui" onchange="eva()" />Oui</label>
+				<label for="non" style="display: inline-block;"><input 	type="radio" name="douleur" value="non" id="non" onchange="eva()"/>Non</label>
 
 				<div>
-					<label for="echelleeva" id="echelleevalabel" style="display: none"><input
-						type="number" name="echelleeva" value="echelle" id="echelle"
-						style="display: none" />EVA (de 0 à 10)</label>
+					<label for="echelleeva" id="echelleevalabel" style="display: none">
+					<input type="number" name="echelleeva" value="echelle" id="echelle" style="display: none" />EVA (de 0 à 10)</label>
 				</div>
 
 
@@ -240,20 +238,25 @@
 		}
 
 		function eva() {
-			var eva = $("#douleur:checked");
+			var eva = $("input[name='douleur']:checked").val();
 
-			if (eva.val() === 'oui') {
+			if (eva === 'oui') {
 
+				alert('oui');
+				
 				$('#echelleeva').show(); // ça c'est l input
 				$('#ecehelleevalabel').show(); // ça c'est le label 
 
 			} else {
+				
+				alert('non');
 				$('#ecehelleeva').hide();
 				$('#echelleevalabel').hide();
 				$('#echelleeva').val('');
 			}
 
 		}
+		
 		
 		
 	</script>
