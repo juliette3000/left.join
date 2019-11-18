@@ -19,44 +19,126 @@
 	<form method="post" action="traitement.php">
 
 
-	<fieldset>
+		<fieldset>
 			<legend>Personne accueillie</legend>
 			<div>
 				<div>
-					<label for="Poids">Poids (kg):</label> <input
-						type="number" name="poids" id="poids" required />
+					<label for="Poids">Poids (kg):</label> <input type="number"
+						name="poids" id="poids" required />
 				</div>
 				<div>
-				<label for="Poids">Taille (cm):</label> <input
-						type="number" name="taille" id="taille" required />
+					<label for="Poids">Taille (cm):</label> <input type="number"
+						name="taille" id="taille" required />
 				</div>
-				
+
 				<h3>Motifs d'entrée au LAM</h3>
-	
-			<div>
-				 <input type="checkbox" name="motifentree" value="psy" > Psychiatrique
-				 <input type="checkbox" name="motifentree" value="neuro" > Neurologique
-				 <input type="checkbox" name="motifentree" value="cardio" > Cardiologique
-				 <input type="checkbox" name="motifentree" value="diab" > Diabète
-				 <input type="checkbox" name="motifentree" value="pneumo" > Pneumologique
-				 <input type="checkbox" name="motifentree" value="nephro" > Néphrologique
-				 <input type="checkbox" name="motifentree" value="immuno" > Immunodéficience
-				 <input type="checkbox" name="motifentree" value="neo" > Néoplasique
-				 <input type="checkbox" name="motifentree" value="autre" id="autre"  onchange= "selection_motif_entree()"> Autre
+
+				<div>
+					<input type="checkbox" name="motifentree" value="psy">
+					Psychiatrique <input type="checkbox" name="motifentree"
+						value="neuro"> Neurologique <input type="checkbox"
+						name="motifentree" value="cardio"> Cardiologique <input
+						type="checkbox" name="motifentree" value="diab"> Diabète
+					<input type="checkbox" name="motifentree" value="pneumo">
+					Pneumologique <input type="checkbox" name="motifentree"
+						value="nephro"> Néphrologique <input type="checkbox"
+						name="motifentree" value="immuno"> Immunodéficience <input
+						type="checkbox" name="motifentree" value="neo">
+					Néoplasique <input type="checkbox" name="motifentree" value="autre"
+						id="autre" onchange="selection_motif_entree()"> Autre
 				</div>
-<div>
+				<div>
 					<label for="autreentree" id="autreentreelabel"
 						style="display: none">précisez :</label> <input type="text"
 						name="autreentree" id="autreentree" style="display: none" />
 				</div>
-				
-			<div>
+
+				<div>
 					<label for="cim10">Pathologies d'entrée (cim10):</label> <input
 						type="text" name="cim10" id="entreecim10" />
 				</div>
-	
-	
-	
+
+				<h3>Pathologies présentes au moment de l'enquête</h3>
+				<div>
+					<input type="checkbox" name="patho" value="psy">
+					Psychiatrique <input type="checkbox" name="patho" value="neuro">
+					Neurologique <input type="checkbox" name="patho" value="cardio">
+					Cardiovasculaire <input type="checkbox" name="patho" value="diab">
+					Diabète <input type="checkbox" name="patho" value="pneumo">
+					Pneumologique <input type="checkbox" name="patho" value="nephro">
+					Néphrologique <input type="checkbox" name="patho" value="pall">
+					Soins palliatifs <input type="checkbox" name="patho" value="uro">
+					Urologique <input type="checkbox" name="patho" value="dermato">
+					Dermatologique <input type="checkbox" name="patho" value="Hemato">
+					Hématologique <input type="checkbox" name="patho" value="ophtalmo">
+					Ophtalmologique <input type="checkbox" name="patho" value="orl">
+					ORL <input type="checkbox" name="patho" value="immuno">
+					Immunodéficience <input type="checkbox" name="patho"
+						value="hepatite" id="hepatite" onchange="selection_hepatite()">
+					Hépatites
+
+					<div>
+						<label for="precisionhepatite" id="precisionhepatitelabel"
+							onchange="selection_date_hepatite()" style="display: none">
+							VHB</label><input type="radio" name="precisionhepatite" value="vhb"
+							id="vhb" style="display: none" />
+
+						<div>
+							<label for="datediagvhb" id="datediagvhb_label"
+								style="display: none"> Date du diagnostique :</label> <input
+								type="date" name="datediagvhb" id="datediagvhb"
+								style="display: none" />
+						</div>
+
+
+
+						<label for="precisionhepatiteb" id="precisionhepatiteblabel"
+							onchange="selection_date_hepatiteb()" style="display: none">VHC</label><input
+							type="radio" name="precisionhepatiteb" value="vhc" id="vhc"
+							style="display: none" />
+
+						<div>
+							<label for="datediagvhc" id="datediagvhc_label"
+								style="display: none"> Date du diagnostique :</label> <input
+								type="date" name="datediagvhc" id="datediagvhc"
+								style="display: none" />
+						</div>
+
+
+
+					</div>
+
+					<input type="checkbox" name="patho" value="neo">
+					Néoplasique <input type="checkbox" name="patho" value="den">
+					Dénutrition <input type="checkbox" name="patho" value="autre"
+						id="autre" onchange="selection_pathologies()"> Autre
+				</div>
+
+				<div>
+					<label for="autrepatho" id="autrepatholabel" style="display: none">précisez
+						:</label> <input type="text" name="autrepatho" id="autrepatho"
+						style="display: none" />
+				</div>
+
+
+				<label>Douleurs</label> <label for="oui"
+					style="display: inline-block;"><input type="radio"
+					name="douleur" value="oui" id="oui" onchange="eva()" />Oui</label> <label
+					for="non" style="display: inline-block;"><input
+					type="radio" name="douleur" value="non" id="non" />Non</label>
+
+				<div>
+					<label for="echelleeva" id="echelleevalabel" style="display: none"><input type="number" name="echelleeva" value="echelle" id="echelle" style="display: none" />EVA (de 0 à 10)</label>
+				</div>
+
+
+<h3>Besoin de rééducation</h3>
+<div>
+					<input type="checkbox" name="reeduc" value="kine"> Kinésithérapie
+					 <input type="checkbox" name="reeduc" value="ergo">Ergotherapie
+					  <input type="checkbox" name="reduc" value="regime">Régime adapté
+
+			</div>
 			</div>
 		</fieldset>
 
@@ -65,8 +147,8 @@
 			<button type="submit" class=boutonvalid>Valider</button>
 		</div>
 	</form>
-	
-	
+
+
 	<script type="text/javascript">
 		function selection_motif_entree() {
 
@@ -77,16 +159,100 @@
 				$('#autreentree').show(); // ça c'est l input
 				$('#autreentreelabel').show(); // ça c'est le label 
 
-
 			} else {
 				$('#autreentree').hide();
 				$('#autreentreelabel').hide();
 				$('#autreentree').val('');
 			}
 		}
-		
-		</script>
 
-		</body>
-		</html>
-	
+		function selection_hepatite() {
+
+			var patho = $("#patho:checked");
+
+			if (patho.val() === 'hepatite') {
+
+				$('#precisionhepatite').show();
+				$('#precisionhepatitelabel').show();
+				$('#precisionhepatiteb').show();
+				$('#precisionhepatiteblabel').show();
+
+			} else {
+				$('#precisionhepatite').hide();
+				$('#precisionhepatitelabel').hide();
+				$('#precisionhepatite').val('');
+				$('#precisionhepatiteb').hide();
+				$('#precisionhepatiteblabel').hide();
+				$('#precisionhepatiteb').val('');
+
+			}
+
+		}
+
+		function selection_date_hepatite() {
+
+			var hepatite = $("#precisionhepatite:checked");
+
+			if (hepatite.val() === 'vhb') {
+
+				$('#datediagvhb').show();
+				$('#datediagvhblabel').show();
+
+			} else {
+				$('#datediagvhb').hide();
+				$('#datediagvhblabel').hide();
+				$('#datediagvhb').val('');
+			}
+		}
+
+		function selection_date_hepatiteb() {
+
+			var hepatiteb = $("#precisionhepatiteb:checked");
+
+			if (hepatiteb.val() === 'vhc') {
+
+				$('#datediagvhc').show();
+				$('#datediagvhclabel').show();
+
+			} else {
+				$('#datediagvhc').hide();
+				$('#datediagvhclabel').hide();
+				$('#datediagvhc').val('');
+			}
+		}
+
+		function selection_pathologies() {
+
+			var patho = $("#autre:checked");
+
+			if (patho.val() === 'autre') {
+
+				$('#autrepatho').show(); // ça c'est l input
+				$('#autrepatholabel').show(); // ça c'est le label 
+
+			} else {
+				$('#autrepatho').hide();
+				$('#autrepatholabel').hide();
+				$('#autrepatho').val('');
+			}
+		}
+
+		function eva() {
+			var eva = $("#douleur:checked");
+
+			if (eva.val() === 'oui') {
+
+				$('#echelleeva').show(); // ça c'est l input
+				$('#ecehelleevalabel').show(); // ça c'est le label 
+
+			} else {
+				$('#ecehelleeva').hide();
+				$('#echelleevalabel').hide();
+				$('#echelleeva').val('');
+			}
+
+		}}
+	</script>
+
+</body>
+</html>
