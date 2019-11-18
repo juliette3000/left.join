@@ -78,24 +78,24 @@
 					Hépatites
 
 					<div>
-						<label for="precisionhepatite" id="precisionhepatitelabel"
-							onchange="selection_date_hepatite()" style="display: none">
-							VHB</label><input type="radio" name="precisionhepatite" value="vhb"
-							id="vhb" style="display: none" />
+						<label for="precisionhepatite" id="precisionhepatitelabel" style="display: none">
+							VHB</label><input type="checkbox" name="precisionhepatite" value="precisionhepatite"
+							id="precisionhepatite" onchange="selection_date_hepatite()" style="display: none" />
+					</div>
 
 						<div>
-							<label for="datediagvhb" id="datediagvhb_label"
-								style="display: none"> Date du diagnostique :</label> <input
-								type="date" name="datediagvhb" id="datediagvhb"
-								style="display: none" />
+							<label for="datediagvhb" id="datediagvhb_label" style="display: none"
+								> Date du diagnostique :</label> <input
+								type="date" name="datediagvhb"  id="datediagvhb" style="display: none"
+								 />
 						</div>
 
-
+						<div>
 						<label for="precisionhepatiteb" id="precisionhepatiteblabel"
-							onchange="selection_date_hepatiteb()" style="display: none">VHC</label><input
-							type="radio" name="precisionhepatiteb" value="vhc" id="vhc"
+							style="display: none">VHC</label><input
+							type="checkbox" name="precisionhepatiteb" value="precisionhepatiteb" id="precisionhepatiteb" onchange="selection_date_hepatiteb()" 
 							style="display: none" />
-
+						</div>
 						<div>
 							<label for="datediagvhc" id="datediagvhc_label"
 								style="display: none"> Date du diagnostique :</label> <input
@@ -106,13 +106,13 @@
 
 
 					</div>
-
+<div>
 					<input type="checkbox" name="patho" value="neo">
 					Néoplasique <input type="checkbox" name="patho" value="den">
 					Dénutrition <input type="checkbox" name="patho" value="autre"
 						id="autre" onchange="selection_pathologies()"> Autre
-				</div>
-
+				
+</div>
 				<div>
 					<label for="autrepatho" id="autrepatholabel" style="display: none">précisez
 						:</label> <input type="text" name="autrepatho" id="autrepatho"
@@ -120,14 +120,14 @@
 				</div>
 
 
-				<label>Douleurs</label>
+				<h3>Douleurs</h3>
 				
-				<label for="oui" style="display: inline-block;"><input type="radio" name="douleur" value="oui" id="oui" onchange="eva()" />Oui</label>
-				<label for="non" style="display: inline-block;"><input 	type="radio" name="douleur" value="non" id="non" onchange="eva()"/>Non</label>
+				<label for="oui"><input type="radio" name="douleur" value="oui" id="oui" onchange="eva()" />Oui</label>
+				<label for="non"><input type="radio" name="douleur" value="non" id="non" onchange="eva()"/>Non</label>
 
 				<div>
-					<label for="echelleeva" id="echelleevalabel" style="display: none">
-					<input type="number" name="echelleeva" value="echelle" id="echelle" style="display: none" />EVA (de 0 à 10)</label>
+					<label for="echelleeva" id="echelleevalabel" style="display: none"> EVA (de 0 à 10)</label>
+					<input type="number" name="echelleeva" value="echelleeva" id="echelleeva" style="display: none" />
 				</div>
 
 
@@ -150,6 +150,8 @@
 
 
 	<script type="text/javascript">
+	
+	
 		function selection_motif_entree() {
 
 			var motifentreelam = $("#autre:checked");
@@ -165,10 +167,36 @@
 				$('#autreentree').val('');
 			}
 		}
+		
+		
+		function eva() {
+			var eva = $("#oui:checked");
+
+			if (eva.val() === 'oui') {
+
+			
+				$('#echelleevalabel').show(); 
+				$('#echelleeva').show();
+
+			} else {
+				
+				
+				$('#echelleeva').hide();
+				$('#echelleevalabel').hide();
+				$('#echelleeva').val('');
+			}
+
+		}
+		
+		
+		
+		
+		
+		
 
 		function selection_hepatite() {
 
-			var patho = $("#patho:checked");
+			var patho = $("#hepatite:checked");
 
 			if (patho.val() === 'hepatite') {
 
@@ -190,10 +218,11 @@
 		}
 
 		function selection_date_hepatite() {
+	
 
-			var hepatite = $("#precisionhepatite:checked");
+			var hep = $("#precisionhepatite:checked");
 
-			if (hepatite.val() === 'vhb') {
+			if (hep.val() === 'precisionhepatite') {
 
 				$('#datediagvhb').show();
 				$('#datediagvhblabel').show();
@@ -207,9 +236,9 @@
 
 		function selection_date_hepatiteb() {
 
-			var hepatiteb = $("#precisionhepatiteb:checked");
+			var hepb = $("#precisionhepatiteb:checked");
 
-			if (hepatiteb.val() === 'vhc') {
+			if (hepb.val() === 'precisionhepatiteb') {
 
 				$('#datediagvhc').show();
 				$('#datediagvhclabel').show();
@@ -237,25 +266,7 @@
 			}
 		}
 
-		function eva() {
-			var eva = $("input[name='douleur']:checked").val();
-
-			if (eva === 'oui') {
-
-				alert('oui');
-				
-				$('#echelleeva').show(); // ça c'est l input
-				$('#ecehelleevalabel').show(); // ça c'est le label 
-
-			} else {
-				
-				alert('non');
-				$('#ecehelleeva').hide();
-				$('#echelleevalabel').hide();
-				$('#echelleeva').val('');
-			}
-
-		}
+	
 		
 		
 		
