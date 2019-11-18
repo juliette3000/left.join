@@ -16,7 +16,7 @@
 	<H1>Enquête flash sur les situations de handicap-novembre 2019</H1>
 	<H2>Volet medical</H2>
 
-	<form method="post" action="traitement.php">
+	<form method="post" action="traitement2.php">
 
 
 		<fieldset>
@@ -38,8 +38,8 @@
 					Psychiatrique <input type="checkbox" name="motifentree"
 						value="neuro"> Neurologique <input type="checkbox"
 						name="motifentree" value="cardio"> Cardiologique <input
-						type="checkbox" name="motifentree" value="diab"> Diabète
-					<input type="checkbox" name="motifentree" value="pneumo">
+						type="checkbox" name="motifentree" value="diab"> Diabète <input
+						type="checkbox" name="motifentree" value="pneumo">
 					Pneumologique <input type="checkbox" name="motifentree"
 						value="nephro"> Néphrologique <input type="checkbox"
 						name="motifentree" value="immuno"> Immunodéficience <input
@@ -91,7 +91,6 @@
 						</div>
 
 
-
 						<label for="precisionhepatiteb" id="precisionhepatiteblabel"
 							onchange="selection_date_hepatiteb()" style="display: none">VHC</label><input
 							type="radio" name="precisionhepatiteb" value="vhc" id="vhc"
@@ -128,17 +127,20 @@
 					type="radio" name="douleur" value="non" id="non" />Non</label>
 
 				<div>
-					<label for="echelleeva" id="echelleevalabel" style="display: none"><input type="number" name="echelleeva" value="echelle" id="echelle" style="display: none" />EVA (de 0 à 10)</label>
+					<label for="echelleeva" id="echelleevalabel" style="display: none"><input
+						type="number" name="echelleeva" value="echelle" id="echelle"
+						style="display: none" />EVA (de 0 à 10)</label>
 				</div>
 
 
-<h3>Besoin de rééducation</h3>
-<div>
-					<input type="checkbox" name="reeduc" value="kine"> Kinésithérapie
-					 <input type="checkbox" name="reeduc" value="ergo">Ergotherapie
-					  <input type="checkbox" name="reduc" value="regime">Régime adapté
+				<h3>Besoin de rééducation</h3>
+				<div>
+					<input type="checkbox" name="reeduc" value="kine">
+					Kinésithérapie <input type="checkbox" name="reeduc" value="ergo">Ergotherapie
+					<input type="checkbox" name="reduc" value="regime">Régime
+					adapté
 
-			</div>
+				</div>
 			</div>
 		</fieldset>
 
@@ -252,6 +254,8 @@
 			}
 
 		}}
+		
+		
 	</script>
 
 </body>
