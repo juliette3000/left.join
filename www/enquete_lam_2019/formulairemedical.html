@@ -135,10 +135,30 @@
 				<div>
 					<input type="checkbox" name="reeduc" value="kine">
 					Kinésithérapie <input type="checkbox" name="reeduc" value="ergo">Ergotherapie
-					<input type="checkbox" name="reduc" value="regime">Régime
+					<input type="checkbox" name="reeduc" value="regime">Régime
 					adapté
 
 				</div>
+				
+				
+			<h3>Addictions présentes au cours des 12 derniers mois</h3>
+				<div>
+					<input type="checkbox" name="addictions" value="Alccol">Alcool
+					 <input type="checkbox" name="addictions" value="Tabac">Tabac
+					<input type="checkbox" name="addictions" value="drogues" id="drogues" onchange="drogue()">Consommation de drogues
+			</div>
+			<div>
+					<label for="cannabis" id="cannabislabel" style="display: none">Cannabis</label><input type="checkbox" name="cannabis" value="cannabis" id="cannabis" style="display: none">
+					 <label for="crack" id="cracklabel" style="display: none">Crack/Cocaïne</label><input type="checkbox" name="crack" value="crack" id="crack" style="display: none">
+					<label for="opiaces" id="opiaceslabel" style="display:none">Opiacés</label><input type="checkbox" name="opiaces" value="opiaces" id="opiaces" style="display: none">
+					<label for="autresdrogues" id="autresdrogueslabel" style="display:none">Autres</label><input type="checkbox" name="autresdrogues" value="autresdrogues" id="autresdrogues" style="display: none" onchange="autredrogue()">
+			</div>
+			<div>
+					<label for="autredrogueprecision" id="autredrogueprecisionlabel"
+						style="display: none"  >précisez :</label> <input type="text" name="autredrogueprecision" id="autredrogueprecision" value="autredrogueprecision" style="display: none" />
+			
+			</div>
+		
 			</div>
 		</fieldset>
 
@@ -188,10 +208,7 @@
 
 		}
 		
-		
-		
-		
-		
+
 		
 
 		function selection_hepatite() {
@@ -212,6 +229,13 @@
 				$('#precisionhepatiteb').hide();
 				$('#precisionhepatiteblabel').hide();
 				$('#precisionhepatiteb').val('');
+				$('#datediagvhb').hide();
+				$('#datediagvhblabel').hide();
+				$('#datediagvhb').val('');
+				$('#datediagvhc').hide();
+				$('#datediagvhclabel').hide();
+				$('#datediagvhc').val('');
+					
 
 			}
 
@@ -266,7 +290,66 @@
 			}
 		}
 
+		
+		
+		function drogue() {
+			
+			var drogue = $("#drogues:checked");
+			
+			if (drogue.val() ==='drogues')
+				{
+				$('#cannabislabel').show(); 
+				$('#cannabis').show();
+				$('#cracklabel').show(); 
+				$('#crack').show();
+				$('#opiaceslabel').show(); 
+				$('#opiaces').show();
+				$('#autresdrogueslabel').show(); 
+				$('#autresdrogues').show();
+			
+
+			} else {
+				
+				
+				$('#cannabis').hide();
+				$('#cannabislabel').hide();
+				$('#cannabis').val('');
+				$('#crack').hide();
+				$('#cracklabel').hide();
+				$('#crack').val('');
+				$('#autres').hide();
+				$('#autreslabel').hide();
+				$('#autres').val('');
+			}
+
+			
+			
+		}
+		
+		function autredrogue()
+		{
+	var drogueprecision = $("#autresdrogues:checked");
+			
+			if (drogueprecision.val() ==='autresdrogues')
+				{
+				$('#autredrogueprecisionlabel').show(); 
+				$('#autredrogueprecision').show();
+			
+
+			} else {
+				
+				
+				$('#autredrogueprecision').hide();
+				$('#autredrogueprecisionlabel').hide();
+				$('#autredrogueprecision').val('');
+			
+			
+			
+		}
+		}
 	
+		
+		
 		
 		
 		
