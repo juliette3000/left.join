@@ -29,7 +29,7 @@
 			<table class="table table-striped table-bordered table-hover table-condensed" id="table_records_pays_sel"></table>
 			
 
-<form class="container" method="post" action="traitement_confirmation.php">			
+<form class="container" method="post" action="save_social_confirmation.php">			
 	
 <?php  
 $datenaiss = null;

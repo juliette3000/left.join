@@ -60,7 +60,7 @@ if ($idNotFound){
 
 ?>
 
-	<form class="container" method="post" action="traitement.php">
+	<div class="container">
 
 		<div class="d-flex justify-content-center" style="margin-top: 30px">
 			<div class="card">
@@ -73,7 +73,6 @@ if ($idNotFound){
 		<div class="card" id="card1">
 			<div class="card-header">Données civiles de la personne accueillie</div>
 			<div class="card-body">
-
 
 				<div class="form-group row">
 					<div class="col-md-2">
@@ -158,13 +157,9 @@ if ($idNotFound){
 		<div class="col-md-12" style="margin-bottom: 50px; text-align: center;">
 			<a href="index.html" class="btn btn-info">Retour accueil</a>
 		</div>
-	</form>
+	</div>
 
 	<script src="js/jquery-1.12.3.js" type="text/javascript"></script>
-
-	<!-- pour afficher le champ de saisie autre -->
-	<script type="text/javascript">
-	</script>
 
 </body>
 </html>
