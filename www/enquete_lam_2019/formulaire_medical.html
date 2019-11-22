@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="css/bootstrap4.4.1.min.css" />
+<link rel="stylesheet" href="css/formulaire.css" />
+
+<title>Enquête LAM - volet médical</title>
+</head>
+
+
+	<form class="container" method="post" action="traitement.php">
+
+		<div class="d-flex justify-content-center" style="margin-top: 30px">
+			<div class="card">
+				<div class="card-header">Enquête flash sur les situations de handicap-novembre 2019
+					<div style="text-align: center;">Volet médical</div>
+				</div>
+			</div>
+		</div>			
+
+		<div class="card" id="card1">
+			<div class="card-header">Données médicales de la personne accueillie</div>
+			<div class="card-body">
+			
+				<div class="form-group row">
+					<div class="col-md">
+						<div>
+							<label for="Poids" class="col-form-label">Poids (kg):</label>
+							<input type="number" class="form-control" name="poids" id="poids" required="required" />
+						</div>
+						<div>
+							<label for="Poids" class="col-form-label">Taille (cm):</label>
+							<input type="number" class="form-control" name="taille" id="taille" required="required" />
+						</div>
+					</div>
+
+					<div class="col-md">
+						<strong>Motifs d'entrée au LAM</strong>
+	
+						<div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="motifentree" value="psy" id="psy">
+								<label class="form-check-label" for="homme">Psychiatrique</label>
+							</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="motifentree" value="neuro" id="neuro">
+								<label class="form-check-label" for="neuro">Neurologique</label>
+							</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="motifentree" value="cardio">
+								<label class="form-check-label" for="cardio">Cardiologique</label>
+							</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="motifentree" value="diab">
+								<label class="form-check-label" for="diab">Diabète</label>
+							</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="motifentree" value="pneumo">
+								<label class="form-check-label" for="pneumo">Pneumologique</label>
+							</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="motifentree" value="nephro">
+								<label class="form-check-label" for="nephro">Néphrologique</label>
+							</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="motifentree" value="immuno">
+								<label class="form-check-label" for="immuno">Immunodéficience</label>
+							</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="motifentree" value="neo">
+								<label class="form-check-label" for="neo">Néoplasique</label>
+							</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="motifentree" value="autre" id="autre" onchange="selection_motif_entree()">
+								<label class="form-check-label" for="autre">Autre</label>
+							</div>
+							<div class="form-check form-check">
+								<label for="autreentree" id="autreentreelabel" style="display: none">précisez :</label>
+								<input type="text" name="autreentree" id="autreentree" style="display: none" />
+							</div>
+						</div>
+						<div>
+							<label for="cim10" class="col-form-label">Pathologies d'entrée (cim10):</label>
+							<input type="text" class="form-control" name="cim10" id="entreecim10" />
+						</div>
+					</div>
+
+					<div class="col-md">
+	
+						<strong>Pathologies présentes au moment de l'enquête</strong>
+	
+						<div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="patho" value="psy">
+								<label class="form-check-label" for="psy">Psychiatrique</label>
+							</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="patho" value="neuro">
+								<label class="form-check-label" for="autre">Neurologique</label>
+							</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="patho" value="cardio">
+								<label class="form-check-label" for="autre">Cardiovasculaire</label>
+							</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="patho" value="diab">
+								<label class="form-check-label" for="autre">Diabète</label>
+							</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="patho" value="pneumo">
+								<label class="form-check-label" for="autre">Pneumologique</label>
+							</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="patho" value="nephro">
+								<label class="form-check-label" for="autre">Néphrologique</label>
+							</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="patho" value="pall">
+								<label class="form-check-label" for="autre">Soins palliatifs</label>
+							</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="patho" value="uro">
+								<label class="form-check-label" for="autre">Urologique</label>
+														</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="patho" value="dermato">
+								<label class="form-check-label" for="autre">Dermatologique</label>
+							</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="patho" value="Hemato">
+								<label class="form-check-label" for="autre">Hématologique</label>
+							</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="patho" value="ophtalmo">
+								<label class="form-check-label" for="autre">Ophtalmologique</label>
+							</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="patho" value="orl">
+								<label class="form-check-label" for="autre">ORL</label>
+							</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="patho" value="immuno">
+								<label class="form-check-label" for="autre">Immunodéficience</label>
+							</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="patho" value="hepatite" id="hepatite" onchange="selection_hepatite()">
+								<label class="form-check-label" for="autre">Hépatites</label>
+							</div>		
+							<div style="float: left; margin-left: 20px" id="bloc_hepatiteB">
+								<label for="precisionhepatite" id="precisionhepatitelabel" style="display: none">
+									<input type="checkbox" name="precisionhepatite" value="precisionhepatite" id="precisionhepatite"
+											onchange="selection_date_hepatite()" style="display: none" />VHB
+								</label>
+		
+								<label for="datediagvhb" id="datediagvhblabel" style="display: none">Date du diagnostique :
+									<input type="date" name="datediagvhb" id="datediagvhb" value="precisionhepatite"
+										style="display: none" />
+								</label> 
+								
+								<br/>
+								
+								<label for="precisionhepatiteb" id="precisionhepatiteblabel" style="display: none">
+									<input type="checkbox" name="precisionhepatiteb" value="precisionhepatiteb"
+									id="precisionhepatiteb" onchange="selection_date_hepatiteb()"
+									style="display: none" />VHC</label>
+		
+								<label for="datediagvhc" id="datediagvhclabel" 	style="display: none"> Date du diagnostique :<input
+									type="date" name="datediagvhc" id="datediagvhc"
+									style="display: none" /></label> 
+							</div>
+							
+						</div>
+						
+						
+						<div class="form-check form-check">
+							<input class="form-check-input" type="checkbox" name="patho" value="neo">
+							<label class="form-check-label" for="autre">Néoplasique</label>
+						</div>
+
+						<div class="form-check form-check">
+							<input class="form-check-input" type="checkbox" name="patho" value="den">
+							<label class="form-check-label" for="autre">Dénutrition</label>
+						</div>
+						<div class="form-check form-check">
+							<input class="form-check-input" type="checkbox" name="patho" value="autre" id="autre" onchange="selection_pathologies()">
+							<label class="form-check-label" for="autre">Autre</label>
+						</div>
+						<div class="form-check form-check">
+							<label class="form-check-label" for="autrepatho" id="autrepatholabel" style="display: none">précisez	:</label>
+							<input type="text" name="autrepatho" id="autrepatho" style="display: none" /> 
+						</div>
+
+					<br/>
+	
+						<strong>Douleurs</strong>
+		
+						<label for="oui"><input type="radio" name="douleur"
+							value="oui" id="oui" onchange="eva()" />Oui</label> <label for="non"><input
+							type="radio" name="douleur" value="non" id="non" onchange="eva()" />Non</label>
+		
+						<div>
+							<label for="echelleeva" id="echelleevalabel" style="display: none">
+								EVA (de 0 à 10)</label> <input type="number" name="echelleeva"
+								value="echelleeva" id="echelleeva" style="display: none" />
+						</div>
+		
+		
+						<strong>Besoin de rééducation</strong>
+						<div>
+														</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="reeduc" value="kine">
+							Kinésithérapie 							</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="reeduc" value="ergo">Ergotherapie
+							<input type="checkbox" name="reeduc" value="regime">Régime adapté
+		
+						</div>
+					</div>
+
+					<div class="col-md">
+					
+						<strong>Addictions présentes au cours des 12 derniers mois</strong>
+						<div>
+														</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="addictions" value="Alccol">Alcool
+														</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="addictions" value="Tabac">Tabac
+														</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="addictions" value="drogues" id="drogues" onchange="drogue()">Consommation de drogues
+						</div>
+						<div>
+							<label for="cannabis" id="cannabislabel" style="display: none">Cannabis</label>
+														</div>
+							<div class="form-check form-check">
+								<input class="form-check-input" type="checkbox" name="cannabis" value="cannabis" id="cannabis" style="display: none">
+		
+							<label for="crack" id="cracklabel" style="display: none">Crack/Cocaïne</label>
+							<input type="checkbox"
+								name="crack" value="crack" id="crack" style="display: none">
+							<label for="opiaces" id="opiaceslabel" style="display: none">Opiacés</label><input
+								type="checkbox" name="opiaces" value="opiaces" id="opiaces"
+								style="display: none"> <label for="autresdrogues"
+								id="autresdrogueslabel" style="display: none">Autres</label><input
+								type="checkbox" name="autresdrogues" value="autresdrogues"
+								id="autresdrogues" style="display: none" onchange="autredrogue()">
+						</div>
+						<div>
+							<label for="autredrogueprecision" id="autredrogueprecisionlabel"
+								style="display: none">précisez :</label>
+								<input type="text" name="autredrogueprecision" id="autredrogueprecision"
+								value="autredrogueprecision" style="display: none" />
+		
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="col-md-12" style="margin-bottom: 50px; text-align: center;">
+				<button type="submit" class="btn btn-info">Valider</button>
+			</div>
+		</div>
+	</form>
+
+
+	<script type="text/javascript">
+		function selection_motif_entree() {
+
+			var motifentreelam = $("#autre:checked");
+
+			if (motifentreelam.val() === 'autre') {
+
+				$('#autreentree').show(); // ça c'est l input
+				$('#autreentreelabel').show(); // ça c'est le label 
+
+			} else {
+				$('#autreentree').hide();
+				$('#autreentreelabel').hide();
+				$('#autreentree').val('');
+			}
+		}
+
+		function eva() {
+			var eva = $("#oui:checked");
+
+			if (eva.val() === 'oui') {
+
+				$('#echelleevalabel').show();
+				$('#echelleeva').show();
+
+			} else {
+
+				$('#echelleeva').hide();
+				$('#echelleevalabel').hide();
+				$('#echelleeva').val('');
+			}
+
+		}
+
+		function selection_hepatite() {
+
+			var patho = $("#hepatite:checked");
+
+			if (patho.val() === 'hepatite') {
+
+				$('#precisionhepatite').show();
+				$('#precisionhepatitelabel').show();
+				$('#precisionhepatiteb').show();
+				$('#precisionhepatiteblabel').show();
+				
+				$('#datediagvhb').show();
+
+			} else {
+				$('#precisionhepatite').hide();
+				$('#precisionhepatitelabel').hide();
+				$('#precisionhepatite').val('');
+				$('#precisionhepatiteb').hide();
+				$('#precisionhepatiteblabel').hide();
+				$('#precisionhepatiteb').val('');
+				$('#datediagvhblabel').hide();
+				$('#datediagvhb').val('');
+				$('#datediagvhc').hide();
+				$('#datediagvhclabel').hide();
+				$('#datediagvhc').val('');
+
+			}
+
+		}
+
+		function selection_date_hepatite() {
+
+			var hep = $("#precisionhepatite");
+
+			if (hep.is(':checked')){
+				$('#datediagvhb').show();
+				$('#datediagvhblabel').show();
+
+			} else {
+				$('#datediagvhb').hide();
+				$('#datediagvhblabel').hide();
+				$('#datediagvhb').val('');
+			}
+		}
+
+		function selection_date_hepatiteb() {
+
+			var hepb = $("#precisionhepatiteb:checked");
+
+			if (hepb.is(':checked')){
+
+				$('#datediagvhc').show();
+				$('#datediagvhclabel').show();
+
+			} else {
+				$('#datediagvhc').hide();
+				$('#datediagvhclabel').hide();
+				$('#datediagvhc').val('');
+			}
+		}
+
+		function selection_pathologies() {
+
+			var patho = $("#autre:checked");
+
+			if (patho.val() === 'autre') {
+
+				$('#autrepatho').show(); // ça c'est l input
+				$('#autrepatholabel').show(); // ça c'est le label 
+
+			} else {
+				$('#autrepatho').hide();
+				$('#autrepatholabel').hide();
+				$('#autrepatho').val('');
+			}
+		}
+
+		function drogue() {
+
+			var drogue = $("#drogues:checked");
+
+			if (drogue.val() === 'drogues') {
+				$('#cannabislabel').show();
+				$('#cannabis').show();
+				$('#cracklabel').show();
+				$('#crack').show();
+				$('#opiaceslabel').show();
+				$('#opiaces').show();
+				$('#autresdrogueslabel').show();
+				$('#autresdrogues').show();
+
+			} else {
+
+				$('#cannabis').hide();
+				$('#cannabislabel').hide();
+				$('#cannabis').val('');
+				$('#crack').hide();
+				$('#cracklabel').hide();
+				$('#crack').val('');
+				$('#autres').hide();
+				$('#autreslabel').hide();
+				$('#autres').val('');
+			}
+
+		}
+
+		function autredrogue() {
+			var drogueprecision = $("#autresdrogues:checked");
+
+			if (drogueprecision.val() === 'autresdrogues') {
+				$('#autredrogueprecisionlabel').show();
+				$('#autredrogueprecision').show();
+
+			} else {
+
+				$('#autredrogueprecision').hide();
+				$('#autredrogueprecisionlabel').hide();
+				$('#autredrogueprecision').val('');
+
+			}
+		}
+	</script>
+
+</body>
+</html>

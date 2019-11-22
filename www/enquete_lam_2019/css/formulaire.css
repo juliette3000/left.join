@@ -10,10 +10,10 @@
     background-color: #d1ecf1;
     color: #0c5460;
     
-    text-align: justify;
+    /* text-align: justify; */
     border-radius: 6px;
     border-color:red;
-    padding: 10px 30px;
+    padding: 10px;
 
     /* Position the tooltip */
     position: absolute;
@@ -21,10 +21,7 @@
     
     margin-top:-20px;
     margin-left: 20px;
-    
-/*     top: -5px;
-    left: 105%; 
- */}
+}
 
 .tooltip_j:hover .tooltiptext_j {
     visibility: visible;
@@ -40,4 +37,15 @@
 
 .card {
 	margin-bottom: 50px;
+}
+
+.panelOption {
+
+    /* background-color: rgba(0,0,0,.05); */
+
+    border-radius: 6px;
+    padding: 10px;
+    margin-top:-20px;
+    margin-left: 20px;
+
 }

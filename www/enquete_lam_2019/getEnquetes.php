@@ -81,15 +81,6 @@
 	});
 	
 	</script>
-		<script type="text/javascript" class="init">
-		$(document).ready(function() {
-			$('#table_pays').DataTable();
-		});
-	
-
-
-	</script>
-	
 </body>
 </html>
 
