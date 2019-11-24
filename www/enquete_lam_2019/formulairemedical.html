@@ -60,74 +60,68 @@
 
 				<h3>Pathologies présentes au moment de l'enquête</h3>
 				<div>
-					<input type="checkbox" name="patho" value="psy">
-					Psychiatrique <input type="checkbox" name="patho" value="neuro">
-					Neurologique <input type="checkbox" name="patho" value="cardio">
-					Cardiovasculaire <input type="checkbox" name="patho" value="diab">
-					Diabète <input type="checkbox" name="patho" value="pneumo">
-					Pneumologique <input type="checkbox" name="patho" value="nephro">
-					Néphrologique <input type="checkbox" name="patho" value="pall">
-					Soins palliatifs <input type="checkbox" name="patho" value="uro">
-					Urologique <input type="checkbox" name="patho" value="dermato">
-					Dermatologique <input type="checkbox" name="patho" value="Hemato">
-					Hématologique <input type="checkbox" name="patho" value="ophtalmo">
-					Ophtalmologique <input type="checkbox" name="patho" value="orl">
-					ORL <input type="checkbox" name="patho" value="immuno">
-					Immunodéficience <input type="checkbox" name="patho"
-						value="hepatite" id="hepatite" onchange="selection_hepatite()">
-					Hépatites
+					<label><input type="checkbox" name="patho" value="psy">Psychiatrique</label>
+					<label><input type="checkbox" name="patho" value="neuro">Neurologique</label>
+					<label><input type="checkbox" name="patho" value="cardio">Cardiovasculaire</label>
+					<label><input type="checkbox" name="patho" value="diab">Diabète</label>
+					<label><input type="checkbox" name="patho" value="pneumo">Pneumologique</label>
+					<label><input type="checkbox" name="patho" value="nephro">Néphrologique</label>
+					<label><input type="checkbox" name="patho" value="pall">Soins palliatifs</label>
+					<label><input type="checkbox" name="patho" value="uro"> Urologique</label>
+					<label><input type="checkbox" name="patho" value="dermato">Dermatologique</label>
+					<label><input type="checkbox" name="patho" value="Hemato">Hématologique</label>
+					<label><input type="checkbox" name="patho" value="ophtalmo">Ophtalmologique</label>
+					<label><input type="checkbox" name="patho" value="orl">ORL</label>
+					<label><input type="checkbox" name="patho" value="immuno">Immunodéficience</label>
+					<label><input type="checkbox" name="patho" value="hepatite" id="hepatite" onchange="selection_hepatite()">Hépatites</label>
 
-					<div>
+					<div style="float: left; margin-left: 20px" id="bloc_hepatiteB">
 						<label for="precisionhepatite" id="precisionhepatitelabel" style="display: none">
-							VHB</label><input type="checkbox" name="precisionhepatite" value="precisionhepatite"
-							id="precisionhepatite" onchange="selection_date_hepatite()" style="display: none" />
-					</div>
+							<input type="checkbox" name="precisionhepatite" value="precisionhepatite" id="precisionhepatite"
+									onchange="selection_date_hepatite()" style="display: none" />VHB
+						</label>
 
-						<div>
-							<label for="datediagvhb" id="datediagvhb_label" style="display: none"
-								> Date du diagnostique :</label> <input
-								type="date" name="datediagvhb"  id="datediagvhb" style="display: none"
-								 />
-						</div>
-
-						<div>
-						<label for="precisionhepatiteb" id="precisionhepatiteblabel"
-							style="display: none">VHC</label><input
-							type="checkbox" name="precisionhepatiteb" value="precisionhepatiteb" id="precisionhepatiteb" onchange="selection_date_hepatiteb()" 
-							style="display: none" />
-						</div>
-						<div>
-							<label for="datediagvhc" id="datediagvhc_label"
-								style="display: none"> Date du diagnostique :</label> <input
-								type="date" name="datediagvhc" id="datediagvhc"
+						<label for="datediagvhb" id="datediagvhblabel" style="display: none">Date du diagnostique :
+							<input type="date" name="datediagvhb" id="datediagvhb" value="precisionhepatite"
 								style="display: none" />
-						</div>
+						</label> 
+						
+						<br/>
+						
+						<label for="precisionhepatiteb" id="precisionhepatiteblabel" style="display: none">
+							<input type="checkbox" name="precisionhepatiteb" value="precisionhepatiteb"
+							id="precisionhepatiteb" onchange="selection_date_hepatiteb()"
+							style="display: none" />VHC</label>
 
-
-
+						<label for="datediagvhc" id="datediagvhclabel" 	style="display: none"> Date du diagnostique :<input
+							type="date" name="datediagvhc" id="datediagvhc"
+							style="display: none" /></label> 
 					</div>
-<div>
-					<input type="checkbox" name="patho" value="neo">
-					Néoplasique <input type="checkbox" name="patho" value="den">
-					Dénutrition <input type="checkbox" name="patho" value="autre"
-						id="autre" onchange="selection_pathologies()"> Autre
-				
-</div>
+					
+				</div>
+				<div style="clear: both;"></div>
+				<div style="display: block;">
+
+					<label><input type="checkbox" name="patho" value="neo">Néoplasique</label>
+					<label><input type="checkbox" name="patho" value="den">Dénutrition</label>
+					<label><input type="checkbox" name="patho" value="autre" id="autre" onchange="selection_pathologies()">Autre</label>
+				</div>
 				<div>
-					<label for="autrepatho" id="autrepatholabel" style="display: none">précisez
-						:</label> <input type="text" name="autrepatho" id="autrepatho"
-						style="display: none" />
+					<label for="autrepatho" id="autrepatholabel" style="display: none">précisez	:<input type="text" name="autrepatho" id="autrepatho"
+						style="display: none" /></label> 
 				</div>
 
 
 				<h3>Douleurs</h3>
-				
-				<label for="oui"><input type="radio" name="douleur" value="oui" id="oui" onchange="eva()" />Oui</label>
-				<label for="non"><input type="radio" name="douleur" value="non" id="non" onchange="eva()"/>Non</label>
+
+				<label for="oui"><input type="radio" name="douleur"
+					value="oui" id="oui" onchange="eva()" />Oui</label> <label for="non"><input
+					type="radio" name="douleur" value="non" id="non" onchange="eva()" />Non</label>
 
 				<div>
-					<label for="echelleeva" id="echelleevalabel" style="display: none"> EVA (de 0 à 10)</label>
-					<input type="number" name="echelleeva" value="echelleeva" id="echelleeva" style="display: none" />
+					<label for="echelleeva" id="echelleevalabel" style="display: none">
+						EVA (de 0 à 10)</label> <input type="number" name="echelleeva"
+						value="echelleeva" id="echelleeva" style="display: none" />
 				</div>
 
 
@@ -139,26 +133,36 @@
 					adapté
 
 				</div>
-				
-				
-			<h3>Addictions présentes au cours des 12 derniers mois</h3>
+
+
+				<h3>Addictions présentes au cours des 12 derniers mois</h3>
 				<div>
 					<input type="checkbox" name="addictions" value="Alccol">Alcool
-					 <input type="checkbox" name="addictions" value="Tabac">Tabac
-					<input type="checkbox" name="addictions" value="drogues" id="drogues" onchange="drogue()">Consommation de drogues
-			</div>
-			<div>
-					<label for="cannabis" id="cannabislabel" style="display: none">Cannabis</label><input type="checkbox" name="cannabis" value="cannabis" id="cannabis" style="display: none">
-					 <label for="crack" id="cracklabel" style="display: none">Crack/Cocaïne</label><input type="checkbox" name="crack" value="crack" id="crack" style="display: none">
-					<label for="opiaces" id="opiaceslabel" style="display:none">Opiacés</label><input type="checkbox" name="opiaces" value="opiaces" id="opiaces" style="display: none">
-					<label for="autresdrogues" id="autresdrogueslabel" style="display:none">Autres</label><input type="checkbox" name="autresdrogues" value="autresdrogues" id="autresdrogues" style="display: none" onchange="autredrogue()">
-			</div>
-			<div>
+					<input type="checkbox" name="addictions" value="Tabac">Tabac
+					<input type="checkbox" name="addictions" value="drogues"
+						id="drogues" onchange="drogue()">Consommation de drogues
+				</div>
+				<div>
+					<label for="cannabis" id="cannabislabel" style="display: none">Cannabis</label><input
+						type="checkbox" name="cannabis" value="cannabis" id="cannabis"
+						style="display: none"> <label for="crack" id="cracklabel"
+						style="display: none">Crack/Cocaïne</label><input type="checkbox"
+						name="crack" value="crack" id="crack" style="display: none">
+					<label for="opiaces" id="opiaceslabel" style="display: none">Opiacés</label><input
+						type="checkbox" name="opiaces" value="opiaces" id="opiaces"
+						style="display: none"> <label for="autresdrogues"
+						id="autresdrogueslabel" style="display: none">Autres</label><input
+						type="checkbox" name="autresdrogues" value="autresdrogues"
+						id="autresdrogues" style="display: none" onchange="autredrogue()">
+				</div>
+				<div>
 					<label for="autredrogueprecision" id="autredrogueprecisionlabel"
-						style="display: none"  >précisez :</label> <input type="text" name="autredrogueprecision" id="autredrogueprecision" value="autredrogueprecision" style="display: none" />
-			
-			</div>
-		
+						style="display: none">précisez :</label> <input type="text"
+						name="autredrogueprecision" id="autredrogueprecision"
+						value="autredrogueprecision" style="display: none" />
+
+				</div>
+
 			</div>
 		</fieldset>
 
@@ -170,8 +174,6 @@
 
 
 	<script type="text/javascript">
-	
-	
 		function selection_motif_entree() {
 
 			var motifentreelam = $("#autre:checked");
@@ -187,29 +189,23 @@
 				$('#autreentree').val('');
 			}
 		}
-		
-		
+
 		function eva() {
 			var eva = $("#oui:checked");
 
 			if (eva.val() === 'oui') {
 
-			
-				$('#echelleevalabel').show(); 
+				$('#echelleevalabel').show();
 				$('#echelleeva').show();
 
 			} else {
-				
-				
+
 				$('#echelleeva').hide();
 				$('#echelleevalabel').hide();
 				$('#echelleeva').val('');
 			}
 
 		}
-		
-
-		
 
 		function selection_hepatite() {
 
@@ -221,6 +217,8 @@
 				$('#precisionhepatitelabel').show();
 				$('#precisionhepatiteb').show();
 				$('#precisionhepatiteblabel').show();
+				
+				$('#datediagvhb').show();
 
 			} else {
 				$('#precisionhepatite').hide();
@@ -229,25 +227,21 @@
 				$('#precisionhepatiteb').hide();
 				$('#precisionhepatiteblabel').hide();
 				$('#precisionhepatiteb').val('');
-				$('#datediagvhb').hide();
 				$('#datediagvhblabel').hide();
 				$('#datediagvhb').val('');
 				$('#datediagvhc').hide();
 				$('#datediagvhclabel').hide();
 				$('#datediagvhc').val('');
-					
 
 			}
 
 		}
 
 		function selection_date_hepatite() {
-	
 
-			var hep = $("#precisionhepatite:checked");
+			var hep = $("#precisionhepatite");
 
-			if (hep.val() === 'precisionhepatite') {
-
+			if (hep.is(':checked')){
 				$('#datediagvhb').show();
 				$('#datediagvhblabel').show();
 
@@ -290,27 +284,22 @@
 			}
 		}
 
-		
-		
 		function drogue() {
-			
+
 			var drogue = $("#drogues:checked");
-			
-			if (drogue.val() ==='drogues')
-				{
-				$('#cannabislabel').show(); 
+
+			if (drogue.val() === 'drogues') {
+				$('#cannabislabel').show();
 				$('#cannabis').show();
-				$('#cracklabel').show(); 
+				$('#cracklabel').show();
 				$('#crack').show();
-				$('#opiaceslabel').show(); 
+				$('#opiaceslabel').show();
 				$('#opiaces').show();
-				$('#autresdrogueslabel').show(); 
+				$('#autresdrogueslabel').show();
 				$('#autresdrogues').show();
-			
 
 			} else {
-				
-				
+
 				$('#cannabis').hide();
 				$('#cannabislabel').hide();
 				$('#cannabis').val('');
@@ -322,37 +311,23 @@
 				$('#autres').val('');
 			}
 
-			
-			
 		}
-		
-		function autredrogue()
-		{
-	var drogueprecision = $("#autresdrogues:checked");
-			
-			if (drogueprecision.val() ==='autresdrogues')
-				{
-				$('#autredrogueprecisionlabel').show(); 
+
+		function autredrogue() {
+			var drogueprecision = $("#autresdrogues:checked");
+
+			if (drogueprecision.val() === 'autresdrogues') {
+				$('#autredrogueprecisionlabel').show();
 				$('#autredrogueprecision').show();
-			
 
 			} else {
-				
-				
+
 				$('#autredrogueprecision').hide();
 				$('#autredrogueprecisionlabel').hide();
 				$('#autredrogueprecision').val('');
-			
-			
-			
+
+			}
 		}
-		}
-	
-		
-		
-		
-		
-		
 	</script>
 
 </body>
