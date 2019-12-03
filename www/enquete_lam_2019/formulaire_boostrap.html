@@ -9,10 +9,7 @@
 <link rel="stylesheet" href="css/bootstrap4.4.1.min.css" />
 
 <style type="text/css">
-legend {
-	padding: 15px;
-	margin-bottom: -20px;
-}
+
 
 .form-group {
 	padding: 0 20px;
@@ -21,6 +18,12 @@ legend {
 * {
 	font-size: 0.95rem;
 }
+
+.card {
+
+	margin-bottom: 50px;
+}
+
 </style>
 
 <title>Enquête LAM</title>
@@ -34,14 +37,16 @@ legend {
 	<!-- 				https://getbootstrap.com/docs/4.4/components/forms/#inline -->
 	<form class="container" method="post" action="traitement.php">
 		<div class="row">
-			<div class="col-sm">
-
-				<h1>Enquête flash sur les situations de handicap-novembre 2019</h1>
-				<h2>Volet social</h2>
 
 
-				<fieldset class="border p-3">
-					<legend class="w-auto">Personne accueillie</legend>
+			<h1>Enquête flash sur les situations de handicap-novembre 2019</h1>
+			<h2>Volet social</h2>
+
+
+			<div class="card">
+				<div class="card-header">Personne accueillie</div>
+				<div class="card-body">
+
 
 					<div class="form-group row">
 						<div class="col-sm-2">
@@ -89,12 +94,16 @@ legend {
 								style="display: none; margin-top: 10px" />
 						</div>
 					</div>
-				</fieldset>
-				
-				</div>
 
-				<fieldset class="border p-3">
-					<legend class="w-auto">Données médico-sociales de la personne acceuillie</legend>
+
+				</div>
+			</div>
+			<!-- end card fieldset -->
+
+			<div class="card">
+				<div class="card-header">Données médico-sociales de la personne acceuillie</div>
+				<div class="card-body">
+
 					<div class="form-group row">
 						<div class="col-sm-4">
 							<label class="col-form-label">Statut administratif</label>
@@ -152,104 +161,106 @@ legend {
 						</div>
 					</div>
 
-				</fieldset>
+				</div>
+			
+			<div class="form-group row">
+				<div class="col-sm-12">
+					<h4>Cette personne a-t-elle ou pourrait elle bénéficier</h4>
+				</div>
+				<div class="col-sm-4">
 
-				<div class="form-group row">
+
+					<h4>D'une AAH?</h4>
+
+					<div>
+						<input type="radio" name="aah" value="sansobjet" id="sansobjet" /><label for="sansobjet"><abbr title="sans objet : absence manifeste de troubles">Sans
+								objet</abbr></label>
+					</div>
+					<div>
+						<input type="radio" name="aah" value="impossible" id="impossible" /> <label for="impossible">Impossible</label>
+					</div>
+					<div>
+						<input type="radio" name="aah" value="obtenu" id="obtenu" /><label for="obtenu">Déjà obtenu</label>
+					</div>
+					<div>
+						<input type="radio" name="aah" value="refus" id="refus" /><label for="refus">Refusée</label>
+					</div>
+					<div>
+						<input type="radio" name="aah" value="demande" id="demande" /> <label for="demande">Demande en cours</label>
+					</div>
+					<div>
+						<input type="radio" name="aah" value="ropp" id="ropp" /> <label for="ropp">A été envisagée mais ROPP</label>
+					</div>
+					<div>
+						<input type="radio" name="aah" value="envisager" id="envisager" /> <label for="envisager">A envisager</label>
+					</div>
+					<div>
+						<input type="radio" name="aah" value="nsp" id="nsp" /> <label for="nsp">NSP</label>
+					</div>
+				</div>
+
+
+				<div class="col-sm-4">
+					<h4>D'une PCH?</h4>
+					<div>
+						<input type="radio" name="pch" value="sansobjet" id="sansobjet" /> <label for="sansobjet">Sans objet</label>
+					</div>
+					<div>
+						<input type="radio" name="pch" value="impossible" id="impossible" /> <label for="impossible">Impossible</label>
+					</div>
+					<div>
+						<input type="radio" name="pch" value="obtenu" id="obtenu" /> <label for="obtenu">Déjà obtenu</label>
+					</div>
+					<div>
+						<input type="radio" name="pch" value="refus" id="refus" /> <label for="refus">Refusée</label>
+					</div>
+					<div>
+						<input type="radio" name="pch" value="demande" id="demande" /> <label for="demande">Demande en cours</label>
+					</div>
+					<div>
+						<input type="radio" name="pch" value="ropp" id="ropp" /> <label for="ropp">A été envisagée mais ROPP</label>
+					</div>
+					<div>
+						<input type="radio" name="pch" value="envisager" id="envisager" /> <label for="envisager">A envisager</label>
+					</div>
+					<div>
+						<input type="radio" name="pch" value="nsp" id="nsp" /><label for="nsp">NSP</label>
+					</div>
+				</div>
+
+
+				<div class="col-sm-4">
+					<h4>D'une pension d'invalidité?</h4>
+					<div>
+						<input type="radio" name="inv" value="sansobjet" id="sansobjet" /><label for="sansobjet">Sans objet</label>
+					</div>
+					<div>
+						<input type="radio" name="inv" value="impossible" id="impossible" /> <label for="impossible">Impossible</label>
+					</div>
+					<div>
+						<input type="radio" name="inv" value="obtenu" id="obtenu" /> <label for="obtenu">Déjà obtenu</label>
+					</div>
+					<div>
+						<input type="radio" name="inv" value="refus" id="refus" /> <label for="refus">Refusée</label>
+					</div>
+					<div>
+						<input type="radio" name="inv" value="demande" id="demande" /><label for="demande">Demande en cours</label>
+					</div>
+					<div>
+						<input type="radio" name="inv" value="ropp" id="ropp" /> <label for="ropp">A été envisagée mais ROPP</label>
+					</div>
+					<div>
+						<input type="radio" name="inv" value="envisager" id="envisager" /> <label for="envisager">A envisager</label>
+					</div>
+					<div>
+						<input type="radio" name="inv" value="nsp" id="nsp" /> <label for="nsp">NSP</label>
+					</div>
+				</div>
+
+
+				<div class="row">
 					<div class="col-sm-12">
 						<h4>Cette personne a-t-elle ou pourrait elle bénéficier</h4>
-					</div>
-					<div class="col-sm-4">
-
-
-						<h4>D'une AAH?</h4>
-
-						<div>
-							<input type="radio" name="aah" value="sansobjet" id="sansobjet" /><label for="sansobjet"><abbr
-								title="sans objet : absence manifeste de troubles">Sans objet</abbr></label>
-						</div>
-						<div>
-							<input type="radio" name="aah" value="impossible" id="impossible" /> <label for="impossible">Impossible</label>
-						</div>
-						<div>
-							<input type="radio" name="aah" value="obtenu" id="obtenu" /><label for="obtenu">Déjà obtenu</label>
-						</div>
-						<div>
-							<input type="radio" name="aah" value="refus" id="refus" /><label for="refus">Refusée</label>
-						</div>
-						<div>
-							<input type="radio" name="aah" value="demande" id="demande" /> <label for="demande">Demande en cours</label>
-						</div>
-						<div>
-							<input type="radio" name="aah" value="ropp" id="ropp" /> <label for="ropp">A été envisagée mais ROPP</label>
-						</div>
-						<div>
-							<input type="radio" name="aah" value="envisager" id="envisager" /> <label for="envisager">A envisager</label>
-						</div>
-						<div>
-							<input type="radio" name="aah" value="nsp" id="nsp" /> <label for="nsp">NSP</label>
-						</div>
-					</div>
-
-
-					<div class="col-sm-4">
-						<h4>D'une PCH?</h4>
-						<div>
-							<input type="radio" name="pch" value="sansobjet" id="sansobjet" /> <label for="sansobjet">Sans objet</label>
-						</div>
-						<div>
-							<input type="radio" name="pch" value="impossible" id="impossible" /> <label for="impossible">Impossible</label>
-						</div>
-						<div>
-							<input type="radio" name="pch" value="obtenu" id="obtenu" /> <label for="obtenu">Déjà obtenu</label>
-						</div>
-						<div>
-							<input type="radio" name="pch" value="refus" id="refus" /> <label for="refus">Refusée</label>
-						</div>
-						<div>
-							<input type="radio" name="pch" value="demande" id="demande" /> <label for="demande">Demande en cours</label>
-						</div>
-						<div>
-							<input type="radio" name="pch" value="ropp" id="ropp" /> <label for="ropp">A été envisagée mais ROPP</label>
-						</div>
-						<div>
-							<input type="radio" name="pch" value="envisager" id="envisager" /> <label for="envisager">A envisager</label>
-						</div>
-						<div>
-							<input type="radio" name="pch" value="nsp" id="nsp" /><label for="nsp">NSP</label>
-						</div>
-					</div>
-
-
-					<div class="col-sm-4">
-						<h4>D'une pension d'invalidité?</h4>
-						<div>
-							<input type="radio" name="inv" value="sansobjet" id="sansobjet" /><label for="sansobjet">Sans objet</label>
-						</div>
-						<div>
-							<input type="radio" name="inv" value="impossible" id="impossible" /> <label for="impossible">Impossible</label>
-						</div>
-						<div>
-							<input type="radio" name="inv" value="obtenu" id="obtenu" /> <label for="obtenu">Déjà obtenu</label>
-						</div>
-						<div>
-							<input type="radio" name="inv" value="refus" id="refus" /> <label for="refus">Refusée</label>
-						</div>
-						<div>
-							<input type="radio" name="inv" value="demande" id="demande" /><label for="demande">Demande en cours</label>
-						</div>
-						<div>
-							<input type="radio" name="inv" value="ropp" id="ropp" /> <label for="ropp">A été envisagée mais ROPP</label>
-						</div>
-						<div>
-							<input type="radio" name="inv" value="envisager" id="envisager" /> <label for="envisager">A envisager</label>
-						</div>
-						<div>
-							<input type="radio" name="inv" value="nsp" id="nsp" /> <label for="nsp">NSP</label>
-						</div>
-					</div>
-
-					<div class="col-sm-12">
-						<h4>Cette personne a t'elle ou pourrait elle bénéficier</h4>
 					</div>
 					<div class="col-sm-4">
 						<h4>D'un accord de la MDPH pour une place en FAM ou MAS?</h4>
@@ -346,7 +357,7 @@ legend {
 						</div>
 					</div>
 				</div>
-				<div>
+				<div class="row">
 
 					<label for="aidesocialefam" id="aidesocialefam_label" style="display: none">Un accord de la MDPH pour une place en FAM ou MAS a déjà été obtenue,
 						pourrait elle bénéficier : de l'aide sociale pour un tel service ?</label> <select name="aidesocialefam" id="aidesocialefam" style="display: none">
@@ -361,7 +372,7 @@ legend {
 						<option value="nsp">NSP</option>
 					</select>
 				</div>
-				<div>
+				<div class="row">
 					<label for="aidesocialesavs" id="aidesocialesavs_label" style="display: none">Un accord de la MDPH pour un SAVS** a déjà été obtenu, pourrait elle
 						bénéficier : de l'aide sociale pour un tel service ?</label> <select name="aidesocialesavs" id="aidesocialesavs" style="display: none">
 
@@ -377,7 +388,7 @@ legend {
 				</div>
 
 
-				<div>
+				<div class="row">
 					<label for="aidesocialesams" id="aidesocialesams_label" style="display: none">Un accord de la MDPH pour un SAMSAH** a déjà été obtenu, pourrait
 						elle bénéficier : de l'aide sociale pour un tel service ?</label> <select name="aidesocialesams" id="aidesocialesams" style="display: none">
 
@@ -419,134 +430,134 @@ legend {
 						name="precisionmdphter" id="precisionmdphter" style="display: none" />
 				</div>
 			</div>
-			<div class=toto2>
-				<div>
-					<div>
-						<h4>Cette personne a t'elle ou pourrait elle bénéficier</h4>
-						<h4>D'une dérogation d'âge pour une place en EHPAD?</h4>
-
-						<div>
-							<input type="radio" id="ehpad" name="ehpad" value="sansobjet" /> <label for="sansobjet">Sans objet</label>
-						</div>
-						<div>
-							<input type="radio" id="ehpad" name="ehpad" value="impossible" /> <label for="impossible">Impossible</label>
-						</div>
-						<div>
-							<input type="radio" id="ehpad" name="ehpad" value="obtenu" /> <label for="obtenu">Déjà obtenu</label>
-						</div>
-						<div>
-							<input type="radio" id="ehpad" name="ehpad" value="refus" /> <label for="refus">Refusée</label>
-						</div>
-						<div>
-							<input type="radio" id="ehpad" name="ehpad" value="demande" /> <label for="demande">Demande en cours</label>
-						</div>
-						<div>
-							<input type="radio" id="ehpad" name="ehpad" value="ropp" /> <label for="ropp">A été envisagée mais ROPP</label>
-						</div>
-						<div>
-							<input type="radio" id="ehpad" name="ehpad" value="envisager" /> <label for="envisager">A envisager</label>
-						</div>
-						<div>
-							<input type="radio" id="ehpad" name="ehpad" value="nsp" /> <label for="nsp">NSP</label>
-						</div>
-					</div>
-				</div>
-
-				<div>
-					<div>
-						<h4>Quelque soit l'âge, de l'aide sociale pour une place en EHPAD?</h4>
-						<div>
-							<input type="radio" id="aidesocialeehpad" name="aidesocialeehpad" value="sansobjet" /> <label for="sansobjet">Sans objet</label>
-						</div>
-						<div>
-							<input type="radio" id="aidesocialeehpad" name="aidesocialeehpad" value="obtenu" /> <label for="obtenu">Déjà obtenu</label>
-						</div>
-						<div>
-							<input type="radio" id="aidesocialeehpad" name="aidesocialeehpad" value="refus" /> <label for="refus">Refusée</label>
-						</div>
-						<div>
-							<input type="radio" id="aidesocialeehpad" name="aidesocialeehpad" value="demande" /> <label for="demande">Demande en cours</label>
-						</div>
-						<div>
-							<input type="radio" id="aidesocialeehpad" name="aidesocialeehpad" value="ropp" /><label for="ropp">A été envisagée mais ROPP</label>
-						</div>
-						<div>
-							<input type="radio" id="aidesocialeehpad" name="aidesocialeehpad" value="envisager" /> <label for="envisager">A envisager</label>
-						</div>
-						<div>
-							<input type="radio" id="aidesocialeehpad" name="aidesocialeehpad" value="nsp" /> <label for="nsp">NSP</label>
-						</div>
-					</div>
-				</div>
-
-				<div>
-					<div>
-						<h4>Recherche de place en EHPAD (avec ou sans dérogation d'âge), situation actuelle</h4>
-						<div>
-							<input type="radio" name="placeehpad" value="sansobjet" id="sansobjet" /> <label for="sansobjet">Sans objet</label>
-						</div>
-						<div>
-							<input type="radio" name="placeehpad" value="impossible" id="impossible" /> <label for="impossible">Impossible</label>
-						</div>
-						<div>
-							<input type="radio" name="placeehpad" value="trouve" id="trouve" /> <label for="trouve">Place trouvée</label>
-						</div>
-						<div>
-							<input type="radio" name="placeehpad" value="rencours" id="rencours" /> <label for="rencours">Recherche en cours</label>
-						</div>
-						<div>
-							<input type="radio" name="placeehpad" value="ropp" id="ropp" /> <label for="ropp">A été envisagée mais ROPP</label>
-						</div>
-						<div>
-							<input type="radio" name="placeehpad" value="envisager" id="envisager" /> <label for="envisager">A envisager</label>
-						</div>
-						<div>
-							<input type="radio" name="placeehpad" value="nsp" id="nsp" /> <label for="nsp">NSP</label>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class=toto2>
-				<div>
-					<div>
-						<h4>Existe t'il une protection juridique</h4>
-						<div>
-							<input type="radio" name="protection" value="oui" id="protection" onchange="selection_protection()" /> <label for="oui">Oui</label>
-						</div>
-						<div>
-							<input type="radio" name="protection" value="non" id="protection" onchange="selection_protection()" /> <label for="non">Non</label>
-						</div>
-						<div>
-							<input type="radio" name="protection" value="demande" id="protection" onchange="selection_protection()" /> <label for="demande">Demandée</label>
-						</div>
-						<div>
-							<input type="radio" name="protection" value="encours" id="protection" onchange="selection_protection()" /> <label for="encours">En cours</label>
-						</div>
-					</div>
-				</div>
 
 
-				<div>
-					<label for="precisionprotection" id="precisionprotection_label" style="display: none">Il existe une protection juridique (ou en cours), précisez
-						laquelle </label> <select name="precisionprotection" id="precisionprotection" style="display: none">
-						<option value="">Selectionnez</option>
-						<option value="trouvee">Tutelle</option>
-						<option value="rencours">Curatelle</option>
-						<option value="ropp">Curatelle renforcée</option>
-						<option value="nsp">Sauvegarde de justice</option>
-					</select>
-				</div>
-			</div>
-			</fieldset>
-
-
-
-
-
-			<!-- <input type="submit" name="valider" value="Valider" /> -->
 			<div>
-				<button type="submit" class=boutonvalid>Valider</button>
+				<div>
+					<h4>Cette personne a t'elle ou pourrait elle bénéficier</h4>
+					<h4>D'une dérogation d'âge pour une place en EHPAD?</h4>
+
+					<div>
+						<input type="radio" id="ehpad" name="ehpad" value="sansobjet" /> <label for="sansobjet">Sans objet</label>
+					</div>
+					<div>
+						<input type="radio" id="ehpad" name="ehpad" value="impossible" /> <label for="impossible">Impossible</label>
+					</div>
+					<div>
+						<input type="radio" id="ehpad" name="ehpad" value="obtenu" /> <label for="obtenu">Déjà obtenu</label>
+					</div>
+					<div>
+						<input type="radio" id="ehpad" name="ehpad" value="refus" /> <label for="refus">Refusée</label>
+					</div>
+					<div>
+						<input type="radio" id="ehpad" name="ehpad" value="demande" /> <label for="demande">Demande en cours</label>
+					</div>
+					<div>
+						<input type="radio" id="ehpad" name="ehpad" value="ropp" /> <label for="ropp">A été envisagée mais ROPP</label>
+					</div>
+					<div>
+						<input type="radio" id="ehpad" name="ehpad" value="envisager" /> <label for="envisager">A envisager</label>
+					</div>
+					<div>
+						<input type="radio" id="ehpad" name="ehpad" value="nsp" /> <label for="nsp">NSP</label>
+					</div>
+				</div>
 			</div>
+
+			<div>
+				<div>
+					<h4>Quelque soit l'âge, de l'aide sociale pour une place en EHPAD?</h4>
+					<div>
+						<input type="radio" id="aidesocialeehpad" name="aidesocialeehpad" value="sansobjet" /> <label for="sansobjet">Sans objet</label>
+					</div>
+					<div>
+						<input type="radio" id="aidesocialeehpad" name="aidesocialeehpad" value="obtenu" /> <label for="obtenu">Déjà obtenu</label>
+					</div>
+					<div>
+						<input type="radio" id="aidesocialeehpad" name="aidesocialeehpad" value="refus" /> <label for="refus">Refusée</label>
+					</div>
+					<div>
+						<input type="radio" id="aidesocialeehpad" name="aidesocialeehpad" value="demande" /> <label for="demande">Demande en cours</label>
+					</div>
+					<div>
+						<input type="radio" id="aidesocialeehpad" name="aidesocialeehpad" value="ropp" /><label for="ropp">A été envisagée mais ROPP</label>
+					</div>
+					<div>
+						<input type="radio" id="aidesocialeehpad" name="aidesocialeehpad" value="envisager" /> <label for="envisager">A envisager</label>
+					</div>
+					<div>
+						<input type="radio" id="aidesocialeehpad" name="aidesocialeehpad" value="nsp" /> <label for="nsp">NSP</label>
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<div>
+					<h4>Recherche de place en EHPAD (avec ou sans dérogation d'âge), situation actuelle</h4>
+					<div>
+						<input type="radio" name="placeehpad" value="sansobjet" id="sansobjet" /> <label for="sansobjet">Sans objet</label>
+					</div>
+					<div>
+						<input type="radio" name="placeehpad" value="impossible" id="impossible" /> <label for="impossible">Impossible</label>
+					</div>
+					<div>
+						<input type="radio" name="placeehpad" value="trouve" id="trouve" /> <label for="trouve">Place trouvée</label>
+					</div>
+					<div>
+						<input type="radio" name="placeehpad" value="rencours" id="rencours" /> <label for="rencours">Recherche en cours</label>
+					</div>
+					<div>
+						<input type="radio" name="placeehpad" value="ropp" id="ropp" /> <label for="ropp">A été envisagée mais ROPP</label>
+					</div>
+					<div>
+						<input type="radio" name="placeehpad" value="envisager" id="envisager" /> <label for="envisager">A envisager</label>
+					</div>
+					<div>
+						<input type="radio" name="placeehpad" value="nsp" id="nsp" /> <label for="nsp">NSP</label>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div>
+				<h4>Existe t'il une protection juridique</h4>
+				<div>
+					<input type="radio" name="protection" value="oui" id="protection" onchange="selection_protection()" /> <label for="oui">Oui</label>
+				</div>
+				<div>
+					<input type="radio" name="protection" value="non" id="protection" onchange="selection_protection()" /> <label for="non">Non</label>
+				</div>
+				<div>
+					<input type="radio" name="protection" value="demande" id="protection" onchange="selection_protection()" /> <label for="demande">Demandée</label>
+				</div>
+				<div>
+					<input type="radio" name="protection" value="encours" id="protection" onchange="selection_protection()" /> <label for="encours">En cours</label>
+				</div>
+			</div>
+		</div>
+
+
+		<div>
+			<label for="precisionprotection" id="precisionprotection_label" style="display: none">Il existe une protection juridique (ou en cours), précisez
+				laquelle </label> <select name="precisionprotection" id="precisionprotection" style="display: none">
+				<option value="">Selectionnez</option>
+				<option value="trouvee">Tutelle</option>
+				<option value="rencours">Curatelle</option>
+				<option value="ropp">Curatelle renforcée</option>
+				<option value="nsp">Sauvegarde de justice</option>
+			</select>
+		</div>
+		</div>
+
+
+
+
+
+		<!-- <input type="submit" name="valider" value="Valider" /> -->
+		<div>
+			<button type="submit" class=boutonvalid>Valider</button>
+		</div>
 		</div>
 
 	</form>
