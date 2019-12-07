@@ -7,6 +7,7 @@
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="css/bootstrap4.4.1.min.css" />
+<link rel="stylesheet" href="css/samedi.css" />
 
 <style type="text/css">
 .form-group {
@@ -54,6 +55,10 @@
 
 					<div class="col-md-3">
 						<label class="col-form-label">Sexe</label>
+
+
+
+
 						<div>
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="radio" name="sexe" value="homme" id="homme"> <label class="form-check-label" for="homme">Homme</label>
@@ -187,29 +192,36 @@
 								<label class="col-form-label"><strong>D'une AAH?</strong></label>
 
 								<div>
-									<input type="radio" name="aah" value="sansobjet" id="sansobjet" /><label for="sansobjet"><abbr
-										title="sans objet : absence manifeste de troubles">Sans objet</abbr></label>
+									<input type="radio" name="aah" value="sansobjet" id="sansobjet" />
+									<label for="sansobjet" class="tooltip_j">Sans objet<span class="tooltiptext_j">absence manifeste de troubles</span></label>
 								</div>
 								<div>
-									<input type="radio" name="aah" value="impossible" id="impossible" /> <label for="impossible">Impossible</label>
+									<input type="radio" name="aah" value="impossible" id="impossible" />
+									<label for="impossible">Impossible</label>
 								</div>
 								<div>
-									<input type="radio" name="aah" value="obtenu" id="obtenu" /><label for="obtenu">Déjà obtenu</label>
+									<input type="radio" name="aah" value="obtenu" id="obtenu" />
+									<label for="obtenu">Déjà obtenu</label>
 								</div>
 								<div>
-									<input type="radio" name="aah" value="refus" id="refus" /><label for="refus">Refusée</label>
+									<input type="radio" name="aah" value="refus" id="refus" />
+									<label for="refus">Refusée</label>
 								</div>
 								<div>
-									<input type="radio" name="aah" value="demande" id="demande" /> <label for="demande">Demande en cours</label>
+									<input type="radio" name="aah" value="demande" id="demande" />
+									<label for="demande">Demande en cours</label>
 								</div>
 								<div>
-									<input type="radio" name="aah" value="ropp" id="ropp" /> <label for="ropp">A été envisagée mais ROPP</label>
+									<input type="radio" name="aah" value="ropp" id="ropp" />
+									<label for="ropp">A été envisagée mais ROPP</label>
 								</div>
 								<div>
-									<input type="radio" name="aah" value="envisager" id="envisager" /> <label for="envisager">A envisager</label>
+									<input type="radio" name="aah" value="envisager" id="envisager" />
+									<label for="envisager">A envisager</label>
 								</div>
 								<div>
-									<input type="radio" name="aah" value="nsp" id="nsp" /> <label for="nsp">NSP</label>
+									<input type="radio" name="aah" value="nsp" id="nsp" />
+									<label for="nsp">NSP</label>
 								</div>
 							</div>
 
@@ -553,16 +565,16 @@
 							<input type="radio" name="placeehpad" value="nsp" id="nsp" /> <label for="nsp">NSP</label>
 						</div>
 					</div>
-				</div>
+				</div><!-- end row -->
+			</div><!-- end card body -->
+		</div><!-- end card -->
 
-				<div class="row">
 
 					<div class="card">
-						<div class="card-header">Cette personne a-t-elle ou pourrait elle bénéficier</div>
+						<div class="card-header">Existe t'il une protection juridique</div>
 						<div class="card-body">
 
 							<div>
-								<strong>Existe t'il une protection juridique</strong>
 								<div>
 									<input type="radio" name="protection" value="oui" id="protection" onchange="selection_protection()" /> <label for="oui">Oui</label>
 								</div>
@@ -577,22 +589,18 @@
 								</div>
 							</div>
 						</div>
-					</div>
 
-					<div>
-						<label for="precisionprotection" id="precisionprotection_label" style="display: none">Il existe une protection juridique (ou en cours), précisez
-							laquelle </label> <select name="precisionprotection" id="precisionprotection" style="display: none">
-							<option value="">Selectionnez</option>
-							<option value="trouvee">Tutelle</option>
-							<option value="rencours">Curatelle</option>
-							<option value="ropp">Curatelle renforcée</option>
-							<option value="nsp">Sauvegarde de justice</option>
-						</select>
-					</div>
-				</div>
-
-
-
+						<div>
+							<label for="precisionprotection" id="precisionprotection_label" style="display: none">Il existe une protection juridique (ou en cours), précisez
+								laquelle </label> <select name="precisionprotection" id="precisionprotection" style="display: none">
+								<option value="">Selectionnez</option>
+								<option value="trouvee">Tutelle</option>
+								<option value="rencours">Curatelle</option>
+								<option value="ropp">Curatelle renforcée</option>
+								<option value="nsp">Sauvegarde de justice</option>
+							</select>
+						</div>
+					</div><!-- end card -->
 
 
 				<!-- <input type="submit" name="valider" value="Valider" /> -->

@@ -1,0 +1,32 @@
+.tooltip_j {
+/*     position: relative; */
+/*     display: inline-block; */
+/*     border-bottom: 1px dotted black; */
+}
+
+.tooltip_j .tooltiptext_j {
+    visibility: hidden;
+    width: auto;
+    background-color: #d1ecf1;
+    color: #0c5460;
+    
+    text-align: justify;
+    border-radius: 6px;
+    border-color:red;
+    padding: 10px 30px;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    
+    margin-top:-20px;
+    margin-left: 20px;
+    
+/*     top: -5px;
+    left: 105%; 
+ */}
+
+.tooltip_j:hover .tooltiptext_j {
+    visibility: visible;
+}
+
