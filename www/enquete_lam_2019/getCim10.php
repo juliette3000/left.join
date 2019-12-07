@@ -11,11 +11,22 @@ if (isset ( $_GET ['search'] )) {
 	$result = mysqli_query ( $conn, $query );
 	
 	$response = array ();
+	
+	echo '[';
+	
+	$isFirst = true;
+	
 	while ( $row = mysqli_fetch_array ( $result ) ) {
-		echo  $row ['code'] . $row ['name'] ;
+		if ($isFirst){
+			echo  '{"id":"' . $row ['code'] . '","tagName":"' . $row ['name'] . '"}';
+			$isFirst = false;
+		}
+		else {
+			echo  ',{"id":"' . $row ['code'] . '","tagName":"' . $row ['name'] . '"}';
+		}
 	}
 	
-
+	echo ']';
 	
 } else {
 	
