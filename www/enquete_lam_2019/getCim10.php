@@ -18,11 +18,11 @@ if (isset ( $_GET ['search'] )) {
 	
 	while ( $row = mysqli_fetch_array ( $result ) ) {
 		if ($isFirst){
-			echo  '{"id":"' . $row ['code'] . '","tagName":"' . $row ['name'] . '"}';
+		    echo  '{"id":"' . $row ['code'] . '","tagName":"' . $row ['name'] . ' ('. $row ['code'] . ')"}';
 			$isFirst = false;
 		}
 		else {
-			echo  ',{"id":"' . $row ['code'] . '","tagName":"' . $row ['name'] . '"}';
+		    echo  ',{"id":"' . $row ['code'] . '","tagName":"' . $row ['name'] . ' ('. $row ['code'] . ')"}';
 		}
 	}
 	

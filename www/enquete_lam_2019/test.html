@@ -37,8 +37,9 @@
 								<i class="input-group-text fa fa-search"></i>
 							</div>
 							<input type="text" id="w-input-search" class="form-control"
-								onkeyup="selection()" placeholder="Rechercher une maladie..."
-								aria-describedby="inputSuccess2Status">
+								placeholder="Rechercher une maladie..."
+								aria-describedby="inputSuccess2Status"
+								name="cim10">
 						</div>
 					</form>
 				</div>
@@ -48,38 +49,22 @@
 </div>
 
 <script>
-  $(document).ready(function() {
+$(document).ready(function() {
 
 	$('#w-input-search').autocomplete({
 		serviceUrl: 'http://localhost/enquete_lam_2019/getCim10.php',
 		paramName: "search",
 		delimiter: ",",
-	   transformResult: function(response) {
-		    	
-		return {      	
-		  //must convert json to javascript object before process
-		  suggestions: $.map($.parseJSON(response), function(item) {
-		            	
-		      return { value: item.tagName, data: item.id };
-		   })
-		            
-		 };
-		        
-         }
-		    
+		transformResult: function(response) {
+			return {
+				//must convert json to javascript object before process
+				suggestions: $.map($.parseJSON(response), function(item) {
+					return { value: item.tagName, data: item.id };
+				})
+			};
+		}
 	 });
-				
   });
-  
-
-  function selection() {
-      var input, filter, ul, li, a, i, txtValue;
-      input = document.getElementById("w-input-search");
-      sel = input.value();
-      
-      alert(sel);
-      
-  }
 </script>
 	
 </body>
