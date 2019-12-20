@@ -30,7 +30,7 @@
 						<h3>CIM 10 TEST</h3>
                    </div>
 
-                   <form id="propositionModel" action="/localhost/toto.php" method="POST">
+                   <form id="propositionModel" action="submitCim10.php" method="POST">
                 
 						<div class="input-group mb-2">
 							<div class="input-group-prepend">
@@ -41,6 +41,9 @@
 								aria-describedby="inputSuccess2Status"
 								name="cim10">
 						</div>
+						<input type="text" id="aaa"/>
+						
+						 <button type="submit" class="btn btn-primary">Submit</button>
 					</form>
 				</div>
 			</div>
@@ -52,7 +55,6 @@
 $(document).ready(function() {
 
 	$('#w-input-search').autocomplete({
-		// serviceUrl: 'http://localhost/enquete_lam_2019/getCim10.php',
 		serviceUrl: 'getCim10.php',
 		paramName: "search",
 		delimiter: ",",
@@ -66,6 +68,12 @@ $(document).ready(function() {
 		}
 	 });
   });
+  
+code = 'aaa (122)';
+first = code.indexOf("(");
+last = code.length;
+
+$('#aaa').val(code.substring(first + 1, last - 1));
 </script>
 	
 </body>
