@@ -10,8 +10,6 @@ if (isset($_POST['autreentree'])) {
 	}
 }
 	
-	
-	
 if (isset($_POST['departementmdph'])) {
 	$departementmdph = $_POST['departementmdph'];
 		
@@ -47,13 +45,7 @@ if (isset($_POST['sexe'])
 		&& isset($_POST['placeehpad'])
 		&& isset($_POST['protection'])
 		&& isset($_POST['precisionprotection'])
-
-		
-		)
-
-
-
-{
+		) {
 	$sexe = $_POST['sexe'];
 	$datenaiss = $_POST['datenaiss'];
 	$dateentree = $_POST['dateentree'];
@@ -79,12 +71,10 @@ if (isset($_POST['sexe'])
 	$placeehpad = $_POST['placeehpad'];
 	$protection = $_POST['protection'];
 	$precisionprotection = $_POST['precisionprotection'];
-	
 
 	
-	
-	echo $datenaiss. " a bien été enregistré !" ;	
-	echo $sexe;
+	echo $datenaiss . " a bien été enregistr&eacute; !" ;	
+	echo "SEXE : " . $sexe;
 	echo $dateentree;
 	echo $mode_entree;
 	echo $autreentree;
@@ -109,10 +99,6 @@ if (isset($_POST['sexe'])
 	//echo $placeehpad;
 	//echo $protection;
 	//echo $precisionprotection;
-	
-	
-	
-	
 }
 
 
@@ -135,7 +121,7 @@ VALUES 					('$sexe',	'$datenaiss',	'$dateentree',	'$mode_entree', '$autreentree
 
 
 if ($conn->query($sql) === TRUE)
-{	echo $datenaiss. " a bien été enregistré !" ;
+{	echo " <br/><br/><br/><br/>INSERT EFFECTUE" ;
 }
 
 
