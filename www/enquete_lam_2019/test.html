@@ -52,7 +52,8 @@
 $(document).ready(function() {
 
 	$('#w-input-search').autocomplete({
-		serviceUrl: 'http://localhost/enquete_lam_2019/getCim10.php',
+		// serviceUrl: 'http://localhost/enquete_lam_2019/getCim10.php',
+		serviceUrl: 'getCim10.php',
 		paramName: "search",
 		delimiter: ",",
 		transformResult: function(response) {
