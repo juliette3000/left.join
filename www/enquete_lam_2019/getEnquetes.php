@@ -4,7 +4,7 @@ include "constantes.php";
 if (isset ( $_GET ['search'] )) {
 	$search = $_GET ['search'];
 	
-	$query = "SELECT * FROM Cim10 WHERE name like '%" . $search . "%'";
+	$query = "SELECT id, sexe, annee_naissance FROM enquete";
 	
 	$conn = new mysqli ( $servername, $username, $password, $dbname );
 	
@@ -16,21 +16,17 @@ if (isset ( $_GET ['search'] )) {
 	
 	while ( $row = mysqli_fetch_array ( $result ) ) {
 		if ($isFirst){
-		    echo  '{"id":"' . $row ['code'] . '","tagName":"' . $row ['name'] . ' ('. $row ['code'] . ')"}';
+			echo  '{"id":"' . $row ['id'] . '","sexe":"' . $row ['sexe'] . ', "annee_naissance":"'. $row ['annee_naissance'] . '"}';
 			$isFirst = false;
 		}
 		else {
-		    echo  ',{"id":"' . $row ['code'] . '","tagName":"' . $row ['name'] . ' ('. $row ['code'] . ')"}';
+		    echo  ',{"id":"' . $row ['id'] . '","sexe":"' . $row ['sexe'] . ', "annee_naissance":"'. $row ['annee_naissance'] . '"}';
 		}
 	}
 	
 	echo ']';
 	
-} else {
-	
-	echo 'blaireau y a pas de search';
 }
-
 exit ();
 
 ?>
