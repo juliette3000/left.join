@@ -11,10 +11,17 @@
 <link rel="stylesheet" href="css/formulaire.css" />
 
 <title>Enquête LAM - volet médical</title>
+
+<style type="text/css">
+.titre {
+	padding: 10px 0px;
+}
+</style>
+
 </head>
 
 <body>
-	<form class="container" method="post" action="save_social.php">
+	<form class="container" method="post" action="save_medical.php">
 
 		<div class="d-flex justify-content-center" style="margin-top: 30px">
 			<div class="card">
@@ -39,10 +46,10 @@
 					</div>
 				</div>
 
-				<div class="form-group row">
+				<div class="row">
 
 					<div class="col-md">
-						<strong>Motifs d'entrée au LAM</strong>
+						<div class="titre">Motifs d'entrée au LAM</div>
 	
 						<div>
 							<div class="form-check">
@@ -86,20 +93,19 @@
 								<input type="text" name="autreentree" id="autreentree" style="display: none" />
 							</div>
 						</div>
-						<div>
-							<label for="cim10" class="col-form-label">Pathologies d'entrée (cim10):</label>
-							<input type="text" class="form-control" name="cim10" id="w-input-search" class="form-control"
+						<div style="margin-top: 30px">
+							<label for="cim10" class="col-form-label titre">Pathologies présentes au moment de l'enquête</label>
+							<input type="text" class="form-control" id="cim10" name="cim10" class="form-control"
 								placeholder="Rechercher une maladie..."
 								aria-describedby="inputSuccess2Status"
 								name="cim10"/>
-							
 							
 						</div>
 					</div>
 
 					<div class="col-md">
 	
-						<strong>Pathologies présentes au moment de l'enquête</strong>
+						<div class="titre">Pathologies présentes au moment de l'enquête</div>
 	
 						<div>
 							<div class="form-check">
@@ -164,7 +170,7 @@
 											onchange="selection_date_hepatite()" style="display: none" />VHB
 								</label>
 		
-								<label for="datediagvhb" id="datediagvhblabel" style="display: none">Date du diagnostique :
+								<label for="datediagvhb" id="datediagvhblabel" style="display: none">Date du diagnostic :
 									<input type="date" name="datediagvhb" id="datediagvhb" value="precisionhepatite"
 										style="display: none" />
 								</label> 
@@ -176,7 +182,7 @@
 									id="precisionhepatiteb" onchange="selection_date_hepatiteb()"
 									style="display: none" />VHC</label>
 		
-								<label for="datediagvhc" id="datediagvhclabel" 	style="display: none"> Date du diagnostique :<input
+								<label for="datediagvhc" id="datediagvhclabel" style="display: none"> Date du diagnostic :<input
 									type="date" name="datediagvhc" id="datediagvhc"
 									style="display: none" /></label> 
 							</div>
@@ -206,11 +212,17 @@
 
 					<div class="col-md">
 					
-						<strong>Douleurs</strong>
+						<div class="titre">Douleurs</div>
 		
 						<div>
-							<label for="oui"><input type="radio" name="douleur" value="oui" id="oui" onchange="eva()" />Oui</label>
-							<label for="non"><input type="radio" name="douleur" value="non" id="non" onchange="eva()" />Non</label>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="douleur" value="oui" id="oui" onchange="eva()" />
+								<label class="form-check-label" for="oui">Oui</label>
+							</div>
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" name="douleur" value="non" id="non" onchange="eva()" />
+								<label class="form-check-label" for="non">Non</label>
+							</div>
 						</div>
 						<div>
 							<label for="echelleeva" class="form-check-label" id="echelleevalabel" style="display: none">EVA (de 0 à 10)</label>
@@ -218,7 +230,7 @@
 						</div>
 		
 		
-						<strong>Besoin de rééducation</strong>
+						<div class="titre">Besoin de rééducation</div>
 						<div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="reeduc" value="kine">
@@ -234,7 +246,7 @@
 							</div>
 						</div>
 
-						<strong>Addictions présentes au cours des 12 derniers mois</strong>
+						<div class="titre">Addictions présentes au cours des 12 derniers mois</div>
 
 						<div>
 
@@ -246,42 +258,47 @@
 								<input class="form-check-input" type="checkbox" name="addictions" value="Tabac">
 								<label class="form-check-label">Tabac</label>
 							</div>
-							<div class="form-check">
-								<input class="form-check-input" type="checkbox" name="addictions" value="drogues" id="drogues" onchange="drogue()">Consommation de drogues
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" name="addictions" value="drogues" id="drogues" onchange="drogue()">
+								<label class="form-check-label">Consommation de drogues</label>
+							</div>
 						</div>
 						<div>
-							<label for="cannabis" id="cannabislabel" style="display: none">Cannabis</label>
-						</div>
 							<div class="form-check">
+								<label for="cannabis" id="cannabislabel" style="display: none">Cannabis</label>
 								<input class="form-check-input" type="checkbox" name="cannabis" value="cannabis" id="cannabis" style="display: none">
-		
-							<label for="crack" id="cracklabel" style="display: none">Crack/Cocaïne</label>
-							<input type="checkbox"
-								name="crack" value="crack" id="crack" style="display: none">
-							<label for="opiaces" id="opiaceslabel" style="display: none">Opiacés</label><input
-								type="checkbox" name="opiaces" value="opiaces" id="opiaces"
-								style="display: none"> <label for="autresdrogues"
-								id="autresdrogueslabel" style="display: none">Autres</label><input
-								type="checkbox" name="autresdrogues" value="autresdrogues"
-								id="autresdrogues" style="display: none" onchange="autredrogue()">
+							</div>
 						</div>
 						<div>
-							<label for="autredrogueprecision" id="autredrogueprecisionlabel"
-								style="display: none">précisez :</label>
-								<input type="text" name="autredrogueprecision" id="autredrogueprecision"
-								value="autredrogueprecision" style="display: none" />
-		
+							<div class="form-check">
+								<label class="form-check-input" for="crack" id="cracklabel" style="display: none">Crack/Cocaïne</label>
+								<input type="checkbox" name="crack" value="crack" id="crack" style="display: none">
+							</div>
+							<div class="form-check">
+								<label class="form-check-input" for="opiaces" id="opiaceslabel" style="display: none">Opiacés</label>
+								<input type="checkbox" name="opiaces" value="opiaces" id="opiaces" style="display: none"/>
+							</div>
+							<div class="form-check">
+								<label for="autresdrogues" id="autresdrogueslabel" style="display: none">Autres</label>
+								<input type="checkbox" name="autresdrogues" value="autresdrogues" id="autresdrogues" style="display: none" onchange="autredrogue()">
+							</div>
+						</div>
+						<div>
+							<div class="form-check">
+								<label class="form-check-input" for="autredrogueprecision" id="autredrogueprecisionlabel" style="display: none">précisez :</label>
+								<input type="text" name="autredrogueprecision" id="autredrogueprecision" value="autredrogueprecision" style="display: none" />
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-12" style="margin-bottom: 50px; text-align: center;">
+				<div class="col-md-12" style="margin-bottom: 20px; text-align: center;">
 					<button type="submit" class="btn btn-info">Valider</button>
 				</div>
 			</div>
 		</div>
-	</div>
+	
 </form>
 
 
@@ -444,7 +461,7 @@
 		
 $(document).ready(function() {
 
-	$('#w-input-search').autocomplete({
+	$('#cim10').autocomplete({
 		serviceUrl: 'getCim10.php',
 		paramName: "search",
 		delimiter: ",",

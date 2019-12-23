@@ -14,7 +14,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO medical (poids, taille, codeCim10) VALUES (" . $poids . "," . $taille . "," . $codeCim10 .")";
+$now = date_create()->format('Y-m-d H:i:s');
+
+$sql = "INSERT INTO medical (poids, taille, codeCim10, info, date) VALUES ("
+    . $poids . "," . $taille . "," . $codeCim10 . "," . $_SERVER['HTTP_REFERER'] . $now . ")";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
