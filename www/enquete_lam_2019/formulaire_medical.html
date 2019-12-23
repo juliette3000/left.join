@@ -294,7 +294,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12" style="margin-bottom: 20px; text-align: center;">
-					<button type="submit" class="btn btn-info">Valider</button>
+					<button type="submit" class="btn btn-info" onclick="cleanCim10()">Valider</button>
 				</div>
 			</div>
 		</div>
@@ -439,7 +439,6 @@
 				$('#autreslabel').hide();
 				$('#autres').val('');
 			}
-
 		}
 
 		function autredrogue() {
@@ -459,28 +458,28 @@
 		}
 
 		
-$(document).ready(function() {
+	$(document).ready(function() {
+		$('#cim10').autocomplete({
+			serviceUrl: 'getCim10.php',
+			paramName: "search",
+			delimiter: ",",
+			transformResult: function(response) {
+				return {
+					//must convert json to javascript object before process
+					suggestions: $.map($.parseJSON(response), function(item) {
+						return { value: item.tagName, data: item.id };
+					})
+				};
+			}
+		 });
+	  });
 
-	$('#cim10').autocomplete({
-		serviceUrl: 'getCim10.php',
-		paramName: "search",
-		delimiter: ",",
-		transformResult: function(response) {
-			return {
-				//must convert json to javascript object before process
-				suggestions: $.map($.parseJSON(response), function(item) {
-					return { value: item.tagName, data: item.id };
-				})
-			};
-		}
-	 });
-  });
-  
-code = 'aaa (122)';
-first = code.indexOf("(");
-last = code.length;
-
-$('#aaa').val(code.substring(first + 1, last - 1));
+	function cleanCim10() {
+		var code = $("#cim10").val();
+		first = code.indexOf("(");
+		last = code.length;
+		$('#cim10').val(code.substring(first + 1, last - 1));
+	}
 </script>
 </body>
 </html>
