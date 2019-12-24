@@ -75,45 +75,33 @@ if ($idNotFound){
 		
 			<div class="row">
 				<div class="col-md-2">
-					<label for="Poids" class="col-form-label">Poids (kg):</label>
-					<input type="number" class="form-control" name="poids" id="poids" required="required" />
+					<label class="col-form-label">Poids (kg):</label>
+					<input type="number" class="form-control" name="poids" id="poids" value="<?php echo $poids ?>" readonly="readonly"/>
 				</div>
 				<div class="col-md-2">
-					<label for="Poids" class="col-form-label">Taille (cm):</label>
-					<input type="number" class="form-control" name="taille" id="taille" required="required" />
+					<label class="col-form-label">Taille (cm):</label>
+					<input type="number" class="form-control" name="taille" id="taille" value="<?php echo $taille ?>" readonly="readonly" />
 				</div>
 			</div>
+
+			<br/><br/>
 
 			<div class="row">
-
-				<div class="col-md">
-					<div class="titre">Motifs d'entrée au LAM</div>
-				</div>
-
-				<div class="col-md">
-
+				<div class="col-md-12">
 					<div class="titre">Pathologies présentes au moment de l'enquête</div>
+				</div>
+				<div class="col-md-4">
 
-<div>
-poids <?php echo $poids ?>
-</div>
-<div>
-taille <?php echo $taille ?>
-</div>
-<div>
-cim10 <?php echo $cim10 ?>
-</div>
-<div>
-date <?php echo $date ?>
-</div>
 
+                    <label class="col-form-label">cim10</label>
+                    <input type="text" class="form-control" readonly="readonly" value="<?php echo $cim10 ?>"/>
 				</div>
 
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12" style="margin-bottom: 20px; text-align: center;">
-				<button type="submit" class="btn btn-info" onclick="cleanCim10()">Valider</button>
+				<div class="col-md-2">
+					<label class="col-form-label">date</label>
+					<input type="text" class="form-control" readonly="readonly" value="<?php echo $date ?>"/>
+				</div>
+
 			</div>
 		</div>
 	</div>
