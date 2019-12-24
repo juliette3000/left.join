@@ -3,10 +3,6 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="author" content="Yann Abd-el-Kader"> 
-	<meta name="description" content="requ�tes SQL avanc�es sur base athl�tisme"> 
-	<meta name="keyword" content="SQL athl�tisme requ�tes avanc�es"> 
-	<meta property="og:title" content="SQL athl�tisme requ�tes avanc�es" />
 
 	<link href="css/bootstrap3.3.6.min.css" media="screen" rel="stylesheet" type="text/css" />
 	<link href="css/dataTables.bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
@@ -53,22 +49,22 @@
 	<?php
 	include "constantes.php";
 
-	$query = "SELECT id, poids, taille, codeCim10, date FROM medical";
+	$sql = "SELECT id, poids, taille, codeCim10, date FROM medical";
 
-	$conn = new mysqli ( $servername, $username, $password, $dbname );
-
-	$result = mysqli_query ( $conn, $query );
-
+	mysql_connect($servername, $username, $password) or die( "Impossible de se connecter : "  .  mysql_error ());
+	mysql_select_db($dbname);
+	
+	$result = mysql_query($sql) or die("['Erreur SQL !','" .$sql. "','" . mysql_error() . "]");
 
 	$isFirst = true;
 
-	while ( $row = mysqli_fetch_array ( $result ) ) {
+	while ($row = mysql_fetch_row($result)) {
 		if ($isFirst){
-			echo  '{"id":"<a href=medical.php?id=' . $row ['id'] . '>' . $row ['id'] . '</a>","poids":"' . $row ['poids'] . '", "codeCim10":"'. $row ['codeCim10'] . '"}';
+		    echo  '{"id":"<a href=medical.php?id=' . $row ['id'] . '>' . $row ['id'] . '</a>","poids":"' . $row ['poids'] . '", "taille":"' . $row ['taille'] . '", "codeCim10":"'. $row ['codeCim10'] . '", "date":"' . $row ['date'] . '"}';
 			$isFirst = false;
 		}
 		else {
-			echo  ',{"id":"<a href=medical.php?id=' . $row ['id'] . '>' . $row ['id'] . '","poids":"' . $row ['poids'] . '", "codeCim10":"'. $row ['codeCim10'] . '"}';
+		    echo ',{"id":"<a href=medical.php?id=' . $row ['id'] . '>' . $row ['id'] . '</a>","poids":"' . $row ['poids'] . '", "taille":"' . $row ['taille'] . '", "codeCim10":"'. $row ['codeCim10'] . '", "date":"' . $row ['date'] . '"}';
 		}
 	}
 	
@@ -85,7 +81,8 @@
 	    { data: 'id', title: 'id' },
 	    { data: 'poids', title: 'poids' },
 	    { data: 'taille', title: 'taille' },
-	    { data: 'codeCim10', title: 'codeCim10' },    
+	    { data: 'codeCim10', title: 'codeCim10' },
+	    { data: 'date', title: 'date' }    
 	     ]  
 	});
 	

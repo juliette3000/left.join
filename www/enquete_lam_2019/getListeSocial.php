@@ -3,10 +3,6 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="author" content="Yann Abd-el-Kader"> 
-	<meta name="description" content="requêtes SQL avancées sur base athlétisme"> 
-	<meta name="keyword" content="SQL athlétisme requêtes avancées"> 
-	<meta property="og:title" content="SQL athlétisme requêtes avancées" />
 
 	<link href="css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
 	<link href="css/dataTables.bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
@@ -18,7 +14,7 @@
 
 	<link rel="manifest" href="/manifest.json">
 	
-	<title>Enquêtes</title>
+	<title>EnquÃªtes</title>
 
 </head>
 
@@ -45,7 +41,7 @@
 	<?php
 	include "constantes.php";
 
-	$query = "SELECT id, sexe, annee_naissance FROM enquete";
+	$query = "SELECT id, sexe, annee_naissance FROM social";
 
 	$conn = new mysqli ( $servername, $username, $password, $dbname );
 
@@ -56,11 +52,11 @@
 
 	while ( $row = mysqli_fetch_array ( $result ) ) {
 		if ($isFirst){
-			echo  '{"id":"<a href=enquete.php?id=' . $row ['id'] . '>' . $row ['id'] . '</a>","sexe":"' . $row ['sexe'] . '", "annee_naissance":"'. $row ['annee_naissance'] . '"}';
+			echo  '{"id":"<a href=social.php?id=' . $row ['id'] . '>' . $row ['id'] . '</a>","sexe":"' . $row ['sexe'] . '", "annee_naissance":"'. $row ['annee_naissance'] . '"}';
 			$isFirst = false;
 		}
 		else {
-			echo  ',{"id":"<a href=enquete.php?id=' . $row ['id'] . '>' . $row ['id'] . '","sexe":"' . $row ['sexe'] . '", "annee_naissance":"'. $row ['annee_naissance'] . '"}';
+			echo  ',{"id":"<a href=social.php?id=' . $row ['id'] . '>' . $row ['id'] . '","sexe":"' . $row ['sexe'] . '", "annee_naissance":"'. $row ['annee_naissance'] . '"}';
 		}
 	}
 	
