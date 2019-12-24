@@ -4,11 +4,11 @@ include "constantes.php";
 
 $poids=$_POST["poids"];
 $taille=$_POST["taille"];
-$codeCim10=$_POST["codeCim10"];
+$cim10=$_POST["cim10"];
 $now = date("m.d.y");
 
-$sql = "INSERT INTO medical (poids, taille, codeCim10, date) VALUES ("
-    . $poids . "," . $taille . ",'" . $codeCim10 . "','" . $now . "');";
+$sql = "INSERT INTO medical (poids, taille, cim10, date) VALUES ("
+    . $poids . "," . $taille . ",'" . $cim10 . "','" . $now . "');";
 
 $link  =  mysql_connect($servername, $username, $password) or die( "Impossible de se connecter : "  .  mysql_error ());
     

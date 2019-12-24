@@ -4,7 +4,7 @@ include "constantes.php";
 
 $poids=$_POST["poids"];
 $taille=$_POST["taille"];
-$codeCim10=$_POST["codeCim10"];
+$cim10=$_POST["cim10"];
 
 
 // Create connection
@@ -17,8 +17,8 @@ if ($conn->connect_error) {
 
 $now = date_create()->format('Y-m-d H:i:s');
 
-$sql = "INSERT INTO medical (poids, taille, codeCim10, date) VALUES ("
-    . $poids . "," . $taille . ",'" . $codeCim10 . "','" . $now . "');";
+$sql = "INSERT INTO medical (poids, taille, cim10, date) VALUES ("
+    . $poids . "," . $taille . ",'" . $cim10 . "','" . $now . "');";
     
     echo $sql;
     

@@ -49,22 +49,22 @@
 	<?php
 	include "constantes.php";
 
-	$sql = "SELECT id, poids, taille, codeCim10, date FROM medical";
+	$sql = "SELECT * FROM medical";
 
 	mysql_connect($servername, $username, $password) or die( "Impossible de se connecter : "  .  mysql_error ());
 	mysql_select_db($dbname);
-	
+
 	$result = mysql_query($sql) or die("['Erreur SQL !','" .$sql. "','" . mysql_error() . "]");
 
 	$isFirst = true;
 
-	while ($row = mysql_fetch_row($result)) {
+	while($row = mysql_fetch_assoc($result)){
 		if ($isFirst){
-		    echo  '{"id":"<a href=medical.php?id=' . $row ['id'] . '>' . $row ['id'] . '</a>","poids":"' . $row ['poids'] . '", "taille":"' . $row ['taille'] . '", "codeCim10":"'. $row ['codeCim10'] . '", "date":"' . $row ['date'] . '"}';
+		    echo  '{"id":"<a href=medical.php?id=' . $row ['id'] . '>' . $row ['id'] . '</a>","poids":"' . $row ['poids'] . '", "taille":"' . $row ['taille'] . '", "cim10":"'. $row ['cim10'] . '", "date":"' . $row ['date'] . '"}';
 			$isFirst = false;
 		}
 		else {
-		    echo ',{"id":"<a href=medical.php?id=' . $row ['id'] . '>' . $row ['id'] . '</a>","poids":"' . $row ['poids'] . '", "taille":"' . $row ['taille'] . '", "codeCim10":"'. $row ['codeCim10'] . '", "date":"' . $row ['date'] . '"}';
+		    echo ',{"id":"<a href=medical.php?id=' . $row ['id'] . '>' . $row ['id'] . '</a>","poids":"' . $row ['poids'] . '", "taille":"' . $row ['taille'] . '", "cim10":"'. $row ['cim10'] . '", "date":"' . $row ['date'] . '"}';
 		}
 	}
 	
@@ -81,7 +81,7 @@
 	    { data: 'id', title: 'id' },
 	    { data: 'poids', title: 'poids' },
 	    { data: 'taille', title: 'taille' },
-	    { data: 'codeCim10', title: 'codeCim10' },
+	    { data: 'cim10', title: 'cim10' },
 	    { data: 'date', title: 'date' }    
 	     ]  
 	});

@@ -20,7 +20,7 @@ CREATE TABLE medical (
 	id			INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	poids		INT(3),
 	taille		INT(3),
-	codeCim10	VARCHAR(32),
+	cim10	VARCHAR(32),
 	ip			VARCHAR(64),
 	date		VARCHAR(64),
 	info		VARCHAR(64)

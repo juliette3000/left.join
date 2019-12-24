@@ -20,10 +20,8 @@ if (isset ( $_GET ['search'] )) {
         // rien à faire
         
     } else {
-        // on fait une boucle qui va faire un tour pour chaque enregistrement
         $isFirst = true;
         while($row = mysql_fetch_assoc($req)){
-     // while ( $row = mysqli_fetch_array ( $result ) ) {
             if ($isFirst){
                 echo  '{"id":"' . $row ['code'] . '","tagName":"' . $row ['name'] . ' ('. $row ['code'] . ')"}';
                 $isFirst = false;

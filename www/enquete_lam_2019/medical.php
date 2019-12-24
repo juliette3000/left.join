@@ -36,7 +36,7 @@ $datenaiss = -1;
 if (isset ( $_GET ['id'] )) {
 	$id = $_GET ['id'];
 	
-	$query = "SELECT * FROM enquete WHERE id = " . $id;
+	$query = "SELECT * FROM medical WHERE id = " . $id;
 	
 	$conn = new mysqli ( $servername, $username, $password, $dbname );
 	
@@ -54,7 +54,7 @@ if (isset ( $_GET ['id'] )) {
 }
 
 if ($idNotFound){
-	echo "<h1>Erreur : aucune enquete avec l'id" . $id . "</h1>";
+	echo "<h1>Erreur : aucune enquete volet medical avec l'id" . $id . "</h1>";
 	exit ();
 }
 
