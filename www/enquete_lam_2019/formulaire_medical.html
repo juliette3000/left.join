@@ -37,11 +37,11 @@
 			
 				<div class="row">
 					<div class="col-md-2">
-						<label for="Poids" class="col-form-label">Poids (kg):</label>
-						<input type="number" class="form-control" name="poids" id="poids" required="required" />
+						<label for="poids" class="col-form-label">Poids (kg)</label>
+						<input type="number" class="form-control" name="poids" id="poids" required="required" min="30" max="130"/>
 					</div>
 					<div class="col-md-2">
-						<label for="Poids" class="col-form-label">Taille (cm):</label>
+						<label for="taille" class="col-form-label">Taille (cm)</label>
 						<input type="number" class="form-control" name="taille" id="taille" required="required" />
 					</div>
 				</div>
@@ -88,8 +88,8 @@
 								<input class="form-check-input" type="checkbox" name="motifentree" value="autre" id="autre" onchange="selection_motif_entree()">
 								<label class="form-check-label" for="autre">Autre</label>
 							</div>
-							<div class="form-check">
-								<label for="autreentree" id="autreentreelabel" style="display: none">précisez :</label>
+							<div class="form-check" id="autreentreeForm" style="display: none">
+								<label for="autreentree">précisez </label>
 								<input type="text" name="autreentree" id="autreentree" style="display: none" />
 							</div>
 						</div>
@@ -164,48 +164,42 @@
 								<input class="form-check-input" type="checkbox" name="patho" value="hepatite" id="hepatite" onchange="selection_hepatite()">
 								<label class="form-check-label" for="autre">Hépatites</label>
 							</div>		
-							<div style="float: left; margin-left: 20px" id="bloc_hepatiteB">
-								<label for="precisionhepatite" id="precisionhepatitelabel" style="display: none">
-									<input type="checkbox" name="precisionhepatite" value="precisionhepatite" id="precisionhepatite"
-											onchange="selection_date_hepatite()" style="display: none" />VHB
-								</label>
-		
-								<label for="datediagvhb" id="datediagvhblabel" style="display: none">Date du diagnostic :
-									<input type="date" name="datediagvhb" id="datediagvhb" value="precisionhepatite"
-										style="display: none" />
-								</label> 
-								
-								<br/>
-								
-								<label for="precisionhepatiteb" id="precisionhepatiteblabel" style="display: none">
-									<input type="checkbox" name="precisionhepatiteb" value="precisionhepatiteb"
-									id="precisionhepatiteb" onchange="selection_date_hepatiteb()"
-									style="display: none" />VHC</label>
-		
-								<label for="datediagvhc" id="datediagvhclabel" style="display: none"> Date du diagnostic :<input
-									type="date" name="datediagvhc" id="datediagvhc"
-									style="display: none" /></label> 
+							<div style="display: none;margin-left: 20px" id="hepatiteForm">
+								<div class="form-check" id="precisionhepatiteForm">
+									<input class="form-check-input" type="checkbox" name="precisionhepatite" value="precisionhepatite" id="precisionhepatite" onchange="selection_date_hepatite()"/>
+									<label for="precisionhepatite">VHB</label>
+								</div>
+								<div class="form-check" id="datediagvhbForm" style="display: none;" ">
+									<label class="form-label" for="datediagvhb">Date du diagnostic</label>
+									<input class="form-control" type="date" name="datediagvhb" id="datediagvhb" value="precisionhepatite" />
+								</div>
+								<div class="form-check" id="precisionhepatitebForm" style="display: none">
+									<input class="form-check-input" type="checkbox" name="precisionhepatiteb" value="precisionhepatiteb" id="precisionhepatiteb" onchange="selection_date_hepatiteb()" />
+									<label class="form-check-label" for="precisionhepatiteb">VHC</label>
+								</div>
+								<div class="form-check" id="datediagvhcForm" style="display: none">
+									<label class="form-label" for="datediagvhc">Date du diagnostic</label> 
+									<input class="form-control" type="date" name="datediagvhc" id="datediagvhc"/>
+								</div>
 							</div>
-							
-						</div>
 						
-						
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" name="patho" value="neo">
-							<label class="form-check-label" for="autre">Néoplasique</label>
-						</div>
-
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" name="patho" value="den">
-							<label class="form-check-label" for="autre">Dénutrition</label>
-						</div>
-						<div class="form-check">
-							<input class="form-check-input" type="checkbox" name="patho" value="autre" id="autre" onchange="selection_pathologies()">
-							<label class="form-check-label" for="autre">Autre</label>
-						</div>
-						<div class="form-check">
-							<label class="form-check-label" for="autrepatho" id="autrepatholabel" style="display: none">précisez	:</label>
-							<input type="text" name="autrepatho" id="autrepatho" style="display: none" /> 
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" name="patho" value="neo">
+								<label class="form-check-label" for="autre">Néoplasique</label>
+							</div>
+	
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" name="patho" value="den">
+								<label class="form-check-label" for="autre">Dénutrition</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" name="patho" value="autre" id="autre" onchange="selection_pathologies()">
+								<label class="form-check-label" for="autre">Autre</label>
+							</div>
+							<div class="form-check" id="autrepathoForm" style="display: none">
+								<label class="form-check-label" for="autrepatho">précisez </label>
+								<input type="text" name="autrepatho" id="autrepatho" /> 
+							</div>
 						</div>
 
 					</div>
@@ -224,9 +218,15 @@
 								<label class="form-check-label" for="non">Non</label>
 							</div>
 						</div>
-						<div>
-							<label for="echelleeva" class="form-check-label" id="echelleevalabel" style="display: none">EVA (de 0 à 10)</label>
-							<input class="form-check-input" type="number" name="echelleeva" value="echelleeva" id="echelleeva" style="display: none" />
+						<div id="echelleevaForm" style="display: none">
+							<div class="row">
+								<div class="col-md">
+									<label for="echelleeva" class="col-form-label">EVA (de 0 à 10)</label>
+								</div>
+								<div class="col-md">
+									<input class="form-control" type="number" name="echelleeva" value="0" id="echelleeva" min="0" max="10"/>
+								</div>
+							</div>
 						</div>
 		
 		
@@ -265,30 +265,32 @@
 						</div>
 						<div>
 							<div class="form-check">
-								<label for="cannabis" id="cannabislabel" style="display: none">Cannabis</label>
+								<label class="form-check-label" for="cannabis" id="cannabislabel" style="display: none">Cannabis</label>
 								<input class="form-check-input" type="checkbox" name="cannabis" value="cannabis" id="cannabis" style="display: none">
 							</div>
 						</div>
 						<div>
-							<div class="form-check">
-								<label class="form-check-input" for="crack" id="cracklabel" style="display: none">Crack/Cocaïne</label>
-								<input type="checkbox" name="crack" value="crack" id="crack" style="display: none">
+							<div class="form-check" id="crackForm" style="display: none;margin-left: 20px">
+								<input class="form-check-input" type="checkbox" name="crack" value="crack" id="crack">
+								<label class="form-check-label" for="crack">Crack/Cocaïne</label>
 							</div>
-							<div class="form-check">
-								<label class="form-check-input" for="opiaces" id="opiaceslabel" style="display: none">Opiacés</label>
-								<input type="checkbox" name="opiaces" value="opiaces" id="opiaces" style="display: none"/>
+							<div class="form-check form-check-inline" id="opiacesForm" style="display: none;margin-left: 20px">
+								<input class="form-check-input" type="checkbox" name="opiaces" value="opiaces" id="opiaces"/>
+								<label class="form-check-label" for="opiaces" >Opiacés</label>
 							</div>
-							<div class="form-check">
-								<label for="autresdrogues" id="autresdrogueslabel" style="display: none">Autres</label>
-								<input type="checkbox" name="autresdrogues" value="autresdrogues" id="autresdrogues" style="display: none" onchange="autredrogue()">
-							</div>
-						</div>
-						<div>
-							<div class="form-check">
-								<label class="form-check-input" for="autredrogueprecision" id="autredrogueprecisionlabel" style="display: none">précisez :</label>
-								<input type="text" name="autredrogueprecision" id="autredrogueprecision" value="autredrogueprecision" style="display: none" />
+							<div class="form-check" id="autresdroguesForm" style="display: none;margin-left: 20px" >
+								<input class="form-check-input" type="checkbox" name="autresdrogues" value="autresdrogues" id="autresdrogues" onchange="autredrogue()">
+								<label for="autresdrogues" >Autres</label>
 							</div>
 						</div>
+						
+						<div class="form" id="autredrogueprecisionForm" style="display: none;margin-left: 20px" >
+							<label class="form-label" for="autredrogueprecision">précisez </label>
+							<input class="form-control" type="text" name="autredrogueprecision" id="autredrogueprecision" value="autre drogue"/>
+						</div>
+						
+						
+						
 					</div>
 				</div>
 			</div>
@@ -308,13 +310,10 @@
 			var motifentreelam = $("#autre:checked");
 
 			if (motifentreelam.val() === 'autre') {
-
-				$('#autreentree').show(); // ça c'est l input
-				$('#autreentreelabel').show(); // ça c'est le label 
+				$('#autreentreeForm').show();
 
 			} else {
-				$('#autreentree').hide();
-				$('#autreentreelabel').hide();
+				$('#autreentreeForm').hide();
 				$('#autreentree').val('');
 			}
 		}
@@ -323,14 +322,10 @@
 			var eva = $("#oui:checked");
 
 			if (eva.val() === 'oui') {
-
-				$('#echelleevalabel').show();
-				$('#echelleeva').show();
+				$('#echelleevaForm').show();
 
 			} else {
-
-				$('#echelleeva').hide();
-				$('#echelleevalabel').hide();
+				$('#echelleevaForm').hide();
 				$('#echelleeva').val('');
 			}
 
@@ -341,25 +336,19 @@
 			var patho = $("#hepatite:checked");
 
 			if (patho.val() === 'hepatite') {
-
-				$('#precisionhepatite').show();
-				$('#precisionhepatitelabel').show();
-				$('#precisionhepatiteb').show();
-				$('#precisionhepatiteblabel').show();
-				
-				$('#datediagvhb').show();
-
+				$('#hepatiteForm').show();
+				$('#precisionhepatiteForm').show();
+				$('#precisionhepatitebForm').show();
 			} else {
-				$('#precisionhepatite').hide();
-				$('#precisionhepatitelabel').hide();
+				$('#hepatiteForm').hide();				
+				$('#precisionhepatiteForm').hide();
+				$('#precisionhepatitebForm').hide();
+				$('#datediagvhbForm').hide();
+				$('#datediagvhcForm').hide();
+
 				$('#precisionhepatite').val('');
-				$('#precisionhepatiteb').hide();
-				$('#precisionhepatiteblabel').hide();
 				$('#precisionhepatiteb').val('');
-				$('#datediagvhblabel').hide();
 				$('#datediagvhb').val('');
-				$('#datediagvhc').hide();
-				$('#datediagvhclabel').hide();
 				$('#datediagvhc').val('');
 
 			}
@@ -371,12 +360,10 @@
 			var hep = $("#precisionhepatite");
 
 			if (hep.is(':checked')){
-				$('#datediagvhb').show();
-				$('#datediagvhblabel').show();
+				$('#datediagvhbForm').show();
 
 			} else {
-				$('#datediagvhb').hide();
-				$('#datediagvhblabel').hide();
+				$('#datediagvhbForm').hide();
 				$('#datediagvhb').val('');
 			}
 		}
@@ -386,13 +373,10 @@
 			var hepb = $("#precisionhepatiteb:checked");
 
 			if (hepb.is(':checked')){
-
-				$('#datediagvhc').show();
-				$('#datediagvhclabel').show();
+				$('#datediagvhcForm').show();
 
 			} else {
-				$('#datediagvhc').hide();
-				$('#datediagvhclabel').hide();
+				$('#datediagvhcForm').hide();
 				$('#datediagvhc').val('');
 			}
 		}
@@ -402,13 +386,10 @@
 			var patho = $("#autre:checked");
 
 			if (patho.val() === 'autre') {
-
-				$('#autrepatho').show(); // ça c'est l input
-				$('#autrepatholabel').show(); // ça c'est le label 
+				$('#autrepathoForm').show();  
 
 			} else {
-				$('#autrepatho').hide();
-				$('#autrepatholabel').hide();
+				$('#autrepathoForm').hide();
 				$('#autrepatho').val('');
 			}
 		}
@@ -418,25 +399,17 @@
 			var drogue = $("#drogues:checked");
 
 			if (drogue.val() === 'drogues') {
-				$('#cannabislabel').show();
-				$('#cannabis').show();
-				$('#cracklabel').show();
-				$('#crack').show();
-				$('#opiaceslabel').show();
-				$('#opiaces').show();
-				$('#autresdrogueslabel').show();
-				$('#autresdrogues').show();
-
+				$('#cannabisForm').show();
+				$('#crackForm').show();
+				$('#opiacesForm').show();
+				$('#autresdroguesForm').show();
 			} else {
 
-				$('#cannabis').hide();
-				$('#cannabislabel').hide();
+				$('#cannabisForm').hide();
 				$('#cannabis').val('');
-				$('#crack').hide();
-				$('#cracklabel').hide();
+				$('#crackForm').hide();
 				$('#crack').val('');
-				$('#autres').hide();
-				$('#autreslabel').hide();
+				$('#autresForm').hide();
 				$('#autres').val('');
 			}
 		}
@@ -445,13 +418,11 @@
 			var drogueprecision = $("#autresdrogues:checked");
 
 			if (drogueprecision.val() === 'autresdrogues') {
-				$('#autredrogueprecisionlabel').show();
-				$('#autredrogueprecision').show();
+				$('#autredrogueprecisionForm').show();
 
 			} else {
 
-				$('#autredrogueprecision').hide();
-				$('#autredrogueprecisionlabel').hide();
+				$('#autredrogueprecisionForm').hide();
 				$('#autredrogueprecision').val('');
 
 			}
