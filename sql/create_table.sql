@@ -21,9 +21,16 @@ CREATE TABLE medical (
 	poids		INT(3),
 	taille		INT(3),
 	cim10	VARCHAR(32),
+	douleur		INT(1),
 	ip			VARCHAR(64),
 	date		VARCHAR(64),
 	info		VARCHAR(64)
+) DEFAULT CHARSET=latin1;
+
+CREATE TABLE medical_motif_entree (
+	id			INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	idMedical	INT(6),
+	motif		VARCHAR(64)
 ) DEFAULT CHARSET=latin1;
 
 
