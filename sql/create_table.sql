@@ -13,7 +13,7 @@ CREATE TABLE utilisateur (
 CREATE TABLE social (
 	id				INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	sexe			CHAR(1),
-	annee_naissance	INT(3),
+	annee_naissance	INT(3)
 ) DEFAULT CHARSET=latin1;
 
 CREATE TABLE medical (

@@ -70,3 +70,7 @@ input:invalid {
   color: red;
   border-color: red;
 }
+
+.form-check {
+	margin-bottom: 5px;
+}
