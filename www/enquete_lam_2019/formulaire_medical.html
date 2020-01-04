@@ -21,7 +21,7 @@
 </head>
 
 <body>
-	<form class="container" method="post" action="save_medical.php">
+	<form id="formMedical" class="container" method="post" action="save_medical.php">
 
 		<div class="d-flex justify-content-center" style="margin-top: 30px">
 			<div class="card">
@@ -305,6 +305,29 @@
 
 
 	<script type="text/javascript">
+	
+	document.getElementById('formMedical').onsubmit = function() {
+	    return isValidForm();
+	};
+	
+	function isValidForm(){
+		var taille = $('#taille').val();
+		var poids = $('#poids').val();
+		
+		if (poids < 100 || taille > 210){
+			alert('Erreur : taille ' + taille + ' incorrecte.');
+			return false;
+		}		
+		if (poids < 30 || poids > 150){
+			alert('Erreur : poids ' + poids + ' incorrect.');
+			return false;
+		}
+		
+		return true;
+	}
+	
+	
+	
 		function selection_motif_entree() {
 
 			var motifentreelam = $("#autre:checked");
