@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link href="css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="css/bootstrap3.3.6.min.css" media="screen" rel="stylesheet" type="text/css" />
 	<link href="css/dataTables.bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
 	
 	<script src="js/jquery-1.12.3.js" type="text/javascript"></script>
@@ -22,26 +22,30 @@
 
 	<article class="content">
 
+		<div class="col-sm-10">
+			<nav style="float: right;"><a href="accueil.html">accueil</a></nav>
+		</div>
+
+		<div style="clear: both;"> </div>
+
 		<div class="col-sm-2"></div>
 
 		<div class="col-sm-8">
+			<h1>Enquêtes social</h1>
 
-
-			<table class="table table-striped table-bordered table-hover table-condensed" id="table_records_pays_sel"></table>
+			<table class="table table-striped table-bordered table-hover table-condensed" id="table_social"></table>
 		</div>
 	</div>
 </article>
 
 	<script type="text/javascript">
-
 		
 	var records = { data : [
-		
 
 	<?php
 	include "constantes.php";
 
-	$sql = "SELECT id, sexe, annee_naissance FROM social";
+	$sql = "SELECT * FROM social";
 	
 	mysql_connect($servername, $username, $password) or die( "Impossible de se connecter : "  .  mysql_error ());
 	mysql_select_db($dbname);
@@ -50,13 +54,13 @@
 	
 	$isFirst = true;
 	
-	while ($row = mysql_fetch_row($result)) {
-	if ($isFirst){
-			echo  '{"id":"<a href=social.php?id=' . $row ['id'] . '>' . $row ['id'] . '</a>","sexe":"' . $row ['sexe'] . '", "annee_naissance":"'. $row ['annee_naissance'] . '"}';
+	while($row = mysql_fetch_assoc($result)) {
+		if ($isFirst){
+			echo '{"id":"<a href=social.php?id=' . $row ['id'] . '>' . $row ['id'] . '</a>","sexe":"' . $row ['sexe'] . '", "annee_naissance":"'. $row ['annee_naissance'] . '"}';
 			$isFirst = false;
 		}
 		else {
-			echo  ',{"id":"<a href=social.php?id=' . $row ['id'] . '>' . $row ['id'] . '","sexe":"' . $row ['sexe'] . '", "annee_naissance":"'. $row ['annee_naissance'] . '"}';
+			echo ',{"id":"<a href=social.php?id=' . $row ['id'] . '>' . $row ['id'] . '","sexe":"' . $row ['sexe'] . '", "annee_naissance":"'. $row ['annee_naissance'] . '"}';
 		}
 	}
 	
@@ -64,7 +68,7 @@
 
 	]};
 		
-	var table = $('#table_records_pays_sel').DataTable({
+	var table = $('#table_social').DataTable({
 		data : records.data,
 		"order": [[ 2, "asc" ]],
 	       "paging": false, 

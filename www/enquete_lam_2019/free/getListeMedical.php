@@ -20,7 +20,6 @@
 
 <body>
 
-
 	<article class="content">
 
 		<div class="col-sm-10">
@@ -41,10 +40,8 @@
 </article>
 
 	<script type="text/javascript">
-
 		
 	var records = { data : [
-		
 
 	<?php
 	include "constantes.php";
@@ -60,7 +57,7 @@
 
 	while($row = mysql_fetch_assoc($result)){
 		if ($isFirst){
-		    echo  '{"id":"<a href=medical.php?id=' . $row ['id'] . '>' . $row ['id'] . '</a>","poids":"' . $row ['poids'] . '", "taille":"' . $row ['taille'] . '", "cim10":"'. $row ['cim10'] . '", "date":"' . $row ['date'] . '"}';
+		    echo '{"id":"<a href=medical.php?id=' . $row ['id'] . '>' . $row ['id'] . '</a>","poids":"' . $row ['poids'] . '", "taille":"' . $row ['taille'] . '", "cim10":"'. $row ['cim10'] . '", "date":"' . $row ['date'] . '"}';
 			$isFirst = false;
 		}
 		else {

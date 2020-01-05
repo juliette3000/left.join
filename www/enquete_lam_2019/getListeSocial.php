@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link href="css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="css/bootstrap3.3.6.min.css" media="screen" rel="stylesheet" type="text/css" />
 	<link href="css/dataTables.bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
 	
 	<script src="js/jquery-1.12.3.js" type="text/javascript"></script>
