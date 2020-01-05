@@ -4,13 +4,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link href="css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
-	<link href="css/dataTables.bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
-	
-	<script src="js/jquery-1.12.3.js" type="text/javascript"></script>
-	<script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
-	<script src="js/dataTables.bootstrap.min.js"></script>
-	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="css/bootstrap4.4.1.min.css" />
+	<link rel="stylesheet" href="css/formulaire.css" />
 
 	<link rel="manifest" href="/manifest.json">
 	
@@ -20,17 +15,6 @@
 
 <body>
 
-	<article class="content">
-
-		<div class="col-sm-2"></div>
-
-		<div class="col-sm-8">
-
-			<table class="table table-striped table-bordered table-hover table-condensed" id="table_records_pays_sel"></table>
-			
-
-<form class="container" method="post" action="save_social_confirmation.php">			
-	
 <?php  
 $datenaiss = null;
 
@@ -42,9 +26,12 @@ if (isset($_POST['datenaiss'])) {
 	}
 }
 
+$sexe = null;
+if (isset($_POST['sexe'])) {
+	$sexe = $_POST['sexe'];
+}
 
 
-echo 'datenaiss<input type="text" name="datenaiss" value="'. $datenaiss . '"/><br/>';
 
 if (isset($_POST['departementmdph'])) {
 	$departementmdph= $_POST['departementmdph'];
@@ -53,56 +40,63 @@ if (isset($_POST['departementmdph'])) {
 	}
 		$departementmdph = '-1';
 }
-echo 'departementmdph<input type="text" name="departementmdph" value="' . $departementmdph . '"/><br/>';
-
-
 
 ?>
-	
-sexe<input type="text" name="sexe" value="FFFF"/><br/>
-dateentree<input type="text" name="dateentree" value=""/><br/>
-mode_entree<input type="text" name="mode_entree" value=""/><br/>
-droits<input type="text" name="droits" value=""/><br/>
-<input type="text" name="couv" value=""/><br/>
-<input type="text" name="couvc" value=""/><br/>
-<input type="text" name="aah" value=""/><br/>
-<input type="text" name="pch" value=""/><br/>
-<input type="text" name="inv" value=""/><br/>
-<input type="text" name="mdph" value=""/><br/>
-<input type="text" name="mdphsavs" value=""/><br/>
-<input type="text" name="mdphsams" value=""/><br/>
-<input type="text" name="aidesocialefam" value=""/><br/>
-<input type="text" name="aidesocialesavs" value=""/><br/>
-<input type="text" name="aidesocialesams" value=""/><br/>
-		
-<input type="text" name="precisionmdph" value=""/><br/>
-<input type="text" name="precisionmdphbis" value=""/><br/>
-<input type="text" name="precisionmdphter" value=""/><br/>
-<input type="text" name="ehpad" value=""/><br/>
-<input type="text" name="aidesocialeehpad" value=""/><br/>
-<input type="text" name="placeehpad" value=""/><br/>
-<input type="text" name="protection" value=""/><br/>
-<input type="text" name="precisionprotection" value=""/>
+	<form class="container" method="post" action="save_social_confirmation.php">			
+
+		<div class="d-flex justify-content-center" style="margin-top: 30px">
+			<div class="card">
+				<div class="card-header">Enquête flash sur les situations de handicap-novembre 2019
+					<div style="text-align: center;">Volet social</div>
+				</div>
+			</div>
+		</div>			
+
+		<div class="card" id="card1">
+			<div class="card-header">Données civiles de la personne accueillie</div>
+			<div class="card-body">	
 
 
 
+				<div class="form-group row">
+					<div class="col-md-2">
+						<label for="numerosiris" class="col-form-label">Numéro (auto)</label>
+						<div>
+							<input readonly="readonly" type="number" class="form-control" value="<?php echo numerosiris ?>">
+						</div>
+					</div>
 
+					<div class="col-md-3">
+						<label>Sexe</label>
+						<input readonly="readonly" class="form-control" value="<?php echo $sexe ?>"/>
+					</div>
 
-					
-			<button type="submit" class="btn btn-info">Etes vous sûr d enregistrer ces données</button>
-			
-			
-</form>
+					<div class="col-md-3">
+						<label for="datenaiss">Année de naissance</label>
+						<input readonly="readonly" type="number" class="form-control" name="datenaiss" id="datenaiss" required="required" value="<?php echo $datenaiss ?>"/>
+					</div>
+					<div class="col-md-4">
+						<label for="dateentree">Date d'entrée dans le centre (séjour actuel)</label>
+						<input readonly="readonly" type="date" name="dateentree"  value="<?php echo $dateentree ?>" class="form-control" />
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-md-4">
+						<label for="mode_entree">Mode d'admission au LAM</label>
+						<input readonly="readonly" type="text" name="mode_entree" value="<?php echo $mode_entree ?>" class="form-control"/>
+					</div>
+					<div>
+						<input readonly="readonly" type="text" name="autreentree" value="<?php echo $autreentree ?>" class="form-control"/>
+					</div>
+				</div>
+			</div>
 		</div>
-	</article>
+	
 
-	
-	
+		<div class="col-md-12" style="margin-bottom: 50px; text-align: center;">
+			Etes vous sûr d'enregistrer ces données ? <button type="submit" class="btn btn-info">Confirmer</button>
+			<button type="button" class="btn btn-secondary" onclick="window.history.back();">Annuler</button>
+		</div>	
+			
+	</form>
 </body>
-	
-	
-	
-	
-
-
-

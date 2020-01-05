@@ -31,25 +31,26 @@ include "constantes.php";
 $idNotFound = true;
 $datenaiss = -1;
 
+if (!isset ( $_GET ['id'] )) {
+	echo 'blaireau y a pas de id';
+	exit();
+}
+	
+$id = $_GET ['id'];
+	
+$sql = "SELECT * FROM social WHERE id = " . $id;
+	
+$link  =  mysql_connect($servername, $username, $password) or die( "Impossible de se connecter : "  .  mysql_error ());
 
-if (isset ( $_GET ['id'] )) {
-	$id = $_GET ['id'];
-	
-	$query = "SELECT * FROM social WHERE id = " . $id;
-	
-	$conn = new mysqli ( $servername, $username, $password, $dbname );
-	
-	$result = mysqli_query ( $conn, $query );
-	
-	while ( $row = mysqli_fetch_array ( $result ) ) {
-		$idNotFound = false;
-		$datenaiss = $row ['annee_naissance'];
+mysql_select_db($dbname);
+
+$result = mysql_query($sql) or die("['Erreur SQL !','" .$sql. "','" . mysql_error() . "]");
+
+while($row = mysql_fetch_assoc($result)){
+	$idNotFound = false;
+	$datenaiss = $row ['annee_naissance'];
 	    // echo  'datenaiss : ' . $row ['annee_naissance'];
 		// echo  'sexe : ' . $row ['sexe'];
-	}
-	
-} else {
-	echo 'blaireau y a pas de id';
 }
 
 if ($idNotFound){
@@ -77,7 +78,7 @@ if ($idNotFound){
 					<div class="col-md-2">
 						<label for="numerosiris" class="col-form-label">Numéro (auto)</label>
 						<div>
-							<input type="number" class="form-control" id="numerosiris">
+							<input type="number" class="form-control" value="<?php echo $numerosiris ?>"/>
 						</div>
 					</div>
 

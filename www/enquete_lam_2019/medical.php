@@ -7,7 +7,6 @@
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="css/bootstrap4.4.1.min.css" />
-<link rel="stylesheet" href="css/samedi.css" />
 
 <style type="text/css">
 .form-group {

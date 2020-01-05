@@ -7,8 +7,6 @@
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="css/bootstrap4.4.1.min.css" />
-<link rel="stylesheet" href="css/samedi.css" />
-
 <style type="text/css">
 .form-group {
 	padding: 0 20px;
@@ -35,6 +33,7 @@ $datenaiss = -1;
 
 if (!isset ( $_GET ['id'] )) {
 	echo 'blaireau y a pas de id';
+	exit();
 }
 $id = $_GET ['id'];
 $sql = "SELECT * FROM medical WHERE id = " . $id;
