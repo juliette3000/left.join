@@ -44,27 +44,27 @@
 								<label class="form-check-label" for="homme">Homme</label>
 							</div>
 							<div class="form-check-inline">
-								<input class="form-check-input" type="radio" name="sexe" value="F" id="femme">
-								<label class="form-check-label" for="femme">Femme</label>
+								<input class="form-check-input" type="radio" name="sexe" value="F" id="femmeInput">
+								<label class="form-check-label" for="femmeInput">Femme</label>
 							</div>
 						</div>
 					</div>
 
 					<div class="col-md-3">
-						<label for="datenaiss">Année de naissance</label>
-						<input type="number" class="form-control" name="datenaiss" id="datenaiss"
+						<label for="annee_naissance">Année de naissance</label>
+						<input type="number" class="form-control" name="annee_naissance" id="annee_naissance"
 							placeholder="format 19-- ou 20--" required="required" value="1977" min="1910" max="2020"/>
 
 					</div>
 					<div class="col-md-4">
-						<label for="dateentree">Date d'entrée dans le centre (séjour actuel)</label>
-						<input type="date" name="dateentree" id="dateentree" class="form-control" />
+						<label for="date_entree">Date d'entrée dans le centre (séjour actuel)</label>
+						<input type="date" name="date_entree" id="date_entree" class="form-control" />
 					</div>
 				</div>
 				<div class="form-group row">
 					<div class="col-md-4">
-						<label for="mode_entree">Mode d'admission au LAM</label>
-						<select name="mode_entree" id="mode_entree" onchange="selection_mode_entree()"
+						<label for="mode_admission">Mode d'admission au LAM</label>
+						<select name="mode_admission" id="mode_admission" onchange="selection_mode_admission()"
 							class="form-control">
 							<option value="">Selectionnez le mode d'arrivée au LAM</option>
 							<option value="lhss">LHSS</option>
@@ -91,12 +91,12 @@
 						<label class="col-form-label">Statut administratif</label>
 						<div>
 							<div class="form-check">
-								<input class="form-check-input" type="radio" name="droits" value="droitsO" id="droitsO">
-								<label class="form-check-label" for="homme">En possesssion de documents permettant l'ouverture de droits</label>
+								<input class="form-check-input" type="radio" name="statut_admin" id="droitsO">
+								<label class="form-check-label" for="droitsO">En possesssion de documents permettant l'ouverture de droits</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input" type="radio" name="droits" value="droitsN" id="droitsN">
-								<label class="form-check-label" for="femme">Sans document permettant l'ouverture de droits</label>
+								<input class="form-check-input" type="radio" name="statut_admin" id="droitsN">
+								<label class="form-check-label" for="droitsN">Sans document permettant l'ouverture de droits</label>
 							</div>
 						</div>
 					</div>
@@ -636,9 +636,9 @@
 
 	<!-- pour afficher le champ de saisie autre -->
 	<script type="text/javascript">
-		function selection_mode_entree() {
+		function selection_mode_admission() {
 
-			var listederoulantemodeentree = $("#mode_entree");
+			var listederoulantemodeentree = $("#mode_admission");
 
 			if (listederoulantemodeentree.val() === 'autre') {
 
@@ -802,7 +802,7 @@
 		// var listederoulantemodeentree = document.querybyid("modeentree");
 
 		// méthode avecjquery - c'est syntaxe $()
-		// var listederoulantemodeentree = $("#mode_entree");
+		// var listederoulantemodeentree = $("#mode_admission");
 		// listederoulantemodeentree.addEventListener("change", selection, true);
 	</script>
 

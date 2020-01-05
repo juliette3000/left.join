@@ -29,7 +29,7 @@
 include "constantes.php";
 
 $idNotFound = true;
-$datenaiss = -1;
+$annee_naissance = -1;
 
 
 if (isset ( $_GET ['id'] )) {
@@ -43,8 +43,8 @@ if (isset ( $_GET ['id'] )) {
 	
 	while ( $row = mysqli_fetch_array ( $result ) ) {
 		$idNotFound = false;
-		$datenaiss = $row ['annee_naissance'];
-	    // echo  'datenaiss : ' . $row ['annee_naissance'];
+		$annee_naissance = $row ['annee_naissance'];
+	    // echo  'annee_naissance : ' . $row ['annee_naissance'];
 		// echo  'sexe : ' . $row ['sexe'];
 	}
 	
@@ -91,19 +91,19 @@ if ($idNotFound){
 					</div>
 
 					<div class="col-md-3">
-						<label for="datenaiss">Année de naissance</label>
-						<input type="number" class="form-control" name="datenaiss" id="datenaiss"
-							placeholder="format 19-- ou 20--" required="required" value="<?php echo $datenaiss ?>"/>
+						<label for="annee_naissance">Année de naissance</label>
+						<input type="number" class="form-control" name="annee_naissance" id="annee_naissance"
+							placeholder="format 19-- ou 20--" required="required" value="<?php echo $annee_naissance ?>"/>
 
 					</div>
 					<div class="col-md-4">
-						<label for="dateentree">Date d'entrée dans le centre (séjour actuel)</label> <input type="date" name="dateentree" id="dateentree" class="form-control" />
+						<label for="date_entree">Date d'entrée dans le centre (séjour actuel)</label> <input type="date" name="date_entree" id="date_entree" class="form-control" />
 					</div>
 				</div>
 				<div class="form-group row">
 					<div class="col-md-4">
-						<label for="mode_entree">Mode d'admission au LAM</label>
-						<input name="mode_entree" class="form-control" value="sss"/>
+						<label for="mode_admission">Mode d'admission au LAM</label>
+						<input name="mode_admission" class="form-control" value="sss"/>
 					</div>
 					<div>
 						<label for="autreentree" id="autreentreelabel" style="display: none">précisez </label>

@@ -21,10 +21,10 @@ if (isset($_POST['departementmdph'])) {
 }
 
 if (isset($_POST['sexe'])
-		&& isset($_POST['datenaiss'])
-		&& isset($_POST['dateentree'])
-		&& isset($_POST['mode_entree'])
-		&& isset($_POST['droits'])
+		&& isset($_POST['annee_naissance'])
+		&& isset($_POST['date_entree'])
+		&& isset($_POST['mode_admission'])
+		&& isset($_POST['statut_admin'])
 		&& isset($_POST['couv'])
 		&& isset($_POST['couvc'])
 		&& isset($_POST['aah'])
@@ -47,10 +47,10 @@ if (isset($_POST['sexe'])
 		&& isset($_POST['precisionprotection'])
 		) {
 	$sexe = $_POST['sexe'];
-	$datenaiss = $_POST['datenaiss'];
-	$dateentree = $_POST['dateentree'];
-	$mode_entree = $_POST['mode_entree'];
-	$droits = $_POST['droits'];
+	$annee_naissance = $_POST['annee_naissance'];
+	$date_entree = $_POST['date_entree'];
+	$mode_admission = $_POST['mode_admission'];
+	$statut_admin = $_POST['statut_admin'];
 	$couv = $_POST['couv'];
 	$couvc = $_POST['couvc'];
 	$aah = $_POST['aah'];
@@ -73,12 +73,12 @@ if (isset($_POST['sexe'])
 	$precisionprotection = $_POST['precisionprotection'];
 
 	
-	echo $datenaiss . " a bien été enregistr&eacute; !" ;	
+	echo $annee_naissance . " a bien été enregistr&eacute; !" ;	
 	echo "SEXE : " . $sexe;
-	echo $dateentree;
-	echo $mode_entree;
+	echo $date_entree;
+	echo $mode_admission;
 	echo $autreentree;
-	echo $droits;
+	echo $statut_admin;
 	echo $couv;
 	echo $couvc;
 	echo $aah;
@@ -117,7 +117,7 @@ $conn = new mysqli($servername, $username, $password, $dbname); // php version 7
 if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
 
 $sql = "INSERT INTO social (sexe,	annee_naissance, date_entree,	mode_admission,	mode_admission_autre, 	statut_admin, 	couv_sociale, couv_socialec, aah,	pch,	invalidite, accord_mdph_fam, accord_mdph_savs, accord_mdph_samsah,	aide_soc_fam,		aide_soc_savs,		aide_soc_samsah,	departement_mdph, situation_recherche_place, date_demande, nombre_refus, derogation_age_ehpad, aide_soc_ehpad, situation_place_ehpad, protection_juridique, protection_juridique_precision) 
-VALUES 					('$sexe',	'$datenaiss',	'$dateentree',	'$mode_entree', '$autreentree',			'$droits',		'$couv',	'$couvc',		'$aah','$pch',	'$inv',		'$mdph',		'$mdphsavs',		'$mdphsams',		'$aidesocialefam',	'$aidesocialesavs',	'$aidesocialesams','$departementmdph','$precisionmdph',			'$precisionmdphbis',		'$precisionmdphter','$ehpad ',		'$aidesocialeehpad',		'$placeehpad',		'$protection',	'$precisionprotection' )";
+VALUES 					('$sexe',	'$annee_naissance',	'$date_entree',	'$mode_admission', '$autreentree',			'$statut_admin',		'$couv',	'$couvc',		'$aah','$pch',	'$inv',		'$mdph',		'$mdphsavs',		'$mdphsams',		'$aidesocialefam',	'$aidesocialesavs',	'$aidesocialesams','$departementmdph','$precisionmdph',			'$precisionmdphbis',		'$precisionmdphter','$ehpad ',		'$aidesocialeehpad',		'$placeehpad',		'$protection',	'$precisionprotection' )";
 
 
 if ($conn->query($sql) === TRUE)

@@ -16,13 +16,13 @@
 <body>
 
 <?php  
-$datenaiss = null;
+$annee_naissance = null;
 
-if (isset($_POST['datenaiss'])) {
-	$datenaiss = $_POST['datenaiss'];
+if (isset($_POST['annee_naissance'])) {
+	$annee_naissance = $_POST['annee_naissance'];
 	
-	if($datenaiss == ''){
-		$datenaiss = null;
+	if($annee_naissance == ''){
+		$annee_naissance = null;
 	}
 }
 
@@ -31,6 +31,8 @@ if (isset($_POST['sexe'])) {
 	$sexe = $_POST['sexe'];
 }
 
+
+$date_entree = $_POST['date_entree'];
 
 
 if (isset($_POST['departementmdph'])) {
@@ -72,18 +74,18 @@ if (isset($_POST['departementmdph'])) {
 					</div>
 
 					<div class="col-md-3">
-						<label for="datenaiss">Année de naissance</label>
-						<input readonly="readonly" type="number" class="form-control" name="datenaiss" id="datenaiss" required="required" value="<?php echo $datenaiss ?>"/>
+						<label for="annee_naissance">Année de naissance</label>
+						<input readonly="readonly" type="number" class="form-control" name="annee_naissance" id="annee_naissance" required="required" value="<?php echo $annee_naissance ?>"/>
 					</div>
 					<div class="col-md-4">
-						<label for="dateentree">Date d'entrée dans le centre (séjour actuel)</label>
-						<input readonly="readonly" type="date" name="dateentree"  value="<?php echo $dateentree ?>" class="form-control" />
+						<label for="date_entree">Date d'entrée dans le centre (séjour actuel)</label>
+						<input readonly="readonly" type="text" name="date_entree"  value="<?php echo $date_entree ?>" class="form-control" />
 					</div>
 				</div>
 				<div class="form-group row">
 					<div class="col-md-4">
-						<label for="mode_entree">Mode d'admission au LAM</label>
-						<input readonly="readonly" type="text" name="mode_entree" value="<?php echo $mode_entree ?>" class="form-control"/>
+						<label for="mode_admission">Mode d'admission au LAM</label>
+						<input readonly="readonly" type="text" name="mode_admission" value="<?php echo $mode_admission ?>" class="form-control"/>
 					</div>
 					<div>
 						<input readonly="readonly" type="text" name="autreentree" value="<?php echo $autreentree ?>" class="form-control"/>
@@ -92,6 +94,38 @@ if (isset($_POST['departementmdph'])) {
 			</div>
 		</div>
 	
+		<div class="card" id="card2">
+			<div class="card-header">Données médico-sociales de la personne acceuillie</div>
+			<div class="card-body">
+			</div>
+		</div>
+
+		<div class="card" id="card3">
+			<div class="card-header">Cette personne a-t-elle ou pourrait elle bénéficier</div>
+			<div class="card-body">
+
+			</div>
+		</div>
+
+		<div class="card" id="card4">
+			<div class="card-header">Cette personne a-t-elle ou pourrait elle bénéficier</div>
+			<div class="card-body row">
+
+			</div>
+
+		</div>
+
+		<div class="card" id="card5">
+			<div class="card-header">Cette personne a-t-elle ou pourrait elle bénéficier</div>
+			<div class="card-body row">
+			</div>
+		</div>
+
+		<div class="card" id="card6">
+			<div class="card-header">Existe t'il une protection juridique</div>
+			<div class="card-body">
+			</div>
+		</div>
 
 		<div class="col-md-12" style="margin-bottom: 50px; text-align: center;">
 			Etes vous sûr d'enregistrer ces données ? <button type="submit" class="btn btn-info">Confirmer</button>

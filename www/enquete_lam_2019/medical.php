@@ -29,7 +29,7 @@
 include "constantes.php";
 
 $idNotFound = true;
-$datenaiss = -1;
+$annee_naissance = -1;
 
 
 if (!isset ( $_GET ['id'] )) {

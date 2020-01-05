@@ -32,19 +32,19 @@
 <form class="container" method="post" action="save_social_confirmation.php">			
 	
 <?php  
-$datenaiss = null;
+$annee_naissance = null;
 
-if (isset($_POST['datenaiss'])) {
-	$datenaiss = $_POST['datenaiss'];
+if (isset($_POST['annee_naissance'])) {
+	$annee_naissance = $_POST['annee_naissance'];
 	
-	if($datenaiss == ''){
-		$datenaiss = null;
+	if($annee_naissance == ''){
+		$annee_naissance = null;
 	}
 }
 
 
 
-echo 'datenaiss<input type="text" name="datenaiss" value="'. $datenaiss . '"/><br/>';
+echo 'annee_naissance<input type="text" name="annee_naissance" value="'. $annee_naissance . '"/><br/>';
 
 if (isset($_POST['departementmdph'])) {
 	$departementmdph= $_POST['departementmdph'];
@@ -60,8 +60,8 @@ echo 'departementmdph<input type="text" name="departementmdph" value="' . $depar
 ?>
 	
 sexe<input type="text" name="sexe" value="FFFF"/><br/>
-dateentree<input type="text" name="dateentree" value=""/><br/>
-mode_entree<input type="text" name="mode_entree" value=""/><br/>
+date_entree<input type="text" name="date_entree" value=""/><br/>
+mode_admission<input type="text" name="mode_admission" value=""/><br/>
 droits<input type="text" name="droits" value=""/><br/>
 <input type="text" name="couv" value=""/><br/>
 <input type="text" name="couvc" value=""/><br/>

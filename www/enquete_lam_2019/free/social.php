@@ -29,7 +29,6 @@
 include "constantes.php";
 
 $idNotFound = true;
-$datenaiss = -1;
 
 if (!isset ( $_GET ['id'] )) {
 	echo 'blaireau y a pas de id';
@@ -48,9 +47,37 @@ $result = mysql_query($sql) or die("['Erreur SQL !','" .$sql. "','" . mysql_erro
 
 while($row = mysql_fetch_assoc($result)){
 	$idNotFound = false;
-	$datenaiss = $row ['annee_naissance'];
-	    // echo  'datenaiss : ' . $row ['annee_naissance'];
-		// echo  'sexe : ' . $row ['sexe'];
+	$sexe					= $row ['sexe'];
+	$annee_naissance		= $row ['annee_naissance'];
+	$date_entree			= $row ['date_entree'];
+	
+	// ci dessous TODO corriger les colonnes inexistantes
+	$mode_admission			= $row ['mode_admission'];
+	$statut_admin					= $row ['statut_admin'];
+	$couv					= $row ['couv'];
+	$couvc					= $row ['couvc'];
+	$aah					= $row ['aah'];
+	$pch					= $row ['pch'];
+	$inv					= $row ['inv'];
+	$mdph					= $row ['mdph'];
+	$mdphsavs				= $row ['mdphsavs'];
+	$mdphsams				= $row ['mdphsams'];
+	$aidesocialefam			= $row ['aidesocialefam'];
+	$aidesocialesavs		= $row ['aidesocialesavs'];
+	$aidesocialesams		= $row ['aidesocialesams'];
+	
+	$precisionmdph			= $row ['precisionmdph'];
+	$precisionmdphbis		= $row ['precisionmdphbis'];
+	$precisionmdphter		= $row ['precisionmdphter'];
+	$ehpad					= $row ['ehpad'];
+	$aidesocialeehpad		= $row ['aidesocialeehpad'];
+	$placeehpad				= $row ['placeehpad'];
+	$protection				= $row ['protection'];
+	$precisionprotection	= $row ['precisionprotection'];
+	
+	// colonnes existantes
+	$statut_admin			= $row ['statut_admin'];
+	$couv_sociale			= $row ['couv_sociale'];
 }
 
 if ($idNotFound){
@@ -72,64 +99,64 @@ if ($idNotFound){
 
 		<div class="card" id="card1">
 			<div class="card-header">Données civiles de la personne accueillie</div>
-			<div class="card-body">
+			<div class="card-body">	
+
+
 
 				<div class="form-group row">
 					<div class="col-md-2">
 						<label for="numerosiris" class="col-form-label">Numéro (auto)</label>
 						<div>
-							<input type="number" class="form-control" value="<?php echo $numerosiris ?>"/>
+							<input readonly="readonly" type="number" class="form-control" value="<?php echo numerosiris ?>">
 						</div>
 					</div>
 
 					<div class="col-md-3">
-						<label class="col-form-label">Sexe</label>
-						<div>
-							<div class="form-check form-check-inline">
-								<input class="form-control" type="text" name="sexe" value="homme">
-							</div>
-						</div>
+						<label>Sexe</label>
+						<input readonly="readonly" class="form-control" value="<?php echo $sexe ?>"/>
 					</div>
 
 					<div class="col-md-3">
-						<label for="datenaiss">Année de naissance</label>
-						<input type="number" class="form-control" name="datenaiss" id="datenaiss"
-							placeholder="format 19-- ou 20--" required="required" value="<?php echo $datenaiss ?>"/>
-
+						<label for="annee_naissance">Année de naissance</label>
+						<input readonly="readonly" type="number" class="form-control" name="annee_naissance" value="<?php echo $annee_naissance ?>"/>
 					</div>
 					<div class="col-md-4">
-						<label for="dateentree">Date d'entrée dans le centre (séjour actuel)</label> <input type="date" name="dateentree" id="dateentree" class="form-control" />
+						<label for="date_entree">Date d'entrée dans le centre (séjour actuel)</label>
+						<input readonly="readonly" type="date" name="date_entree"  value="<?php echo $date_entree ?>" class="form-control" />
 					</div>
 				</div>
 				<div class="form-group row">
 					<div class="col-md-4">
-						<label for="mode_entree">Mode d'admission au LAM</label>
-						<input name="mode_entree" class="form-control" value="sss"/>
+						<label for="mode_admission">Mode d'admission au LAM</label>
+						<input readonly="readonly" type="text" name="mode_admission" value="<?php echo $mode_admission ?>" class="form-control"/>
 					</div>
-					<div>
-						<label for="autreentree" id="autreentreelabel" style="display: none">précisez </label>
-						<input type="text" name="autreentree" id="autreentree" style="display: none; margin-top: 10px" />
+					<div class="col-md-4">
+						<label>Autre</label>
+						<input readonly="readonly" type="text" name="autreentree" value="<?php echo $autreentree ?>" class="form-control"/>
 					</div>
 				</div>
 			</div>
 		</div>
-
+	
 		<div class="card" id="card2">
-			<div class="card-header">Données médico-sociales de la personne acceuillie</div>
+			<div class="card-header">Données médico-sociales de la personne accueillie</div>
 			<div class="card-body">
+				<div class="form-group row">
+					<div class="col-md-4">
+						<label class="col-form-label">Statut administratif</label>
+						<input readonly="readonly" type="text" value="<?php echo $statut_admin ?>" class="form-control"/>
+					</div>
+					<div class="col-md-4">
+						<label class="col-form-label">Couverture sociale</label>
+						<input readonly="readonly" type="text" value="<?php echo $couv_sociale ?>" class="form-control"/>
+					</div>
+				</div>
 			</div>
 		</div>
 
 		<div class="card" id="card3">
 			<div class="card-header">Cette personne a-t-elle ou pourrait elle bénéficier</div>
 			<div class="card-body">
-
-				<div class="col-md-7" style="float: right;">
-					<div class="alert alert-info alert-dismissible fade show" role="alert">
-
-					</div>
-				</div>
-				<div style="clear: both;"></div>
 
 			</div>
 		</div>
@@ -152,10 +179,10 @@ if ($idNotFound){
 			<div class="card-header">Existe t'il une protection juridique</div>
 			<div class="card-body">
 			</div>
-		</div><!-- end card -->
+		</div>
 
 		<div class="col-md-12" style="margin-bottom: 50px; text-align: center;">
-			<a href="index.html" class="btn btn-info">Retour accueil</a>
+			<a href="accueil.html" class="btn btn-info">Retour accueil</a>
 		</div>
 	</div>
 
