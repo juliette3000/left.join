@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <script src="js/jquery-1.12.3.js" type="text/javascript"></script>
@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="css/bootstrap4.4.1.min.css" />
 <link rel="stylesheet" href="css/formulaire.css" />
 
-<title>EnquÃªte LAM - volet mÃ©dical</title>
+<title>Enquête LAM - volet médical</title>
 
 <style type="text/css">
 .titre {
@@ -25,14 +25,14 @@
 
 		<div class="d-flex justify-content-center" style="margin-top: 30px">
 			<div class="card">
-				<div class="card-header">EnquÃªte flash sur les situations de handicap-novembre 2019
-					<div style="text-align: center;">Volet mÃ©dical</div>
+				<div class="card-header">Enquête flash sur les situations de handicap-novembre 2019
+					<div style="text-align: center;">Volet médical</div>
 				</div>
 			</div>
 		</div>			
 
 		<div class="card">
-			<div class="card-header">DonnÃ©es mÃ©dicales de la personne accueillie</div>
+			<div class="card-header">Données médicales de la personne accueillie</div>
 			<div class="card-body">
 			
 				<div class="row">
@@ -49,7 +49,7 @@
 				<div class="row">
 
 					<div class="col-md">
-						<div class="titre">Motifs d'entrÃ©e au LAM</div>
+						<div class="titre">Motifs d'entrée au LAM</div>
 	
 						<div>
 							<div class="form-check">
@@ -66,7 +66,7 @@
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="motifentree" value="diab">
-								<label class="form-check-label" for="diab">DiabÃ¨te</label>
+								<label class="form-check-label" for="diab">Diabète</label>
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="motifentree" value="pneumo">
@@ -74,27 +74,27 @@
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="motifentree" value="nephro">
-								<label class="form-check-label" for="nephro">NÃ©phrologique</label>
+								<label class="form-check-label" for="nephro">Néphrologique</label>
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="motifentree" value="immuno">
-								<label class="form-check-label" for="immuno">ImmunodÃ©ficience</label>
+								<label class="form-check-label" for="immuno">Immunodéficience</label>
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="motifentree" value="neo">
-								<label class="form-check-label" for="neo">NÃ©oplasique</label>
+								<label class="form-check-label" for="neo">Néoplasique</label>
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="motifentree" value="autre" id="autre" onchange="selection_motif_entree()">
 								<label class="form-check-label" for="autre">Autre</label>
 							</div>
 							<div class="form-check" id="autreentreeForm" style="display: none">
-								<label for="autreentree">prÃ©cisez </label>
+								<label for="autreentree">précisez </label>
 								<input type="text" name="autreentree" id="autreentree" style="display: none" />
 							</div>
 						</div>
 						<div style="margin-top: 30px">
-							<label for="cim10" class="col-form-label titre">Pathologies prÃ©sentes au moment de l'enquÃªte</label>
+							<label for="cim10" class="col-form-label titre">Pathologies présentes au moment de l'enquête</label>
 							<input type="text" class="form-control" id="cim10" name="cim10" class="form-control"
 								placeholder="Rechercher une maladie..."
 								aria-describedby="inputSuccess2Status"
@@ -105,7 +105,7 @@
 
 					<div class="col-md">
 	
-						<div class="titre">Pathologies prÃ©sentes au moment de l'enquÃªte</div>
+						<div class="titre">Pathologies présentes au moment de l'enquête</div>
 	
 						<div>
 							<div class="form-check">
@@ -122,7 +122,7 @@
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="patho" value="diab">
-								<label class="form-check-label" for="autre">DiabÃ¨te</label>
+								<label class="form-check-label" for="autre">Diabète</label>
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="patho" value="pneumo">
@@ -130,7 +130,7 @@
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="patho" value="nephro">
-								<label class="form-check-label" for="autre">NÃ©phrologique</label>
+								<label class="form-check-label" for="autre">Néphrologique</label>
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="patho" value="pall">
@@ -146,7 +146,7 @@
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="patho" value="Hemato">
-								<label class="form-check-label" for="autre">HÃ©matologique</label>
+								<label class="form-check-label" for="autre">Hématologique</label>
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="patho" value="ophtalmo">
@@ -158,11 +158,11 @@
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="patho" value="immuno">
-								<label class="form-check-label" for="autre">ImmunodÃ©ficience</label>
+								<label class="form-check-label" for="autre">Immunodéficience</label>
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="patho" value="hepatite" id="hepatite" onchange="selection_hepatite()">
-								<label class="form-check-label" for="autre">HÃ©patites</label>
+								<label class="form-check-label" for="autre">Hépatites</label>
 							</div>		
 							<div style="display: none;margin-left: 20px" id="hepatiteForm">
 								<div class="form-check" id="precisionhepatiteForm">
@@ -185,19 +185,19 @@
 						
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="patho" value="neo">
-								<label class="form-check-label" for="autre">NÃ©oplasique</label>
+								<label class="form-check-label" for="autre">Néoplasique</label>
 							</div>
 	
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="patho" value="den">
-								<label class="form-check-label" for="autre">DÃ©nutrition</label>
+								<label class="form-check-label" for="autre">Dénutrition</label>
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="patho" value="autre" id="autre" onchange="selection_pathologies()">
 								<label class="form-check-label" for="autre">Autre</label>
 							</div>
 							<div class="form-check" id="autrepathoForm" style="display: none">
-								<label class="form-check-label" for="autrepatho">prÃ©cisez </label>
+								<label class="form-check-label" for="autrepatho">précisez </label>
 								<input type="text" name="autrepatho" id="autrepatho" /> 
 							</div>
 						</div>
@@ -221,7 +221,7 @@
 						<div id="echelleevaForm" style="display: none">
 							<div class="row">
 								<div class="col-md">
-									<label for="echelleeva" class="col-form-label">EVA (de 0 Ã  10)</label>
+									<label for="echelleeva" class="col-form-label">EVA (de 0 à 10)</label>
 								</div>
 								<div class="col-md">
 									<input class="form-control" type="number" name="echelleeva" value="0" id="echelleeva" min="0" max="10"/>
@@ -230,11 +230,11 @@
 						</div>
 		
 		
-						<div class="titre">Besoin de rÃ©Ã©ducation</div>
+						<div class="titre">Besoin de rééducation</div>
 						<div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="reeduc" value="kine">
-								<label class="form-check-label">KinÃ©sithÃ©rapie</label>
+								<label class="form-check-label">Kinésithérapie</label>
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="reeduc" value="ergo"/>
@@ -242,11 +242,11 @@
 							</div>
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" name="reeduc" value="regime"/>
-								<label class="form-check-label">RÃ©gime adaptÃ©</label>
+								<label class="form-check-label">Régime adapté</label>
 							</div>
 						</div>
 
-						<div class="titre">Addictions prÃ©sentes au cours des 12 derniers mois</div>
+						<div class="titre">Addictions présentes au cours des 12 derniers mois</div>
 
 						<div>
 
@@ -272,11 +272,11 @@
 						<div>
 							<div class="form-check" id="crackForm" style="display: none;margin-left: 20px">
 								<input class="form-check-input" type="checkbox" name="crack" value="crack" id="crack">
-								<label class="form-check-label" for="crack">Crack/CocaÃ¯ne</label>
+								<label class="form-check-label" for="crack">Crack/Cocaïne</label>
 							</div>
 							<div class="form-check form-check-inline" id="opiacesForm" style="display: none;margin-left: 20px">
 								<input class="form-check-input" type="checkbox" name="opiaces" value="opiaces" id="opiaces"/>
-								<label class="form-check-label" for="opiaces" >OpiacÃ©s</label>
+								<label class="form-check-label" for="opiaces" >Opiacés</label>
 							</div>
 							<div class="form-check" id="autresdroguesForm" style="display: none;margin-left: 20px" >
 								<input class="form-check-input" type="checkbox" name="autresdrogues" value="autresdrogues" id="autresdrogues" onchange="autredrogue()">
@@ -285,7 +285,7 @@
 						</div>
 						
 						<div class="form" id="autredrogueprecisionForm" style="display: none;margin-left: 20px" >
-							<label class="form-label" for="autredrogueprecision">prÃ©cisez </label>
+							<label class="form-label" for="autredrogueprecision">précisez </label>
 							<input class="form-control" type="text" name="autredrogueprecision" id="autredrogueprecision" value="autre drogue"/>
 						</div>
 						
@@ -314,11 +314,11 @@
 		var taille = $('#taille').val();
 		var poids = $('#poids').val();
 		
-		if (poids < 100 ||Â taille > 210){
+		if (taille < 100 || taille > 210){
 			alert('Erreur : taille ' + taille + ' incorrecte.');
 			return false;
 		}		
-		if (poids < 30 ||Â poids > 150){
+		if (poids < 30 || poids > 150){
 			alert('Erreur : poids ' + poids + ' incorrect.');
 			return false;
 		}
@@ -326,130 +326,124 @@
 		return true;
 	}
 	
-	
-	
-		function selection_motif_entree() {
+	function selection_motif_entree() {
 
-			var motifentreelam = $("#autre:checked");
+		var motifentreelam = $("#autre:checked");
 
-			if (motifentreelam.val() === 'autre') {
-				$('#autreentreeForm').show();
+		if (motifentreelam.val() === 'autre') {
+			$('#autreentreeForm').show();
 
-			} else {
-				$('#autreentreeForm').hide();
-				$('#autreentree').val('');
-			}
+		} else {
+			$('#autreentreeForm').hide();
+			$('#autreentree').val('');
+		}
+	}
+
+	function eva() {
+		var eva = $("#oui:checked");
+
+		if (eva.val() === 'oui') {
+			$('#echelleevaForm').show();
+
+		} else {
+			$('#echelleevaForm').hide();
+			$('#echelleeva').val('');
 		}
 
-		function eva() {
-			var eva = $("#oui:checked");
+	}
 
-			if (eva.val() === 'oui') {
-				$('#echelleevaForm').show();
+	function selection_hepatite() {
 
-			} else {
-				$('#echelleevaForm').hide();
-				$('#echelleeva').val('');
-			}
+		var patho = $("#hepatite:checked");
 
+		if (patho.val() === 'hepatite') {
+			$('#hepatiteForm').show();
+			$('#precisionhepatiteForm').show();
+			$('#precisionhepatitebForm').show();
+		} else {
+			$('#hepatiteForm').hide();				
+			$('#precisionhepatiteForm').hide();
+			$('#precisionhepatitebForm').hide();
+			$('#datediagvhbForm').hide();
+			$('#datediagvhcForm').hide();
+
+			$('#precisionhepatite').val('');
+			$('#precisionhepatiteb').val('');
+			$('#datediagvhb').val('');
+			$('#datediagvhc').val('');
 		}
+	}
 
-		function selection_hepatite() {
+	function selection_date_hepatite() {
 
-			var patho = $("#hepatite:checked");
+		var hep = $("#precisionhepatite");
 
-			if (patho.val() === 'hepatite') {
-				$('#hepatiteForm').show();
-				$('#precisionhepatiteForm').show();
-				$('#precisionhepatitebForm').show();
-			} else {
-				$('#hepatiteForm').hide();				
-				$('#precisionhepatiteForm').hide();
-				$('#precisionhepatitebForm').hide();
-				$('#datediagvhbForm').hide();
-				$('#datediagvhcForm').hide();
+		if (hep.is(':checked')){
+			$('#datediagvhbForm').show();
 
-				$('#precisionhepatite').val('');
-				$('#precisionhepatiteb').val('');
-				$('#datediagvhb').val('');
-				$('#datediagvhc').val('');
-
-			}
-
+		} else {
+			$('#datediagvhbForm').hide();
+			$('#datediagvhb').val('');
 		}
+	}
 
-		function selection_date_hepatite() {
+	function selection_date_hepatiteb() {
 
-			var hep = $("#precisionhepatite");
+		var hepb = $("#precisionhepatiteb:checked");
 
-			if (hep.is(':checked')){
-				$('#datediagvhbForm').show();
+		if (hepb.is(':checked')){
+			$('#datediagvhcForm').show();
 
-			} else {
-				$('#datediagvhbForm').hide();
-				$('#datediagvhb').val('');
-			}
+		} else {
+			$('#datediagvhcForm').hide();
+			$('#datediagvhc').val('');
 		}
+	}
 
-		function selection_date_hepatiteb() {
+	function selection_pathologies() {
 
-			var hepb = $("#precisionhepatiteb:checked");
+		var patho = $("#autre:checked");
 
-			if (hepb.is(':checked')){
-				$('#datediagvhcForm').show();
+		if (patho.val() === 'autre') {
+			$('#autrepathoForm').show();  
 
-			} else {
-				$('#datediagvhcForm').hide();
-				$('#datediagvhc').val('');
-			}
+		} else {
+			$('#autrepathoForm').hide();
+			$('#autrepatho').val('');
 		}
+	}
 
-		function selection_pathologies() {
+	function drogue() {
 
-			var patho = $("#autre:checked");
+		var drogue = $("#drogues:checked");
 
-			if (patho.val() === 'autre') {
-				$('#autrepathoForm').show();  
+		if (drogue.val() === 'drogues') {
+			$('#cannabisForm').show();
+			$('#crackForm').show();
+			$('#opiacesForm').show();
+			$('#autresdroguesForm').show();
+		} else {
 
-			} else {
-				$('#autrepathoForm').hide();
-				$('#autrepatho').val('');
-			}
+			$('#cannabisForm').hide();
+			$('#cannabis').val('');
+			$('#crackForm').hide();
+			$('#crack').val('');
+			$('#autresForm').hide();
+			$('#autres').val('');
 		}
+	}
 
-		function drogue() {
+	function autredrogue() {
+		var drogueprecision = $("#autresdrogues:checked");
 
-			var drogue = $("#drogues:checked");
+		if (drogueprecision.val() === 'autresdrogues') {
+			$('#autredrogueprecisionForm').show();
 
-			if (drogue.val() === 'drogues') {
-				$('#cannabisForm').show();
-				$('#crackForm').show();
-				$('#opiacesForm').show();
-				$('#autresdroguesForm').show();
-			} else {
-
-				$('#cannabisForm').hide();
-				$('#cannabis').val('');
-				$('#crackForm').hide();
-				$('#crack').val('');
-				$('#autresForm').hide();
-				$('#autres').val('');
-			}
+		} else {
+			$('#autredrogueprecisionForm').hide();
+			$('#autredrogueprecision').val('');
 		}
-
-		function autredrogue() {
-			var drogueprecision = $("#autresdrogues:checked");
-
-			if (drogueprecision.val() === 'autresdrogues') {
-				$('#autredrogueprecisionForm').show();
-
-			} else {
-
-				$('#autredrogueprecisionForm').hide();
-				$('#autredrogueprecision').val('');
-
-			}
-		}
+	}
 
 		
 	$(document).ready(function() {
