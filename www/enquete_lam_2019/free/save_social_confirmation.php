@@ -1,13 +1,13 @@
 <?php  
 
-$autreentree = null;
+$mode_admission_autre = null;
 $departementmdph = null;
 
-if (isset($_POST['autreentree'])) {
-	$autreentree = $_POST['autreentree'];
+if (isset($_POST['mode_admission_autre'])) {
+	$mode_admission_autre = $_POST['mode_admission_autre'];
 	
-	if($autreentree == ''){
-		$autreentree = null;
+	if($mode_admission_autre == ''){
+		$mode_admission_autre = null;
 	}
 }
 	
@@ -25,7 +25,7 @@ if (isset($_POST['sexe'])
 	&& isset($_POST['mode_admission'])
 	&& isset($_POST['statut_admin'])
 	&& isset($_POST['couv'])
-	&& isset($_POST['couvc'])
+	&& isset($_POST['couv_socialec'])
 	&& isset($_POST['aah'])
 	&& isset($_POST['pch'])
 	&& isset($_POST['inv'])
@@ -46,15 +46,15 @@ if (isset($_POST['sexe'])
 	&& isset($_POST['precisionprotection'])
 	) {
 	$sexe					= $_POST['sexe'];
-	$annee_naissance				= $_POST['annee_naissance'];
-	$date_entree				= $_POST['date_entree'];
+	$annee_naissance		= $_POST['annee_naissance'];
+	$date_entree			= $_POST['date_entree'];
 	$mode_admission			= $_POST['mode_admission'];
-	$statut_admin					= $_POST['statut_admin'];
-	$couv					= $_POST['couv'];
-	$couvc					= $_POST['couvc'];
+	$statut_admin			= $_POST['statut_admin'];
+	$couv_sociale			= $_POST['couv_sociale'];
+	$couv_socialec			= $_POST['couv_socialec'];
 	$aah					= $_POST['aah'];
 	$pch					= $_POST['pch'];
-	$inv					= $_POST['inv'];
+	$invalidite				= $_POST['invalidite'];
 	$mdph					= $_POST['mdph'];
 	$mdphsavs				= $_POST['mdphsavs'];
 	$mdphsams				= $_POST['mdphsams'];
@@ -81,12 +81,12 @@ else {
 	$annee_naissance		= $_POST['annee_naissance'];
 	$date_entree			= $_POST['date_entree'];
 	$mode_admission			= $_POST['mode_admission'];
-	$statut_admin					= $_POST['statut_admin'];
-	$couv					= $_POST['couv'];
-	$couvc					= $_POST['couvc'];
+	$statut_admin			= $_POST['statut_admin'];
+	$couv_sociale			= $_POST['couv_sociale'];
+	$couv_socialec			= $_POST['couv_socialec'];
 	$aah					= $_POST['aah'];
 	$pch					= $_POST['pch'];
-	$inv					= $_POST['inv'];
+	$invalidite				= $_POST['invalidite'];
 	$mdph					= $_POST['mdph'];
 	$mdphsavs				= $_POST['mdphsavs'];
 	$mdphsams				= $_POST['mdphsams'];
@@ -107,8 +107,8 @@ else {
 
 include 'constantes.php';
 
-$sql = "INSERT INTO social (  sexe,    annee_naissance,    date_entree,	   mode_admission,	 mode_admission_autre, 	statut_admin, 	couv_sociale, couv_socialec, aah,	pch,	invalidite, accord_mdph_fam, accord_mdph_savs, accord_mdph_samsah,	aide_soc_fam,		aide_soc_savs,		aide_soc_samsah,	departement_mdph, situation_recherche_place, date_demande, nombre_refus, derogation_age_ehpad, aide_soc_ehpad, situation_place_ehpad, protection_juridique, protection_juridique_precision) 
-VALUES 					   ('$sexe', '$annee_naissance', '$date_entree', '$mode_admission', '$autreentree',        '$statut_admin',		'$couv',	'$couvc',		'$aah','$pch',	'$inv',		'$mdph',		'$mdphsavs',		'$mdphsams',		'$aidesocialefam',	'$aidesocialesavs',	'$aidesocialesams','$departementmdph','$precisionmdph',			'$precisionmdphbis',		'$precisionmdphter','$ehpad ',		'$aidesocialeehpad',		'$placeehpad',		'$protection',	'$precisionprotection' )";
+$sql = "INSERT INTO social (  sexe,    annee_naissance,    date_entree,	   mode_admission,	 mode_admission_autre,     statut_admin, 	  couv_sociale,    couv_socialec,    aah,   pch,    invalidite,  accord_mdph_fam, accord_mdph_savs, accord_mdph_samsah,	aide_soc_fam,		aide_soc_savs,		aide_soc_samsah,	departement_mdph, situation_recherche_place, date_demande, nombre_refus, derogation_age_ehpad, aide_soc_ehpad, situation_place_ehpad, protection_juridique, protection_juridique_precision) 
+VALUES 					   ('$sexe', '$annee_naissance', '$date_entree', '$mode_admission', '$mode_admission_autre', '$statut_admin',	'$couv_sociale', '$couv_socialec', '$aah','$pch', '$invalidite', '$mdph',		'$mdphsavs',		'$mdphsams',		'$aidesocialefam',	'$aidesocialesavs',	'$aidesocialesams','$departementmdph','$precisionmdph',			'$precisionmdphbis',		'$precisionmdphter','$ehpad ',		'$aidesocialeehpad',		'$placeehpad',		'$protection',	'$precisionprotection' )";
 
 
 $link  =  mysql_connect($servername, $username, $password) or die( "Impossible de se connecter : "  .  mysql_error ());
