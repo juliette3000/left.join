@@ -4,9 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+<link rel="stylesheet" href="css/stylish-portfolio.css">
 <link rel="stylesheet" href="css/bootstrap4.4.1.min.css" />
 <link rel="stylesheet" href="css/formulaire.css" />
-
+<link rel="stylesheet" href="css/all.min.css" >
 <style type="text/css">
 select:required:invalid {
 	border-color: red;
@@ -18,9 +19,23 @@ select:required:invalid {
 
 <body>
 
-	<form class="container" method="post" action="save_social.php">
+	<!-- Navigation -->
+	<a class="menu-toggle rounded" href="#"> <i class="fas fa-bars"></i>
+	</a>
+	<nav id="sidebar-wrapper">
+		<ul class="sidebar-nav">
+			<li class="sidebar-brand"><a class="js-scroll-trigger" href="#page-top">Enquêtes</a></li>
+			<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="getListeMedical.php">Liste enquêtes volet médical</a></li>
+			<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="getListeSocial.php">Liste enquêtes volet social</a></li>
+			<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="formulaire_social.html">Formulaire volet social</a></li>
+			<li class="sidebar-nav-item"><a class="js-scroll-trigger" href="formulaire_medical.html">Formulaire volet médical</a></li>
+		</ul>
 
-		<div class="d-flex justify-content-center" style="margin-top: 30px">
+	</nav>
+
+	<form class="container" method="post" action="save_social.php"  style="margin-top: 30px">
+
+		<div class="d-flex justify-content-center">
 			<div class="card">
 				<div class="card-header">Enquête flash sur les situations de handicap-novembre 2019
 					<div style="text-align: center;">Volet social</div>
@@ -478,108 +493,109 @@ select:required:invalid {
 
 		<div class="card" id="card5">
 			<div class="card-header">Cette personne a-t-elle ou pourrait elle bénéficier</div>
-			<div class="card-body row">
+			<div class="card-body">
+				<div class="form-group row">
+					<div class="col-md-4">
+						<label class="col-form-label">D'une dérogation d'âge pour une place en EHPAD?</label>
+	
+						<div>
+							<input type="radio" name="ehpad" value="sansobjet" required="required"/>
+							<label for="sansobjet">Sans objet</label>
+						</div>
+						<div>
+							<input type="radio" name="ehpad" value="impossible" />
+							<label for="impossible" class="tooltip_j">Impossible<span class="tooltiptext_j">âge ou situation administrative incompatibles avec ce type de demande</span></label>
+						</div>
+						<div>
+							<input type="radio" name="ehpad" value="obtenu" />
+							<label for="obtenu">Déjà obtenu</label>
+						</div>
+						<div>
+							<input type="radio" name="ehpad" value="refus" />
+							<label for="refus">Refusée</label>
+						</div>
+						<div>
+							<input type="radio" name="ehpad" value="demande" />
+							<label for="demande">Demande en cours</label>
+						</div>
+						<div>
+							<input type="radio" name="ehpad" value="ropp" />
+							<label for="ropp" class="tooltip_j">A été envisagée mais ROPP<span class="tooltiptext_j">refus d’orientation par la personne</span></label>
+						</div>
+						<div>
+							<input type="radio" name="ehpad" value="envisager" />
+							<label for="envisager">A envisager</label>
+						</div>
+						<div>
+							<input type="radio" name="ehpad" value="nsp" />
+							<label for="nsp">NSP</label>
+						</div>
+					</div>
 
-				<div class="col-md-4">
-					<label class="col-form-label">D'une dérogation d'âge pour une place en EHPAD?</label>
+					<div class="col-md-4">
+						<label class="col-form-label">Quelque soit l'âge, de l'aide sociale pour une place en EHPAD?</label>
+						
+						<div>
+							<input type="radio" name="aidesocialeehpad" value="sansobjet" required="required"/>
+							<label for="sansobjet">Sans objet</label>
+						</div>
+						<div>
+							<input type="radio" name="aidesocialeehpad" value="obtenu" />
+							<label for="obtenu">Déjà obtenu</label>
+						</div>
+						<div>
+							<input type="radio" name="aidesocialeehpad" value="refus" />
+							<label for="refus">Refusée</label>
+						</div>
+						<div>
+							<input type="radio" name="aidesocialeehpad" value="demande" />
+							<label for="demande">Demande en cours</label>
+						</div>
+						<div>
+							<input type="radio" name="aidesocialeehpad" value="ropp" />
+							<label for="ropp" class="tooltip_j">A été envisagée mais ROPP<span class="tooltiptext_j">refus d’orientation par la personne</span></label>
+						</div>
+						<div>
+							<input type="radio" name="aidesocialeehpad" value="envisager" />
+							<label for="envisager">A envisager</label>
+						</div>
+						<div>
+							<input type="radio" name="aidesocialeehpad" value="nsp" />
+							<label for="nsp">NSP</label>
+						</div>
+					</div>
 
-					<div>
-						<input type="radio" name="ehpad" value="sansobjet" required="required"/>
-						<label for="sansobjet">Sans objet</label>
-					</div>
-					<div>
-						<input type="radio" name="ehpad" value="impossible" />
-						<label for="impossible" class="tooltip_j">Impossible<span class="tooltiptext_j">âge ou situation administrative incompatibles avec ce type de demande</span></label>
-					</div>
-					<div>
-						<input type="radio" name="ehpad" value="obtenu" />
-						<label for="obtenu">Déjà obtenu</label>
-					</div>
-					<div>
-						<input type="radio" name="ehpad" value="refus" />
-						<label for="refus">Refusée</label>
-					</div>
-					<div>
-						<input type="radio" name="ehpad" value="demande" />
-						<label for="demande">Demande en cours</label>
-					</div>
-					<div>
-						<input type="radio" name="ehpad" value="ropp" />
-						<label for="ropp" class="tooltip_j">A été envisagée mais ROPP<span class="tooltiptext_j">refus d’orientation par la personne</span></label>
-					</div>
-					<div>
-						<input type="radio" name="ehpad" value="envisager" />
-						<label for="envisager">A envisager</label>
-					</div>
-					<div>
-						<input type="radio" name="ehpad" value="nsp" />
-						<label for="nsp">NSP</label>
-					</div>
-				</div>
-
-				<div class="col-md-4">
-					<label class="col-form-label">Quelque soit l'âge, de l'aide sociale pour une place en EHPAD?</label>
-					
-					<div>
-						<input type="radio" name="aidesocialeehpad" value="sansobjet" required="required"/>
-						<label for="sansobjet">Sans objet</label>
-					</div>
-					<div>
-						<input type="radio" name="aidesocialeehpad" value="obtenu" />
-						<label for="obtenu">Déjà obtenu</label>
-					</div>
-					<div>
-						<input type="radio" name="aidesocialeehpad" value="refus" />
-						<label for="refus">Refusée</label>
-					</div>
-					<div>
-						<input type="radio" name="aidesocialeehpad" value="demande" />
-						<label for="demande">Demande en cours</label>
-					</div>
-					<div>
-						<input type="radio" name="aidesocialeehpad" value="ropp" />
-						<label for="ropp" class="tooltip_j">A été envisagée mais ROPP<span class="tooltiptext_j">refus d’orientation par la personne</span></label>
-					</div>
-					<div>
-						<input type="radio" name="aidesocialeehpad" value="envisager" />
-						<label for="envisager">A envisager</label>
-					</div>
-					<div>
-						<input type="radio" name="aidesocialeehpad" value="nsp" />
-						<label for="nsp">NSP</label>
-					</div>
-				</div>
-
-				<div class="col-md-4">
-
-					<label class="col-form-label">Recherche de place en EHPAD (avec ou sans dérogation d'âge), situation actuelle</label>
-					<div>
-						<input type="radio" name="placeehpad" value="sansobjet" id="sansobjet_ehpad" required="required"/>
-						<label for="sansobjet_ehpad">Sans objet</label>
-					</div>
-					<div>
-						<input type="radio" name="placeehpad" value="impossible" id="impossible_ehpad" />
-						<label for="impossible_ehpad" class="tooltip_j">Impossible<span class="tooltiptext_j">âge ou situation administrative incompatibles avec ce type de demande</span></label>
-					</div>
-					<div>
-						<input type="radio" name="placeehpad" value="trouve" id="trouve" />
-						<label for="trouve">Place trouvée</label>
-					</div>
-					<div>
-						<input type="radio" name="placeehpad" value="rencours" id="rencours" />
-						<label for="rencours">Recherche en cours</label>
-					</div>
-					<div>
-						<input type="radio" name="placeehpad" value="ropp" id="ropp" />
-						<label for="ropp" class="tooltip_j">A été envisagée mais ROPP<span class="tooltiptext_j">refus d’orientation par la personne</span></label>
-					</div>
-					<div>
-						<input type="radio" name="placeehpad" value="envisager" id="envisager_ehpad" />
-						<label for="envisager_ehpad">A envisager</label>
-					</div>
-					<div>
-						<input type="radio" name="placeehpad" value="nsp" id="nsp" />
-						<label for="nsp">NSP</label>
+					<div class="col-md-4">
+	
+						<label class="col-form-label">Recherche de place en EHPAD (avec ou sans dérogation d'âge), situation actuelle</label>
+						<div>
+							<input type="radio" name="placeehpad" value="sansobjet" id="sansobjet_ehpad" required="required"/>
+							<label for="sansobjet_ehpad">Sans objet</label>
+						</div>
+						<div>
+							<input type="radio" name="placeehpad" value="impossible" id="impossible_ehpad" />
+							<label for="impossible_ehpad" class="tooltip_j">Impossible<span class="tooltiptext_j">âge ou situation administrative incompatibles avec ce type de demande</span></label>
+						</div>
+						<div>
+							<input type="radio" name="placeehpad" value="trouve" id="trouve" />
+							<label for="trouve">Place trouvée</label>
+						</div>
+						<div>
+							<input type="radio" name="placeehpad" value="rencours" id="rencours" />
+							<label for="rencours">Recherche en cours</label>
+						</div>
+						<div>
+							<input type="radio" name="placeehpad" value="ropp" id="ropp_ehpad" />
+							<label for="ropp_ehpad" class="tooltip_j">A été envisagée mais ROPP<span class="tooltiptext_j">refus d’orientation par la personne</span></label>
+						</div>
+						<div>
+							<input type="radio" name="placeehpad" value="envisager" id="envisager_ehpad" />
+							<label for="envisager_ehpad">A envisager</label>
+						</div>
+						<div>
+							<input type="radio" name="placeehpad" value="nsp" id="nsp_ehpad" />
+							<label for="nsp_ehpad">NSP</label>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -588,38 +604,43 @@ select:required:invalid {
 		<div class="card" id="card6">
 			<div class="card-header">Existe t'il une protection juridique ?</div>
 			<div class="card-body">
-
-				<div>
-					<div>
-						<input type="radio" name="protection" value="oui" id="protection" onchange="selection_protection()" />
-							<label for="oui">Oui</label>
+				<div class="form-group row">
+					<div class="col-md-4">
+						<div>
+							<input type="radio" name="protection" value="oui" id="oui_protection" onchange="selection_protection()" />
+							<label for="oui_protection">Oui</label>
+						</div>
+						<div>
+							<input type="radio" name="protection" value="non" id="non_protection" onchange="selection_protection()" />
+								<label for="non_protection">Non</label>
+						</div>
+						<div>
+							<input type="radio" name="protection" value="demande" id="demande_protection" onchange="selection_protection()" />
+								<label for="demande_protection">Demandée</label>
+						</div>
+						<div>
+							<input type="radio" name="protection" value="encours" id="encours_protection" onchange="selection_protection()" />
+							<label for="encours_protection">En cours</label>
+						</div>
 					</div>
-					<div>
-						<input type="radio" name="protection" value="non" id="protection" onchange="selection_protection()" />
-							<label for="non">Non</label>
-					</div>
-					<div>
-						<input type="radio" name="protection" value="demande" id="protection" onchange="selection_protection()" />
-							<label for="demande">Demandée</label>
-					</div>
-					<div>
-						<input type="radio" name="protection" value="encours" id="protection" onchange="selection_protection()" />
-							<label for="encours">En cours</label>
+				</div>
+	
+				<div class="col-md-10" style="display: none" id="precisionprotection_div">
+					<div class="row">
+						<label for="precisionprotection" class="col-md-6 col-form-label">Il existe une protection juridique (ou en cours), précisez laquelle</label>
+						<div class="col-md-6">
+							<select name="precisionprotection" id="precisionprotection" class="form-control">
+								<option value="">Selectionnez</option>
+								<option value="trouvee">Tutelle</option>
+								<option value="rencours">Curatelle</option>
+								<option value="ropp">Curatelle renforcée</option>
+								<option value="nsp">Sauvegarde de justice</option>
+							</select>
+						</div>
 					</div>
 				</div>
 			</div>
-
-			<div>
-				<label for="precisionprotection" id="precisionprotection_label" style="display: none">Il existe une protection juridique (ou en cours), précisez
-					laquelle </label> <select name="precisionprotection" id="precisionprotection" style="display: none">
-					<option value="">Selectionnez</option>
-					<option value="trouvee">Tutelle</option>
-					<option value="rencours">Curatelle</option>
-					<option value="ropp">Curatelle renforcée</option>
-					<option value="nsp">Sauvegarde de justice</option>
-				</select>
-			</div>
-		</div><!-- end card -->
+		</div>
 
 		<div class="col-md-12" style="margin-bottom: 50px; text-align: center;">
 			<button type="submit" class="btn btn-info">Valider</button>
@@ -627,6 +648,9 @@ select:required:invalid {
 	</form>
 
 	<script src="js/jquery-1.12.3.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<!-- Custom scripts for this template -->
+	<script src="js/stylish-portfolio.min.js"></script>
 
 	<!-- pour afficher le champ de saisie autre -->
 	<script type="text/javascript">
@@ -775,19 +799,16 @@ select:required:invalid {
 
 		function selection_protection() {
 
-			var listeprotection = $("#protection:checked");
+			var radioSelected = $("input[name='protection']:checked"). val();
 
-			var dCondition1 = listeprotection.val() === 'oui';
-			var dCondition2 = listeprotection.val() === 'encours';
+			var dCondition1 = radioSelected === 'oui';
+			var dCondition2 = radioSelected === 'encours';
 
 			if (dCondition1 || dCondition2) {
-
-				$('#precisionprotection_label').show();
-				$('#precisionprotection').show();
+				$('#precisionprotection_div').show();
 
 			} else {
-				$('#precisionprotection_label').hide();
-				$('#precisionprotection').hide();
+				$('#precisionprotection_div').hide();
 				$('#precisionprotection').val('');
 			}
 
