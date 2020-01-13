@@ -7,6 +7,12 @@
 <link rel="stylesheet" href="css/bootstrap4.4.1.min.css" />
 <link rel="stylesheet" href="css/formulaire.css" />
 
+<style type="text/css">
+select:required:invalid {
+	border-color: red;
+}
+</style>
+
 <title>Enquête LAM - volet social</title>
 </head>
 
@@ -27,7 +33,7 @@
 			<div class="card-body">
 
 				<div class="form-group row">
-					<div class="col-md-2">
+					<div class="col-md-2" style="display: none;">
 						<label for="numerosiris" class="col-form-label">Numéro (auto)</label>
 						<div>
 							<input type="number" class="form-control" id="numerosiris">
@@ -36,7 +42,6 @@
 
 					<div class="col-md-3">
 						<label class="col-form-label">Sexe</label>
-
 						<div>
 							<div class="form-check-inline">
 								<input class="form-check-input" type="radio" name="sexe" value="H" id="homme" required="required">
@@ -49,23 +54,23 @@
 						</div>
 					</div>
 
-					<div class="col-md-3">
+					<div class="col-md-2">
 						<label for="annee_naissance">Année de naissance</label>
-						<input type="number" class="form-control" name="annee_naissance" id="annee_naissance"
-							placeholder="format 19-- ou 20--" required="required" min="1910" max="2020"/>
+						<input type="number" class="form-control" name="annee_naissance" id="annee_naissance" placeholder="19-- ou 20--"
+								required="required" min="1910" max="2020"/>
 
 					</div>
-					<div class="col-md-4">
+					
+<!-- 				</div> -->
+<!-- 				<div class="form-group row"> -->
+ 					<div class="col-md-4">
 						<label for="date_entree">Date d'entrée dans le centre (séjour actuel)</label>
-						<input type="date" name="date_entree" id="date_entree" class="form-control" />
+						<input type="date" name="date_entree" id="date_entree" class="form-control" required="required"/>
 					</div>
-				</div>
-				<div class="form-group row">
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<label for="mode_admission">Mode d'admission au LAM</label>
-						<select name="mode_admission" id="mode_admission" onchange="selection_mode_admission()"
-							class="form-control">
-							<option value="">Selectionnez le mode d'arrivée au LAM</option>
+						<select name="mode_admission" id="mode_admission" onchange="selection_mode_admission()" class="form-control" required="required">
+							<option value="" disabled selected hidden>Selectionnez le mode d'arrivée au LAM</option>
 							<option value="lhss">LHSS</option>
 							<option value="ssr">SSR</option>
 							<option value="hopitaux">Hôpitaux</option>
@@ -115,8 +120,8 @@
 						</div>
 
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="couv_sociale" id="inlineRadio3" value="aucune" id="aucune"/>
-							<label class="form-check-label" for="inlineRadio3">Aucune</label>
+							<input class="form-check-input" type="radio" name="couv_sociale" id="inlineRadio4" value="aucune" id="aucune"/>
+							<label class="form-check-label" for="inlineRadio4">Aucune</label>
 						</div>
 					</div>
 
@@ -136,8 +141,8 @@
 							<label class="form-check-label" for="ayantdroit">Ayant droit</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="couv_socialec" value="aucune" id="aucune" />
-							<label class="form-check-label" for="aucune">Aucune</label>
+							<input class="form-check-input" type="radio" name="couv_socialec" value="aucune" id="aucune_couv" />
+							<label class="form-check-label" for="aucune_couv">Aucune</label>
 						</div>
 					</div>
 				</div>
@@ -168,11 +173,11 @@
 						<label class="col-form-label">D'une AAH ?</label>
 						<div class="form-check">
 							<input class="form-check-input" type="radio" name="aah" value="sansobjet" id="sansobjet1" required="required"/>
-							<label for="sansobjet1" class="tooltip_j form-check-label">Sans objet<span class="tooltiptext_j">absence manifeste de troubles</span></label>
+							<label class="tooltip_j form-check-label" for="sansobjet1">Sans objet<span class="tooltiptext_j">absence manifeste de troubles</span></label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="aah" value="impossible" id="impossible" />
-							<label for="impossible" class="form-check-label tooltip_j">Impossible<span class="tooltiptext_j">âge ou situation administrative incompatibles avec ce type de demande</span></label>
+							<input class="form-check-input" type="radio" name="aah" value="impossible" id="impossible1" />
+							<label class="form-check-label tooltip_j" for="impossible1">Impossible<span class="tooltiptext_j">âge ou situation administrative incompatibles avec ce type de demande</span></label>
 						</div>
 						<div class="form-check">
 							<input class="form-check-input" type="radio" name="aah" value="obtenu" id="obtenu1" />
@@ -191,8 +196,8 @@
 							<label class="form-check-label tooltip_j" for="ropp" >A été envisagée mais ROPP<span class="tooltiptext_j">refus d’orientation par la personne</span></label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="aah" value="envisager" id="envisager" />
-							<label class="form-check-label" for="envisager">A envisager</label>
+							<input class="form-check-input" type="radio" name="aah" value="envisager" id="envisager1" />
+							<label class="form-check-label" for="envisager1">A envisager</label>
 						</div>
 						<div class="form-check">
 							<input class="form-check-input" type="radio" name="aah" value="nsp" id="nsp" />
@@ -207,8 +212,8 @@
 							<label class="form-check-label" for="sansobjet2">Sans objet</label>
 						</div>						
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="pch" value="impossible" id="impossible" />
-							<label for="impossible" class="tooltip_j form-check-label">Impossible<span class="tooltiptext_j">âge ou situation administrative incompatibles avec ce type de demande</span></label>
+							<input class="form-check-input" type="radio" name="pch" value="impossible" id="impossible2" />
+							<label for="impossible2" class="tooltip_j form-check-label">Impossible<span class="tooltiptext_j">âge ou situation administrative incompatibles avec ce type de demande</span></label>
 						</div>
 						<div class="form-check">
 							<input class="form-check-input" type="radio" name="pch" value="obtenu" id="obtenu2" />
@@ -227,8 +232,8 @@
 							<label for="ropp2" class="tooltip_j form-check-label">A été envisagée mais ROPP<span class="tooltiptext_j">refus d’orientation par la personne</span></label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="pch" value="envisager" id="envisager" />
-							<label class="form-check-label" for="envisager">A envisager</label>
+							<input class="form-check-input" type="radio" name="pch" value="envisager" id="envisager2" />
+							<label class="form-check-label" for="envisager2">A envisager</label>
 						</div>
 						<div class="form-check">
 							<input class="form-check-input" type="radio" name="pch" value="nsp" id="nsp" />
@@ -255,20 +260,20 @@
 							<label class="form-check-label" for="refus">Refusée</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="invalidite" value="demande" id="demande" />
-							<label class="form-check-label" for="demande">Demande en cours</label>
+							<input class="form-check-input" type="radio" name="invalidite" value="demande" id="demande3" />
+							<label class="form-check-label" for="demande3">Demande en cours</label>
 						</div>
 						<div class="form-check">
 							<input class="form-check-input" type="radio" name="invalidite" value="ropp" id="ropp" />
 							<label class="form-check-label tooltip_j" for="ropp">A été envisagée mais ROPP<span class="tooltiptext_j">refus d’orientation par la personne</span></label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="invalidite" value="envisager" id="envisager" />
-							<label class="form-check-label" for="envisager">A envisager</label>
+							<input class="form-check-input" type="radio" name="invalidite" value="envisager" id="envisager3" />
+							<label class="form-check-label" for="envisager3">A envisager</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="radio" name="invalidite" value="nsp" id="nsp" />
-							<label class="form-check-label" for="nsp">NSP</label>
+							<input class="form-check-input" type="radio" name="invalidite" value="nsp" id="nsp3" />
+							<label class="form-check-label" for="nsp3">NSP</label>
 						</div>
 					</div>
 				</div>
@@ -277,196 +282,198 @@
 
 		<div class="card" id="card4">
 			<div class="card-header">Cette personne a-t-elle ou pourrait elle bénéficier</div>
-			<div class="card-body row">
 
-				<div class="col-md-4">
-					<label class="col-form-label">D'un accord de la MDPH pour une place en FAM ou MAS ?</label>
-					<div>
-						<input type="radio" id="sansobjet_mdph" name="mdph" value="sansobjet" onchange="selection_mdph()" />
-						<label for="sansobjet_mdph">Sans objet</label>
-					</div>
-					<div>
-						<input type="radio" id="impossible_mdph" name="mdph" value="impossible" onchange="selection_mdph()" />
-						<label for="impossible" class="tooltip_j">Impossible<span class="tooltiptext_j">âge ou situation administrative incompatibles avec ce type de demande</span></label>
-					</div>
-					<div>
-						<input type="radio" id="mdph" name="mdph" value="obtenu" onchange="selection_mdph()" />
-						<label for="obtenu">Déjà obtenu</label>
-					</div>
-					<div>
-						<input type="radio" id="refus_mdph" name="mdph" value="refus" onchange="selection_mdph()" />
-						<label for="refus">Refusée</label>
-					</div>
-					<div>
-						<input type="radio" id="demande_mdph" name="mdph" value="demande" onchange="selection_mdph()" />
-						<label for="demande">Demande en cours</label>
-					</div>
-					<div>
-						<input type="radio" id="ropp_mdph" name="mdph" value="ropp" onchange="selection_mdph()" />
-						<label for="ropp" class="tooltip_j">A été envisagée mais ROPP<span class="tooltiptext_j">refus d’orientation par la personne</span></label>
-					</div>
-					<div>
-						<input type="radio" id="envisager_mdph" name="mdph" value="envisager" onchange="selection_mdph()" />
-						<label for="envisager">A envisager</label>
-					</div>
-					<div>
-						<input type="radio" id="nsp_mdph" name="mdph" value="nsp" onchange="selection_mdph()" />
-						<label for="nsp">NSP</label>
-					</div>
-				</div>
+			<div class="card-body">
+				<div class="form-group row">
 
-				<!--si on a selectionne "obtenu" : questions suivantes-->
-				<div class="col-md-4">
-					<label class="col-form-label">D'un accord de la MDPH pour un SAVS**? </label>
-
-					<div class="form-check">
-						<input class="form-check-input" type="radio" id="sansobjet_mdphsavs" name="mdphsavs" value="sansobjet" onchange="selection_mdphsavs()" required="required"/>
-						<label class="form-check-label" for="sansobjet_sansobjet">Sans objet</label>
+					<div class="col-md-4">
+						<label class="col-form-label">D'un accord de la MDPH pour une place en FAM ou MAS ?</label>
+						<div>
+							<input type="radio" id="sansobjet_mdph" name="mdph" value="sansobjet" onchange="selection_mdph()" />
+							<label for="sansobjet_mdph">Sans objet</label>
+						</div>
+						<div>
+							<input type="radio" id="impossible_mdph" name="mdph" value="impossible" onchange="selection_mdph()" />
+							<label for="impossible_mdph" class="tooltip_j">Impossible<span class="tooltiptext_j">âge ou situation administrative incompatibles avec ce type de demande</span></label>
+						</div>
+						<div>
+							<input type="radio" id="obtenu_mdph" name="mdph" value="obtenu" onchange="selection_mdph()" />
+							<label for="obtenu_mdph">Déjà obtenu</label>
+						</div>
+						<div>
+							<input type="radio" id="refus_mdph" name="mdph" value="refus" onchange="selection_mdph()" />
+							<label for="refus_mdph">Refusée</label>
+						</div>
+						<div>
+							<input type="radio" id="demande_mdph" name="mdph" value="demande" onchange="selection_mdph()" />
+							<label for="demande_mdph">Demande en cours</label>
+						</div>
+						<div>
+							<input type="radio" id="ropp_mdph" name="ropp_mdph" value="ropp" onchange="selection_mdph()" />
+							<label for="ropp_mdph" class="tooltip_j">A été envisagée mais ROPP<span class="tooltiptext_j">refus d’orientation par la personne</span></label>
+						</div>
+						<div>
+							<input type="radio" id="envisager_mdph" name="mdph" value="envisager" onchange="selection_mdph()" />
+							<label for="envisager_mdph">A envisager</label>
+						</div>
+						<div>
+							<input type="radio" id="nsp_mdph" name="mdph" value="nsp" onchange="selection_mdph()" />
+							<label for="nsp">NSP</label>
+						</div>
 					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="radio" id="mdphsavs" name="mdphsavs" value="impossible" onchange="selection_mdphsavs()" />
-						<label class="form-check-label tooltip_j" for="impossible">Impossible<span class="tooltiptext_j">âge ou situation administrative incompatibles avec ce type de demande</span></label>
+	
+					<!--si on a selectionne "obtenu" : questions suivantes-->
+					<div class="col-md-4">
+						<label class="col-form-label">D'un accord de la MDPH pour un SAVS**? </label>
+	
+						<div class="form-check">
+							<input class="form-check-input" type="radio" id="sansobjet_mdphsavs" name="mdphsavs" value="sansobjet" onchange="selection_mdphsavs()" required="required"/>
+							<label class="form-check-label" for="sansobjet_mdphsavs">Sans objet</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" id="impossible_mdphsavs" name="mdphsavs" value="impossible" onchange="selection_mdphsavs()" />
+							<label class="form-check-label tooltip_j" for="impossible_mdphsavs">Impossible<span class="tooltiptext_j">âge ou situation administrative incompatibles avec ce type de demande</span></label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" id="obtenu_mdphsavs" name="mdphsavs" value="obtenu" onchange="selection_mdphsavs()" />
+							<label class="form-check-label" for="obtenu_mdphsavs">Déjà obtenu</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" id="refus_mdphsavs" name="mdphsavs" value="refus" onchange="selection_mdphsavs()" />
+							<label class="form-check-label" for="refus_mdphsavs">Refusée</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" id="demande_mdphsavs" name="mdphsavs" value="demande" onchange="selection_mdphsavs()" />
+							<label class="form-check-label" for="demande_mdphsavs">Demande en cours</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" id="ropp_mdphsavs" name="mdphsavs" value="ropp" onchange="selection_mdphsavs()" />
+							<label class="form-check-label tooltip_j" for="ropp_mdphsavs">A été envisagée mais ROPP<span class="tooltiptext_j">refus d’orientation par la personne</span></label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" id="envisager_mdphsavs" name="mdphsavs" value="envisager" onchange="selection_mdphsavs()" />
+							<label class="form-check-label" for="envisager_mdphsavs">A envisager</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="radio" id="nsp_mdphsavs" name="mdphsavs" value="nsp" onchange="selection_mdphsavs()" />
+							<label class="form-check-label" for="nsp_mdphsavs">NSP</label>
+						</div>
 					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="radio" id="mdphsavs" name="mdphsavs" value="obtenu" onchange="selection_mdphsavs()" />
-						<label class="form-check-label" for="obtenu">Déjà obtenu</label>
+	
+	
+					<div class="col-md-4">
+						<label class="col-form-label">D'un accord de la MDPH pour un SAMSAH**?</label>
+						<div>
+							<input type="radio" id="sansobjet_mdphsams" name="mdphsams" value="sansobjet" onchange="selection_mdphsams()" required="required"/>
+							<label for="sansobjet_mdphsams">Sans objet</label>
+						</div>
+						<div>
+							<input type="radio" id="impossible_mdphsams" name="mdphsams" value="impossible"/>
+							<label for="impossible_mdphsams" class="tooltip_j">Impossible<span class="tooltiptext_j">âge ou situation administrative incompatibles avec ce type de demande</span></label>
+						</div>
+						<div>
+							<input type="radio" id="obtenu_mdphsams" name="mdphsams" value="obtenu"/>
+							<label for="obtenu_mdphsams">Déjà obtenu</label>
+						</div>
+						<div>
+							<input type="radio" id="refus_mdphsams" name="mdphsams" value="refus"/>
+							<label for="refus_mdphsams">Refusée</label>
+						</div>
+						<div>
+							<input type="radio" id="demande_mdphsams" name="mdphsams" value="demande"/>
+							<label for="demande_mdphsams">Demande en cours</label>
+						</div>
+						<div>
+							<input type="radio" id="roop_mdphsams" name="mdphsams" value="ropp"/>
+							<label for="ropp_mdphsams" class="tooltip_j">A été envisagée mais ROPP<span class="tooltiptext_j">refus d’orientation par la personne</span></label>
+						</div>
+						<div>
+							<input type="radio" id="envisager_mdphsams" name="mdphsams" value="envisager"/>
+							<label for="envisager_mdphsams">A envisager</label>
+						</div>
+						<div>
+							<input type="radio" id="nsp_mdphsams" name="mdphsams" value="nsp"/>
+							<label for="nsp_mdphsams">NSP</label>
+						</div>
 					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="radio" id="mdphsavs" name="mdphsavs" value="refus" onchange="selection_mdphsavs()" />
-						<label class="form-check-label" for="refus">Refusée</label>
+					
+					<!-- div affichage optionnel -->
+					<div class="col-md-10 col-md-offset-2 panelOption">
+	
+						<label for="aidesocialefam" id="aidesocialefam_label" style="display: none">Un accord de la MDPH pour une place en FAM ou MAS a déjà été obtenue,
+							pourrait elle bénéficier : de l'aide sociale pour un tel service ?</label>
+						<select name="aidesocialefam" id="aidesocialefam" style="display: none">
+							<option value="">Selectionnez</option>
+							<option value="ssobjet">Sans objet</option>
+							<option value="obtenu">Déjà obtenue</option>
+							<option value="refus">Refusée</option>
+							<option value="demande">Demande en cours</option>
+							<option value="ropp">A ete envisagé mais ROPP</option>
+							<option value="envisager">A envisager</option>
+							<option value="nsp">NSP</option>
+						</select>
 					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="radio" id="mdphsavs" name="mdphsavs" value="demande" onchange="selection_mdphsavs()" />
-						<label class="form-check-label" for="demande">Demande en cours</label>
+					<div class="col-md-10 col-md-offset-2 panelOption">
+						<label for="aidesocialesavs" id="aidesocialesavs_label" style="display: none">Un accord de la MDPH pour un SAVS** a déjà été obtenu, pourrait elle
+							bénéficier : de l'aide sociale pour un tel service ?</label>
+							
+						<select name="aidesocialesavs" id="aidesocialesavs" style="display: none">
+							<option value="">Selectionnez</option>
+							<option value="ssobjet">Sans objet</option>
+							<option value="obtenu">Déjà obtenue</option>
+							<option value="refus">Refusée</option>
+							<option value="demande">Demande en cours</option>
+							<option value="ropp">A ete envisagé mais ROPPrefus d’orientation par la personne</option>
+							<option value="envisager">A envisager</option>
+							<option value="nsp">NSP</option>
+						</select>
 					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="radio" id="mdphsavs" name="mdphsavs" value="ropp" onchange="selection_mdphsavs()" />
-						<label class="form-check-label tooltip_j" for="ropp">A été envisagée mais ROPP<span class="tooltiptext_j">refus d’orientation par la personne</span></label>
+	
+	
+					<div class="col-md-10 col-md-offset-2 panelOption">
+						<label for="aidesocialesams" id="aidesocialesams_label" style="display: none">Un accord de la MDPH pour un SAMSAH** a déjà été obtenu, pourrait
+							elle bénéficier : de l'aide sociale pour un tel service ?</label>
+						<select name="aidesocialesams" id="aidesocialesams" style="display: none">
+							<option value="">Selectionnez</option>
+							<option value="ssobjet">Sans objet</option>
+							<option value="obtenu">Déjà obtenue</option>
+							<option value="refus">Refusée</option>
+							<option value="demande">Demande en cours</option>
+							<option value="ropp">A ete envisagé mais ROPP</option>
+							<option value="envisager">A envisager</option>
+							<option value="nsp">NSP</option>
+						</select>
 					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="radio" id="mdphsavs" name="mdphsavs" value="envisager" onchange="selection_mdphsavs()" />
-						<label class="form-check-label" for="envisager">A envisager</label>
+	
+					<div class="col-md-10 col-md-offset-2 panelOption">
+						<label for="departementmdph" id="departementmdph_label" style="display: none">Une demande MDPH a déjà été effectuée, précisez le numéro du
+							département</label>
+							<input type="number" name="departementmdph" id="departementmdph" style="display: none" />
 					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="radio" id="mdphsavs" name="mdphsavs" value="nsp" onchange="selection_mdphsavs()" />
-						<label class="form-check-label" for="nsp">NSP</label>
+	
+					<div class="col-md-10 col-md-offset-2 panelOption">
+						<label for="precisionmdph" id="precisionmdph_label" style="display: none">Situation actuelle vis à vis de la recherche de place en FAM, MAS, SAVS
+							ou SAMSAH?</label>
+						<select name="precisionmdph" id="precisionmdph" style="display: none">
+							<option value="">Selectionnez</option>
+							<option value="trouvee">Place trouvée</option>
+							<option value="rencours">Recherche en cours</option>
+							<option value="ropp">ROPPrefus d’orientation par la personne</option>
+							<option value="nsp">NSP</option>
+						</select>
 					</div>
-				</div>
-
-
-				<div class="col-md-4">
-					<label class="col-form-label">D'un accord de la MDPH pour un SAMSAH**?</label>
-					<div>
-						<input type="radio" id="sansobjet_mdphsams" name="mdphsams" value="sansobjet" onchange="selection_mdphsams()" required="required"/>
-						<label for="sansobjet_mdphsams">Sans objet</label>
+	
+					<div class="col-md-10 col-md-offset-2 panelOption">
+						<label for="precisionmdphbis" id="precisionmdphbis_label" style="display: none">Date de 1ère demande de place </label>
+						<input type="date" name="precisionmdphbis" id="precisionmdphbis" style="display: none" />
 					</div>
-					<div>
-						<input type="radio" id="mdphsams" name="mdphsams" value="impossible" onchange="selection_mdphsams()" />
-						<label for="impossible" class="tooltip_j">Impossible<span class="tooltiptext_j">âge ou situation administrative incompatibles avec ce type de demande</span></label>
+	
+					<div class="col-md-10 col-md-offset-2 panelOption">
+						<label for="precisionmdphter" id="precisionmdphter_label" style="display: none">Nombre de refus depuis la 1ère demande</label>
+						<input type="number" name="precisionmdphter" id="precisionmdphter" style="display: none" />
 					</div>
-					<div>
-						<input type="radio" id="mdphsams" name="mdphsams" value="obtenu" onchange="selection_mdphsams()" />
-						<label for="obtenu">Déjà obtenu</label>
-					</div>
-					<div>
-						<input type="radio" id="mdphsams" name="mdphsams" value="refus" onchange="selection_mdphsams()" />
-						<label for="refus">Refusée</label>
-					</div>
-					<div>
-						<input type="radio" id="mdphsams" name="mdphsams" value="demande" onchange="selection_mdphsams()" />
-						<label for="demande">Demande en cours</label>
-					</div>
-					<div>
-						<input type="radio" id="mdphsams" name="mdphsams" value="ropp" onchange="selection_mdphsams()" />
-						<label for="ropp" class="tooltip_j">A été envisagée mais ROPP<span class="tooltiptext_j">refus d’orientation par la personne</span></label>
-					</div>
-					<div>
-						<input type="radio" id="mdphsams" name="mdphsams" value="envisager" onchange="selection_mdphsams()" />
-						<label for="envisager">A envisager</label>
-					</div>
-					<div>
-						<input type="radio" id="mdphsams" name="mdphsams" value="nsp" onchange="selection_mdphsams()" />
-						<label for="nsp">NSP</label>
-					</div>
-				</div>
-				
-				<!-- div affichage optionnel -->
-				<div class="col-md-10 col-md-offset-2 panelOption">
-
-					<label for="aidesocialefam" id="aidesocialefam_label" style="display: none">Un accord de la MDPH pour une place en FAM ou MAS a déjà été obtenue,
-						pourrait elle bénéficier : de l'aide sociale pour un tel service ?</label>
-					<select name="aidesocialefam" id="aidesocialefam" style="display: none">
-						<option value="">Selectionnez</option>
-						<option value="ssobjet">Sans objet</option>
-						<option value="obtenu">Déjà obtenue</option>
-						<option value="refus">Refusée</option>
-						<option value="demande">Demande en cours</option>
-						<option value="ropp">A ete envisagé mais ROPP</option>
-						<option value="envisager">A envisager</option>
-						<option value="nsp">NSP</option>
-					</select>
-				</div>
-				<div class="col-md-10 col-md-offset-2 panelOption">
-					<label for="aidesocialesavs" id="aidesocialesavs_label" style="display: none">Un accord de la MDPH pour un SAVS** a déjà été obtenu, pourrait elle
-						bénéficier : de l'aide sociale pour un tel service ?</label>
-						
-					<select name="aidesocialesavs" id="aidesocialesavs" style="display: none">
-						<option value="">Selectionnez</option>
-						<option value="ssobjet">Sans objet</option>
-						<option value="obtenu">Déjà obtenue</option>
-						<option value="refus">Refusée</option>
-						<option value="demande">Demande en cours</option>
-						<option value="ropp">A ete envisagé mais ROPPrefus d’orientation par la personne</option>
-						<option value="envisager">A envisager</option>
-						<option value="nsp">NSP</option>
-					</select>
-				</div>
-
-
-				<div class="col-md-10 col-md-offset-2 panelOption">
-					<label for="aidesocialesams" id="aidesocialesams_label" style="display: none">Un accord de la MDPH pour un SAMSAH** a déjà été obtenu, pourrait
-						elle bénéficier : de l'aide sociale pour un tel service ?</label>
-					<select name="aidesocialesams" id="aidesocialesams" style="display: none">
-						<option value="">Selectionnez</option>
-						<option value="ssobjet">Sans objet</option>
-						<option value="obtenu">Déjà obtenue</option>
-						<option value="refus">Refusée</option>
-						<option value="demande">Demande en cours</option>
-						<option value="ropp">A ete envisagé mais ROPP</option>
-						<option value="envisager">A envisager</option>
-						<option value="nsp">NSP</option>
-					</select>
-				</div>
-
-				<div class="col-md-10 col-md-offset-2 panelOption">
-					<label for="departementmdph" id="departementmdph_label" style="display: none">Une demande MDPH a déjà été effectuée, précisez le numéro du
-						département</label>
-						<input type="number" name="departementmdph" id="departementmdph" style="display: none" />
-				</div>
-
-				<div class="col-md-10 col-md-offset-2 panelOption">
-					<label for="precisionmdph" id="precisionmdph_label" style="display: none">Situation actuelle vis à vis de la recherche de place en FAM, MAS, SAVS
-						ou SAMSAH?</label>
-					<select name="precisionmdph" id="precisionmdph" style="display: none">
-						<option value="">Selectionnez</option>
-						<option value="trouvee">Place trouvée</option>
-						<option value="rencours">Recherche en cours</option>
-						<option value="ropp">ROPPrefus d’orientation par la personne</option>
-						<option value="nsp">NSP</option>
-					</select>
-				</div>
-
-				<div class="col-md-10 col-md-offset-2 panelOption">
-					<label for="precisionmdphbis" id="precisionmdphbis_label" style="display: none">Date de 1ère demande de place </label>
-					<input type="date" name="precisionmdphbis" id="precisionmdphbis" style="display: none" />
-				</div>
-
-				<div class="col-md-10 col-md-offset-2 panelOption">
-					<label for="precisionmdphter" id="precisionmdphter_label" style="display: none">Nombre de refus depuis la 1ère demande</label>
-					<input type="number" name="precisionmdphter" id="precisionmdphter" style="display: none" />
 				</div>
 			</div>
-
 		</div>
 
 		<div class="card" id="card5">
@@ -477,35 +484,35 @@
 					<label class="col-form-label">D'une dérogation d'âge pour une place en EHPAD?</label>
 
 					<div>
-						<input type="radio" id="ehpad" name="ehpad" value="sansobjet" required="required"/>
+						<input type="radio" name="ehpad" value="sansobjet" required="required"/>
 						<label for="sansobjet">Sans objet</label>
 					</div>
 					<div>
-						<input type="radio" id="ehpad" name="ehpad" value="impossible" />
+						<input type="radio" name="ehpad" value="impossible" />
 						<label for="impossible" class="tooltip_j">Impossible<span class="tooltiptext_j">âge ou situation administrative incompatibles avec ce type de demande</span></label>
 					</div>
 					<div>
-						<input type="radio" id="ehpad" name="ehpad" value="obtenu" />
+						<input type="radio" name="ehpad" value="obtenu" />
 						<label for="obtenu">Déjà obtenu</label>
 					</div>
 					<div>
-						<input type="radio" id="ehpad" name="ehpad" value="refus" />
+						<input type="radio" name="ehpad" value="refus" />
 						<label for="refus">Refusée</label>
 					</div>
 					<div>
-						<input type="radio" id="ehpad" name="ehpad" value="demande" />
+						<input type="radio" name="ehpad" value="demande" />
 						<label for="demande">Demande en cours</label>
 					</div>
 					<div>
-						<input type="radio" id="ehpad" name="ehpad" value="ropp" />
+						<input type="radio" name="ehpad" value="ropp" />
 						<label for="ropp" class="tooltip_j">A été envisagée mais ROPP<span class="tooltiptext_j">refus d’orientation par la personne</span></label>
 					</div>
 					<div>
-						<input type="radio" id="ehpad" name="ehpad" value="envisager" />
+						<input type="radio" name="ehpad" value="envisager" />
 						<label for="envisager">A envisager</label>
 					</div>
 					<div>
-						<input type="radio" id="ehpad" name="ehpad" value="nsp" />
+						<input type="radio" name="ehpad" value="nsp" />
 						<label for="nsp">NSP</label>
 					</div>
 				</div>
@@ -514,31 +521,31 @@
 					<label class="col-form-label">Quelque soit l'âge, de l'aide sociale pour une place en EHPAD?</label>
 					
 					<div>
-						<input type="radio" id="aidesocialeehpad" name="aidesocialeehpad" value="sansobjet" required="required"/>
+						<input type="radio" name="aidesocialeehpad" value="sansobjet" required="required"/>
 						<label for="sansobjet">Sans objet</label>
 					</div>
 					<div>
-						<input type="radio" id="aidesocialeehpad" name="aidesocialeehpad" value="obtenu" />
-					<label for="obtenu">Déjà obtenu</label>
+						<input type="radio" name="aidesocialeehpad" value="obtenu" />
+						<label for="obtenu">Déjà obtenu</label>
 					</div>
 					<div>
-						<input type="radio" id="aidesocialeehpad" name="aidesocialeehpad" value="refus" />
-					<label for="refus">Refusée</label>
+						<input type="radio" name="aidesocialeehpad" value="refus" />
+						<label for="refus">Refusée</label>
 					</div>
 					<div>
-						<input type="radio" id="aidesocialeehpad" name="aidesocialeehpad" value="demande" />
+						<input type="radio" name="aidesocialeehpad" value="demande" />
 						<label for="demande">Demande en cours</label>
 					</div>
 					<div>
-						<input type="radio" id="aidesocialeehpad" name="aidesocialeehpad" value="ropp" />
+						<input type="radio" name="aidesocialeehpad" value="ropp" />
 						<label for="ropp" class="tooltip_j">A été envisagée mais ROPP<span class="tooltiptext_j">refus d’orientation par la personne</span></label>
 					</div>
 					<div>
-						<input type="radio" id="aidesocialeehpad" name="aidesocialeehpad" value="envisager" />
+						<input type="radio" name="aidesocialeehpad" value="envisager" />
 						<label for="envisager">A envisager</label>
 					</div>
 					<div>
-						<input type="radio" id="aidesocialeehpad" name="aidesocialeehpad" value="nsp" />
+						<input type="radio" name="aidesocialeehpad" value="nsp" />
 						<label for="nsp">NSP</label>
 					</div>
 				</div>
@@ -547,12 +554,12 @@
 
 					<label class="col-form-label">Recherche de place en EHPAD (avec ou sans dérogation d'âge), situation actuelle</label>
 					<div>
-						<input type="radio" name="placeehpad" value="sansobjet" id="sansobjet3" required="required"/>
-						<label for="sansobjet">Sans objet</label>
+						<input type="radio" name="placeehpad" value="sansobjet" id="sansobjet_ehpad" required="required"/>
+						<label for="sansobjet_ehpad">Sans objet</label>
 					</div>
 					<div>
-						<input type="radio" name="placeehpad" value="impossible" id="impossible" />
-						<label for="impossible" class="tooltip_j">Impossible<span class="tooltiptext_j">âge ou situation administrative incompatibles avec ce type de demande</span></label>
+						<input type="radio" name="placeehpad" value="impossible" id="impossible_ehpad" />
+						<label for="impossible_ehpad" class="tooltip_j">Impossible<span class="tooltiptext_j">âge ou situation administrative incompatibles avec ce type de demande</span></label>
 					</div>
 					<div>
 						<input type="radio" name="placeehpad" value="trouve" id="trouve" />
@@ -567,8 +574,8 @@
 						<label for="ropp" class="tooltip_j">A été envisagée mais ROPP<span class="tooltiptext_j">refus d’orientation par la personne</span></label>
 					</div>
 					<div>
-						<input type="radio" name="placeehpad" value="envisager" id="envisager" />
-						<label for="envisager">A envisager</label>
+						<input type="radio" name="placeehpad" value="envisager" id="envisager_ehpad" />
+						<label for="envisager_ehpad">A envisager</label>
 					</div>
 					<div>
 						<input type="radio" name="placeehpad" value="nsp" id="nsp" />
@@ -623,6 +630,9 @@
 
 	<!-- pour afficher le champ de saisie autre -->
 	<script type="text/javascript">
+	
+		// $("#mode_admission").prop("selectedIndex", -1);
+	
 		function selection_mode_admission() {
 
 			var listederoulantemodeentree = $("#mode_admission");
