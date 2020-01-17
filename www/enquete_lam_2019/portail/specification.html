@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Spécifications fonctionnelles et techniques</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/bootstrap4.4.1.min.css">
+<link href="../css/prism.css" rel="stylesheet" />
+<style type="text/css">
+pre {
+	border-radius: .5rem;
+	font-size: .8rem;
+}
+nav {
+	float: right;
+	background-color: #e9ecef;
+	border-radius: 0.5rem;
+}
+
+nav a {
+	color: black;
+}
+
+h3 {
+margin-top: 50px;
+}
+</style>
+
+
+<script src="../js/jquery-2.1.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/prism.js"></script>
+</head>
+<body>
+
+	<div class="jumbotron text-center">
+		<h1>Spécifications fonctionnelles et techniques</h1>
+	</div>
+
+	<div class="container">
+		<nav class="nav justify-content-end">
+
+			<ul class="nav flex-column">
+				<li class="nav-item"><a class="nav-link" href="#springBoot">Spring Boot</a></li>
+				<li class="nav-item"><a class="nav-link" href="#filtre">Variables d'environnement</a></li>
+				<li class="nav-item"><a class="nav-link" href="#cas">Authentidication CAS</a></li>
+				<li class="nav-item"><a class="nav-link" href="#jenkinsRancher">Jenkins et Rancher</a></li>
+				<li class="nav-item"><a class="nav-link" href="#execution">Exécution</a></li>
+				<li class="nav-item"><a class="nav-link" href="#todo">TODO</a></li>
+			</ul>
+
+		</nav>
+
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-3">
+				<h3 id="springBoot" style="margin-top: 0">Spring Boot</h3>
+
+<p>
+La doc <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/">https://docs.spring.io/spring-boot/docs/current/reference/html/</a>
+</p>
+<p>Pour commencer, l'ajout de la dépendance dans pom.xml.</p>
+
+				<pre><code class="language-xml">&lt;parent&gt;
+	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+	&lt;version&gt;2.0.2.RELEASE&lt;/version&gt;
+&lt;/parent&gt;</code></pre>
+
+				<p>Toutes les dépendances spring en découlent (version 5.0.5.RELEASE).</p>
+
+Par défaut quand on crée un nouveau projet Spring Boot Web 
+
+
+	<pre><code class="language-xml">&lt;parent>
+		&lt;groupId>org.springframework.boot&lt;/groupId>
+		&lt;artifactId>spring-boot-starter-parent&lt;/artifactId>
+		&lt;version>2.0.5.RELEASE&lt;/version>
+		&lt;relativePath/> &lt;!-- lookup parent from repository -->
+	&lt;/parent>
+
+	&lt;dependencies>
+		&lt;dependency>
+			&lt;groupId>org.springframework.boot&lt;/groupId>
+			&lt;artifactId>spring-boot-starter-web&lt;/artifactId>
+		&lt;/dependency>
+	&lt;/dependencies>
+
+	&lt;build>
+		&lt;plugins>
+			&lt;plugin>
+				&lt;groupId>org.springframework.boot&lt;/groupId>
+				&lt;artifactId>spring-boot-maven-plugin&lt;/artifactId>
+			&lt;/plugin>
+		&lt;/plugins>
+	&lt;/build></code></pre>	
+
+<br/>
+				<p>Au final on a besoin des dépendances suivantes.</p>
+<table class="table table-bordered" style="font-size: 0.8rem;"><!-- table-striped -->
+  <thead>
+    <tr>
+          <th scope="col">artifactId</th>
+          <th scope="col">decription</th>
+    </tr>
+  </thead>
+  <tbody>
+<!--     <tr><td>spring-boot-starter-data-jpa</td><td>...</td></tr> -->
+	<tr>	<td>spring-boot-starter-web</td><td></td></tr>				
+	<tr><td>spring-context-support</td><td></td></tr>				
+	<tr><td>spring-boot-starter-security</td><td></td></tr>				
+				
+				</table>
+				
+			</div>
+		</div>
+
+		<div class="row">
+
+			<div class="col-sm-8">
+
+
+				<h3 id="filtre">Variables environnements</h3>
+				<p>
+				Les variables d'environnement peuvent se définir :
+				</p>
+				<ul>
+				<li>dans <code>application.properties</code> qui est lu par défaut au lancement de Spring. P.ex. on peux définir <code>spring.application.name=index</code>
+				</li>
+				<li>dans les variables d'environnement de Docker :
+				, p.ex. ENV=, ou server.port (par défaut 80)</li>				
+				</ul>
+
+<table class="table table-bordered" style="font-size: 0.7rem;margin-left: 40px">
+<tbody>
+	<tr><td>ENV</td>			<td>LOCAL, DEVEL, VALID ou PROD</tr>
+	<tr><td>PROXY_SERVER</td>	<td>dmz-proxy.atih.sante.fr</td></tr>
+	<tr><td>PROXY_PORT</td>		<td>8888</td></tr>			
+</tbody>
+</table>
+
+			
+				<p>On récupère les variables d'environnement ainsi :</p>
+				
+<pre><code class="language-java">@Autowired
+private Environment			env;
+	
+SpringApplication app = new SpringApplication(Application.class);
+
+addDefaultProfile(app);
+Environment env = app.run(args).getEnvironment();
+
+System.out.println(env.getProperty("server.port"));</code></pre>				
+				
+			</div>
+		</div>
+
+		<div class="row">
+
+			<div class="col-sm-8">
+
+
+				<h3 id="cas">Authentification CAS</h3>
+
+<p>
+<strong>Question :</strong> configuration web.xml à l'ancienne ou classe java @Configuration ?
+<br/>
+Débat sur : <a href="https://stackoverflow.com/questions/43225549/dispatcherservlet-and-web-xml-in-spring-boot">https://stackoverflow.com/questions/43225549/dispatcherservlet-and-web-xml-in-spring-boot</a> 
+</p>
+
+SecurityConfiguration.java :
+
+<pre><code class="language-java">@Override
+protected void configure(HttpSecurity http) throws Exception {
+	// @formatter:off
+	http.csrf().disable().addFilter(casAuthenticationFilter())
+
+			.addFilterBefore(casAuthenticationFilter(), BasicAuthenticationFilter.class)
+			.addFilterBefore(requestSingleLogoutFilter(), CasAuthenticationFilter.class)
+			.exceptionHandling()
+			.authenticationEntryPoint(casAuthenticationEntryPoint())
+			.and()
+			.logout()
+			.logoutUrl("/logout")
+			// .logoutSuccessHandler()
+			.invalidateHttpSession(true)
+			.deleteCookies("JSESSIONID")
+			.permitAll()
+			.and()
+			.authorizeRequests()
+			// .antMatchers("/resources/**", "/modules/**").permitAll()
+			.antMatchers("/**").authenticated()
+			// .antMatchers("/**").permitAll()
+			.and()
+			.exceptionHandling().accessDeniedHandler(accessDeniedHandler);
+</code></pre>
+
+
+				<pre><code class="language-xml">&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;plugin&gt;
+       &lt;groupId&gt;com.spotify&lt;/groupId&gt;
+       &lt;artifactId&gt;dockerfile-maven-plugin&lt;/artifactId&gt;
+       &lt;version&gt;1.3.4&lt;/version&gt;
+       &lt;configuration&gt;
+             &lt;repository&gt;${docker.image.prefix}/${project.artifactId}&lt;/repository>
+             &lt;buildArgs&gt;
+                    &lt;JAR_FILE&gt;target/${project.build.finalName}.jar&lt;/JAR_FILE&gt;
+             &lt;/buildArgs&gt;
+       &lt;/configuration&gt;
+&lt;/plugin&gt;</code></pre>
+
+			</div>
+		</div>
+
+		<div class="row">
+
+			<div class="col-sm-8 col-sm-offset-3">
+				<h3 id="jenkinsRancher">Image Docker : Jenkins et Rancher</h3>
+
+				<p>Création du dépôt <code>git@github.intranet.atih.sante.fr:API-SRIM/index.git</code></p>
+
+<p>Ajout de Jenkinsfile et Dockerfile</p>
+
+				<p>
+					Dans <a href="https://integ-java8.intranet.atih.sante.fr">https://integ-java8.intranet.atih.sante.fr</a> créons le Job qui lit git, génère et déploie
+					l'image Docker
+				</p>
+<p>Dans https://rancher.atih.sante.fr on ajoute la statck du index et le service en référencant l'image Docker dans l'artifactory <code>artifactory.intranet.atih.sante.fr:5003/atih-api-srim/check-mail:latest</code>. Puis on lance.</p>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-3">
+
+				<h3 id="execution">Exécution</h3>
+				
+				<h4>En local</h4>
+				<p>Via ligne de commande :</p>
+				<pre><code class="command-line language-bash">mvn spring-boot:run</code></pre>
+				<p>Via Eclipse :</p>
+				<p>
+					<i>Run as... Spring Boot App</i> (avoir auparavant installé le plugin STS)
+				</p>
+				
+<!-- 				<img src="img/run_configuration_eclipse.png"/> -->
+				
+				
+				<h4>Environnement distant</h4>
+				
+				<pre><code>FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ARG JAR_FILE
+ADD target/index-0.0.2-SNAPSHOT.jar app.jar
+ENTRYPOINT ["java", "-jar", "/app.jar"]</code></pre>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-sm-8 col-sm-offset-3">
+
+				<h3 id="todo">TODO</h3>
+				
+				<div class="alert alert-info fade in alert-dismissible show">
+				 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true" style="font-size:20px">×</span>
+				  </button><strong>Info</strong>
+				  <p>
+				  rien pour l'instant
+				</p>
+				</div>
+  			</div>
+		</div>
+		
+	</div>
+</body>
+</html>
