@@ -75,13 +75,13 @@ input:invalid {
 	margin-bottom: 5px;
 }
 
-.menu-toggle {
-    color: grey;
-    /* background: rgba(52, 58, 64, .5); */
-    background: white;
-    position: absolute;
-    z-index: 3;
-}
+/* .menu-toggle { */
+/*     color: grey; */
+/*     background: rgba(52, 58, 64, .5); */
+/*     background: white; */
+/*     position: absolute; */
+/*     z-index: 3; */
+/* } */
 .fa-bars{
 	font-size: 1.5rem;
 	

@@ -48,13 +48,6 @@ select:required:invalid {
 			<div class="card-body">
 
 				<div class="form-group row">
-					<div class="col-md-2" style="display: none;">
-						<label for="numerosiris" class="col-form-label">Numéro (auto)</label>
-						<div>
-							<input type="number" class="form-control" id="numerosiris">
-						</div>
-					</div>
-
 					<div class="col-md-3">
 						<label class="col-form-label">Sexe</label>
 						<div>
@@ -93,7 +86,7 @@ select:required:invalid {
 							<option value="autre">Autre</option>
 						</select>
 					</div>
-					<div id="mode_admission_autre_div" style="display: none">
+					<div id="mode_admission_autre_div" style="display : none">
 						<label for="mode_admission_autre">précisez </label>
 						<input type="text" name="mode_admission_autre" id="mode_admission_autre" style="margin-top: 10px" />
 					</div>
@@ -109,11 +102,11 @@ select:required:invalid {
 						<label class="col-form-label">Statut administratif</label>
 						<div>
 							<div class="form-check">
-								<input class="form-check-input" type="radio" name="statut_admin" id="droitsO" required="required"/>
+								<input class="form-check-input" type="radio" name="statut_admin" id="droitsO" required="required" value="presence_doc"/>
 								<label class="form-check-label" for="droitsO">En possesssion de documents permettant l'ouverture de droits</label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input" type="radio" name="statut_admin" id="droitsN">
+								<input class="form-check-input" type="radio" name="statut_admin" id="droitsN" value="absence_doc">
 								<label class="form-check-label" for="droitsN">Sans document permettant l'ouverture de droits</label>
 							</div>
 						</div>
@@ -167,20 +160,6 @@ select:required:invalid {
 		<div class="card" id="card3">
 			<div class="card-header">Cette personne a-t-elle ou pourrait elle bénéficier</div>
 			<div class="card-body">
-
-				<div class="col-md-7" style="float: right; 	display: none">
-					<div class="alert alert-info alert-dismissible fade show" role="alert">
-						<dl>
-							<dt style="font-weight: normal; font-style: italic;">sans objet :</dt>
-							<dd>absence manifeste de troubles</dd>
-							<dt style="font-weight: normal; font-style: italic;">impossible :</dt>
-							<dd>âge ou situation administrative incompatibles avec ce type de demande</dd>
-							<dt style="font-weight: normal; font-style: italic;">ROPP</dt>
-							<dd>refus d’orientation par la personne</dd>
-						</dl>
-					</div>
-				</div>
-				<div style="clear: both;"></div>
 
 				<div class="form-group row">
 
@@ -299,6 +278,44 @@ select:required:invalid {
 			<div class="card-header">Cette personne a-t-elle ou pourrait elle bénéficier</div>
 
 			<div class="card-body">
+			
+				<div class="row">
+					<!-- 
+					<div class="col-md-3">
+						<div class="alert alert-info alert-dismissible fade show" style="padding-bottom:0px" role="alert">
+							<dl>
+								<dt style="font-weight: normal; font-style: italic;">sans objet :</dt>
+								<dd>absence manifeste de troubles</dd>
+							</dl>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="alert alert-info alert-dismissible fade show" style="padding-bottom:0px" role="alert">
+							<dl>
+								<dt style="font-weight: normal; font-style: italic;">impossible :</dt>
+								<dd style="width: 180px">âge ou situation administrative incompatibles avec ce type de demande</dd>
+							</dl>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="alert alert-info alert-dismissible fade show" style="padding-bottom:0px" role="alert">
+							<dl>
+								<dt style="font-weight: normal; font-style: italic;">ROPP :</dt>
+								<dd>refus d’orientation par la personne</dd>
+							</dl>
+						</div>
+					</div>
+					 -->
+					<div class="col-md-7">
+						<div class="alert alert-info alert-dismissible fade show" style="padding-bottom:0px" role="alert">
+							<p>
+								<span style="font-weight: normal; font-style: italic;">accord de la MDPH pour un SAMSAH ou SAVS :</span>
+								rappel des missions
+							</p>
+						</div>
+					</div>
+				</div>
+			
 				<div class="form-group row">
 
 					<div class="col-md-4">
@@ -324,7 +341,7 @@ select:required:invalid {
 							<label for="demande_mdph">Demande en cours</label>
 						</div>
 						<div>
-							<input type="radio" id="ropp_mdph" name="ropp_mdph" value="ropp" onchange="selection_mdph()" />
+							<input type="radio" id="ropp_mdph" name="mdph" value="ropp" onchange="selection_mdph()" />
 							<label for="ropp_mdph" class="tooltip_j">A été envisagée mais ROPP<span class="tooltiptext_j">refus d’orientation par la personne</span></label>
 						</div>
 						<div>
@@ -339,7 +356,7 @@ select:required:invalid {
 	
 					<!--si on a selectionne "obtenu" : questions suivantes-->
 					<div class="col-md-4">
-						<label class="col-form-label">D'un accord de la MDPH pour un SAVS**? </label>
+						<label class="col-form-label tooltip_j">D'un accord de la MDPH pour un SAVS<span class="tooltiptext_j">rappel des missions</span> ? </label>
 	
 						<div class="form-check">
 							<input class="form-check-input" type="radio" id="sansobjet_mdphsavs" name="mdphsavs" value="sansobjet" onchange="selection_mdphsavs()" required="required"/>
@@ -377,7 +394,7 @@ select:required:invalid {
 	
 	
 					<div class="col-md-4">
-						<label class="col-form-label">D'un accord de la MDPH pour un SAMSAH**?</label>
+						<label class="col-form-label tooltip_j">D'un accord de la MDPH pour un SAMSAH<span class="tooltiptext_j">rappel des missions</span> ? </label>
 						<div>
 							<input type="radio" id="sansobjet_mdphsams" name="mdphsams" value="sansobjet" onchange="selection_mdphsams()" required="required"/>
 							<label for="sansobjet_mdphsams">Sans objet</label>
@@ -387,7 +404,7 @@ select:required:invalid {
 							<label for="impossible_mdphsams" class="tooltip_j">Impossible<span class="tooltiptext_j">âge ou situation administrative incompatibles avec ce type de demande</span></label>
 						</div>
 						<div>
-							<input type="radio" id="obtenu_mdphsams" name="mdphsams" value="obtenu"/>
+							<input type="radio" id="obtenu_mdphsams" name="mdphsams" value="obtenu" onchange="selection_mdphsams()" />
 							<label for="obtenu_mdphsams">Déjà obtenu</label>
 						</div>
 						<div>
@@ -413,11 +430,9 @@ select:required:invalid {
 					</div>
 					
 					<!-- div affichage optionnel -->
-					<div class="col-md-10 col-md-offset-2 panelOption">
-	
-						<label for="aidesocialefam" id="aidesocialefam_label" style="display: none">Un accord de la MDPH pour une place en FAM ou MAS a déjà été obtenue,
-							pourrait elle bénéficier : de l'aide sociale pour un tel service ?</label>
-						<select name="aidesocialefam" id="aidesocialefam" style="display: none">
+					<div class="col-md-10 col-md-offset-2 panelOption"  style="display : none" id="aidesocialefam_div">
+						<label for="aidesocialefam">Un accord de la MDPH pour une place en FAM ou MAS a déjà été obtenue, pourrait elle bénéficier : de l'aide sociale pour un tel service ?</label>
+						<select name="aidesocialefam" id="aidesocialefam">
 							<option value="">Selectionnez</option>
 							<option value="ssobjet">Sans objet</option>
 							<option value="obtenu">Déjà obtenue</option>
@@ -428,27 +443,11 @@ select:required:invalid {
 							<option value="nsp">NSP</option>
 						</select>
 					</div>
-					<div class="col-md-10 col-md-offset-2 panelOption">
-						<label for="aidesocialesavs" id="aidesocialesavs_label" style="display: none">Un accord de la MDPH pour un SAVS** a déjà été obtenu, pourrait elle
+					<div class="col-md-10 col-md-offset-2 panelOption" id="aidesocialesavs_div" style="display : none">
+						<label for="aidesocialesavs">Un accord de la MDPH pour un SAVS** a déjà été obtenu, pourrait elle
 							bénéficier : de l'aide sociale pour un tel service ?</label>
 							
-						<select name="aidesocialesavs" id="aidesocialesavs" style="display: none">
-							<option value="">Selectionnez</option>
-							<option value="ssobjet">Sans objet</option>
-							<option value="obtenu">Déjà obtenue</option>
-							<option value="refus">Refusée</option>
-							<option value="demande">Demande en cours</option>
-							<option value="ropp">A ete envisagé mais ROPPrefus d’orientation par la personne</option>
-							<option value="envisager">A envisager</option>
-							<option value="nsp">NSP</option>
-						</select>
-					</div>
-	
-	
-					<div class="col-md-10 col-md-offset-2 panelOption">
-						<label for="aidesocialesams" id="aidesocialesams_label" style="display: none">Un accord de la MDPH pour un SAMSAH** a déjà été obtenu, pourrait
-							elle bénéficier : de l'aide sociale pour un tel service ?</label>
-						<select name="aidesocialesams" id="aidesocialesams" style="display: none">
+						<select name="aidesocialesavs" id="aidesocialesavs">
 							<option value="">Selectionnez</option>
 							<option value="ssobjet">Sans objet</option>
 							<option value="obtenu">Déjà obtenue</option>
@@ -460,32 +459,46 @@ select:required:invalid {
 						</select>
 					</div>
 	
-					<div class="col-md-10 col-md-offset-2 panelOption">
-						<label for="departementmdph" id="departementmdph_label" style="display: none">Une demande MDPH a déjà été effectuée, précisez le numéro du
-							département</label>
-							<input type="number" name="departementmdph" id="departementmdph" style="display: none" />
+	
+					<div class="col-md-10 col-md-offset-2 panelOption" id="aidesocialesams_div" style="display : none">
+						<label for="aidesocialesams">Un accord de la MDPH pour un SAMSAH** a déjà été obtenu, pourrait
+							elle bénéficier : de l'aide sociale pour un tel service ?</label>
+						<select name="aidesocialesams" id="aidesocialesams">
+							<option value="">Selectionnez</option>
+							<option value="ssobjet">Sans objet</option>
+							<option value="obtenu">Déjà obtenue</option>
+							<option value="refus">Refusée</option>
+							<option value="demande">Demande en cours</option>
+							<option value="ropp">A ete envisagé mais ROPP</option>
+							<option value="envisager">A envisager</option>
+							<option value="nsp">NSP</option>
+						</select>
 					</div>
 	
-					<div class="col-md-10 col-md-offset-2 panelOption">
-						<label for="precisionmdph" id="precisionmdph_label" style="display: none">Situation actuelle vis à vis de la recherche de place en FAM, MAS, SAVS
-							ou SAMSAH?</label>
-						<select name="precisionmdph" id="precisionmdph" style="display: none">
+					<div class="col-md-10 col-md-offset-2 panelOption" id="departementmdph_div" style="display : none">
+						<label for="departementmdph">Une demande MDPH a déjà été effectuée, précisez le numéro du département</label>
+							<input type="number" name="departementmdph" id="departementmdph" />
+					</div>
+	
+					<div class="col-md-10 col-md-offset-2 panelOption" id="precisionmdph_div" style="display : none">
+						<label for="precisionmdph">Situation actuelle vis à vis de la recherche de place en FAM, MAS, SAVS ou SAMSAH?</label>
+						<select name="precisionmdph" id="precisionmdph">
 							<option value="">Selectionnez</option>
 							<option value="trouvee">Place trouvée</option>
 							<option value="rencours">Recherche en cours</option>
-							<option value="ropp">ROPPrefus d’orientation par la personne</option>
+							<option value="ropp">ROPP</option>
 							<option value="nsp">NSP</option>
 						</select>
 					</div>
 	
-					<div class="col-md-10 col-md-offset-2 panelOption">
-						<label for="precisionmdphbis" id="precisionmdphbis_label" style="display: none">Date de 1ère demande de place </label>
-						<input type="date" name="precisionmdphbis" id="precisionmdphbis" style="display: none" />
+					<div class="col-md-10 col-md-offset-2 panelOption" id="precisionmdphbis_div" style="display : none">
+						<label for="precisionmdphbis">Date de 1ère demande de place </label>
+						<input type="date" name="precisionmdphbis" id="precisionmdphbis" />
 					</div>
 	
-					<div class="col-md-10 col-md-offset-2 panelOption">
-						<label for="precisionmdphter" id="precisionmdphter_label" style="display: none">Nombre de refus depuis la 1ère demande</label>
-						<input type="number" name="precisionmdphter" id="precisionmdphter" style="display: none" />
+					<div class="col-md-10 col-md-offset-2 panelOption" style="display : none" id="precisionmdphter_div">
+						<label for="precisionmdphter">Nombre de refus depuis la 1ère demande</label>
+						<input type="number" name="precisionmdphter" id="precisionmdphter" />
 					</div>
 				</div>
 			</div>
@@ -625,7 +638,7 @@ select:required:invalid {
 					</div>
 				</div>
 	
-				<div class="col-md-10" style="display: none" id="precisionprotection_div">
+				<div class="col-md-10" style="display : none" id="precisionprotection_div">
 					<div class="row">
 						<label for="precisionprotection" class="col-md-6 col-form-label">Il existe une protection juridique (ou en cours), précisez laquelle</label>
 						<div class="col-md-6">
@@ -676,21 +689,11 @@ select:required:invalid {
 		}
 
 		function selection_mdph() {
-
-			var listemdph = $("#mdph:checked");
-
-			if (listemdph.val() === 'obtenu') {
-
-				$('#aidesocialefam_label').show(); // ça c'est le label 
-				$('#aidesocialefam').show(); // ça c'est l input
-
-				// An alternate way is to use the jQuery css method:
-				// $("#id").css("display", "none");
-				// $("#id").css("display", "block");
-
+			var mdph_selected = $("input[name='mdph']:checked");
+			if (mdph_selected.val() === 'obtenu') {
+				$('#aidesocialefam_div').show(); 
 			} else {
-				$('#aidesocialefam_label').hide();
-				$('#aidesocialefam').hide();
+				$('#aidesocialefam_div').hide();
 				$('#aidesocialefam').val('');
 			}
 
@@ -699,21 +702,13 @@ select:required:invalid {
 		}
 
 		function selection_mdphsavs() {
+			var mdphsavs_selected = $("input[name='mdphsavs']:checked");
+			if (mdphsavs_selected.val() === 'obtenu') {
 
-			var listemdphsavs = $("#mdphsavs:checked");
-
-			if (listemdphsavs.val() === 'obtenu') {
-
-				$('#aidesocialesavs_label').show(); // ça c'est le label 
-				$('#aidesocialesavs').show(); // ça c'est l input
-
-				// An alternate way is to use the jQuery css method:
-				// $("#id").css("display", "none");
-				// $("#id").css("display", "block");
+				$('#aidesocialesavs_div').show(); 
 
 			} else {
-				$('#aidesocialesavs_label').hide();
-				$('#aidesocialesavs').hide();
+				$('#aidesocialesavs_div').hide();
 				$('#aidesocialesavs').val('');
 			}
 
@@ -722,21 +717,14 @@ select:required:invalid {
 		}
 
 		function selection_mdphsams() {
+			var mdphsams_selected = $("input[name='mdphsams']:checked");
 
-			var listemdphsams = $("#mdphsams:checked");
+			if (mdphsams_selected.val() === 'obtenu') {
 
-			if (listemdphsams.val() === 'obtenu') {
-
-				$('#aidesocialesams_label').show(); // ça c'est le label 
-				$('#aidesocialesams').show(); // ça c'est l input
-
-				// An alternate way is to use the jQuery css method:
-				// $("#id").css("display", "none");
-				// $("#id").css("display", "block");
+				$('#aidesocialesams_div').show(); 
 
 			} else {
-				$('#aidesocialesams_label').hide();
-				$('#aidesocialesams').hide();
+				$('#aidesocialesams_div').hide();
 				$('#aidesocialesams').val('');
 			}
 
@@ -746,21 +734,18 @@ select:required:invalid {
 
 		function afficheOuMasqueLaZoneDemandeAupresDuneMDPH() {
 
-			var listemdphsams = $("#mdphsams:checked");
-			var listemdphsavs = $("#mdphsavs:checked");
-			var listemdph = $("#mdph:checked");
+			var mdph_selected     = $("input[name='mdph']:checked");
+			var mdphsavs_selected = $("input[name='mdphsavs']:checked");
+			var mdphsams_selected = $("input[name='mdphsams']:checked");
 
-			var bCondition1 = listemdphsams.val() === 'demande';
-			var bCondition2 = listemdph.val() === 'demande';
-			var bCondition3 = listemdphsavs.val() === 'demande';
+			var bCondition1 = mdph_selected.val()     === 'demande';
+			var bCondition2 = mdphsavs_selected.val() === 'demande';
+			var bCondition3 = mdphsams_selected.val() === 'demande';
 
 			if (bCondition1 || bCondition2 || bCondition3) {
-
-				$('#departementmdph_label').show(); // ça c'est le label 
-				$('#departementmdph').show(); // ça c'est l input	
+				$('#departementmdph_div').show();
 			} else {
-				$('#departementmdph_label').hide();
-				$('#departementmdph').hide();
+				$('#departementmdph_div').hide();
 				$('#departementmdph').val('');
 			}
 
@@ -768,31 +753,24 @@ select:required:invalid {
 
 		function afficheOuMasquePrecisionMDPH() {
 
-			var listemdphsams = $("#mdphsams:checked");
-			var listemdphsavs = $("#mdphsavs:checked");
-			var listemdph = $("#mdph:checked");
+			var mdph_selected     = $("input[name='mdph']:checked");
+			var mdphsavs_selected = $("input[name='mdphsavs']:checked");
+			var mdphsams_selected = $("input[name='mdphsams']:checked");
 
-			var cCondition1 = listemdphsams.val() === 'obtenu';
-			var cCondition2 = listemdph.val() === 'obtenu';
-			var cCondition3 = listemdphsavs.val() === 'obtenu';
+			var condition1 = mdph_selected.val()     === 'obtenu';
+			var condition2 = mdphsams_selected.val() === 'obtenu';
+			var condition3 = mdphsavs_selected.val() === 'obtenu';
 
-			if (cCondition1 || cCondition2 || cCondition3) {
-
-				$('#precisionmdph_label').show(); // ça c'est le label 
-				$('#precisionmdph').show(); // ça c'est l input	
-				$('#precisionmdphbis_label').show();
-				$('#precisionmdphbis').show();
-				$('#precisionmdphter_label').show();
-				$('#precisionmdphter').show();
+			if (condition1 || condition2 || condition3) {
+				$('#precisionmdph_div').show(); 
+				$('#precisionmdphbis_div').show();
+				$('#precisionmdphter_div').show();
 			} else {
-				$('#precisionmdph_label').hide();
-				$('#precisionmdph').hide();
+				$('#precisionmdph_div').hide();
 				$('#precisionmdph').val('');
-				$('#precisionmdphbis_label').hide();
-				$('#precisionmdphbis').hide();
+				$('#precisionmdphbis_div').hide();
 				$('#precisionmdphbis').val('');
-				$('#precisionmdphter_label').hide();
-				$('#precisionmdphter').hide();
+				$('#precisionmdphter_div').hide();
 				$('#precisionmdphter').val('');
 			}
 		}
@@ -813,13 +791,6 @@ select:required:invalid {
 			}
 
 		}
-
-		// methode native (sans jquery) pour choper un, élément
-		// var listederoulantemodeentree = document.querybyid("modeentree");
-
-		// méthode avecjquery - c'est syntaxe $()
-		// var listederoulantemodeentree = $("#mode_admission");
-		// listederoulantemodeentree.addEventListener("change", selection, true);
 	</script>
 
 </body>
