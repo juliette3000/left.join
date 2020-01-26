@@ -204,7 +204,7 @@ select:required:invalid {
 						<label class="col-form-label">D'une PCH ?</label>
 						<div class="form-check">
 							<input class="form-check-input" type="radio" name="pch" value="sansobjet" id="sansobjet2" required="required"/>
-							<label class="form-check-label" for="sansobjet2">Sans objet</label>
+							<label class="tooltip_j form-check-label" for="sansobjet2">Sans objet<span class="tooltiptext_j">absence manifeste de troubles</span></label>
 						</div>						
 						<div class="form-check">
 							<input class="form-check-input" type="radio" name="pch" value="impossible" id="impossible2" />
@@ -240,7 +240,7 @@ select:required:invalid {
 						<label class="col-form-label">D'une pension d'invalidité ?</label>
 						<div class="form-check">
 							<input class="form-check-input" type="radio" name="invalidite" value="sansobjet" id="sansobjet3" required="required"/>
-							<label class="form-check-label" for="sansobjet3">Sans objet</label>
+							<label class="tooltip_j form-check-label" for="sansobjet3">Sans objet<span class="tooltiptext_j">absence manifeste de troubles</span></label>
 						</div>
 						<div class="form-check">
 							<input class="form-check-input" type="radio" name="invalidite" value="impossible" id="impossible" />
@@ -323,7 +323,7 @@ select:required:invalid {
 						<label class="col-form-label">D'un accord de la MDPH pour une place en FAM ou MAS ?</label>
 						<div class="form-check">
 							<input class="form-check-input" type="radio" id="sansobjet_mdph" name="mdph" value="sansobjet" onchange="selection_mdph()" />
-							<label class="form-check-label" for="sansobjet_mdph">Sans objet</label>
+							<label class="tooltip_j form-check-label" for="sansobjet_mdph">Sans objet<span class="tooltiptext_j">absence manifeste de troubles</span></label>
 						</div>
 						<div class="form-check">
 							<input class="form-check-input" type="radio" id="impossible_mdph" name="mdph" value="impossible" onchange="selection_mdph()" />
@@ -361,7 +361,7 @@ select:required:invalid {
 	
 						<div class="form-check">
 							<input class="form-check-input" type="radio" id="sansobjet_mdphsavs" name="mdphsavs" value="sansobjet" onchange="selection_mdphsavs()" required="required"/>
-							<label class="form-check-label" for="sansobjet_mdphsavs">Sans objet</label>
+							<label class="tooltip_j form-check-label" for="sansobjet_mdphsavs">Sans objet<span class="tooltiptext_j">absence manifeste de troubles</span></label>
 						</div>
 						<div class="form-check">
 							<input class="form-check-input" type="radio" id="impossible_mdphsavs" name="mdphsavs" value="impossible" onchange="selection_mdphsavs()" />
@@ -398,7 +398,7 @@ select:required:invalid {
 						<label class="col-form-label tooltip_j">D'un accord de la MDPH pour un SAMSAH<span class="tooltiptext_j">rappel des missions</span> ? </label>
 						<div class="form-check">
 							<input class="form-check-input" type="radio" id="sansobjet_mdphsams" name="mdphsams" value="sansobjet" onchange="selection_mdphsams()" required="required"/>
-							<label class="form-check-label" for="sansobjet_mdphsams">Sans objet</label>
+							<label class="tooltip_j form-check-label" for="sansobjet_mdphsams">Sans objet<span class="tooltiptext_j">absence manifeste de troubles</span></label>
 						</div>
 						<div class="form-check">
 							<input class="form-check-input" type="radio" id="impossible_mdphsams" name="mdphsams" value="impossible"/>
@@ -516,11 +516,11 @@ select:required:invalid {
 	
 						<div class="form-check">
 							<input class="form-check-input" type="radio" name="ehpad" value="sansobjet" required="required"/>
-							<label class="form-check-label" for="sansobjet">Sans objet</label>
+							<label class="tooltip_j form-check-label" for="sansobjet_ehpad">Sans objet<span class="tooltiptext_j">absence manifeste de troubles</span></label>
 						</div>
 						<div class="form-check">
 							<input class="form-check-input" type="radio" name="ehpad" value="impossible" />
-							<label class="form-check-label" for="impossible" class="tooltip_j">Impossible<span class="tooltiptext_j">âge ou situation administrative incompatibles avec ce type de demande</span></label>
+							<label class="form-check-label" for="impossible_ehpad" class="tooltip_j">Impossible<span class="tooltiptext_j">âge ou situation administrative incompatibles avec ce type de demande</span></label>
 						</div>
 						<div class="form-check">
 							<input class="form-check-input" type="radio" name="ehpad" value="obtenu" />
@@ -639,9 +639,9 @@ select:required:invalid {
 							<label class="form-check-label" for="encours_protection">En cours</label>
 						</div>
 					</div>
-					<div class="col-md-9" style="bbbackground-color:grey;margin-top: 30px" id="precisionprotection_div">
+					<div class="col-md-9" style="bbbackground-color:grey;margin-top: 30px" id="precisionprotection_div" style="display: none;" >
 						<label class="col-form-label" for="precisionprotection" >Il existe une protection juridique (ou en cours), précisez laquelle &nbsp;</label>
-						<select class="form-control-inline select_yann" name="precisionprotection" id="precisionprotection">
+						<select class="form-control-inline select_yann" name="precisionprotection" id="precisionprotection" >
 							<option value="">Selectionnez</option>
 							<option value="trouvee">Tutelle</option>
 							<option value="rencours">Curatelle</option>
