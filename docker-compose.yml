@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+  monphp:
+    build: 
+      context: ./Docker/monphpmysql
+    ports:
+      - "8888:80"
+    volumes:
+      - c:/workspace_left_join/leftjoin:/tmp
+
+  monsql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD==${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "8881:3306"
+    volumes:
+      - c:/workspace_left_join/leftjoin/sqldata:/var/lib/mysql 

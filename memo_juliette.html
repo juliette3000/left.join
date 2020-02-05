@@ -3,108 +3,149 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Mémo Juliette</title>
+<link rel="stylesheet" href="www/enquete_lam_2019/css/bootstrap4.4.1.min.css" />
+<style type="text/css">
+pre {
+	border-radius: .5rem;
+	font-size: .8rem;
+}
+
+nav {
+	float: right;
+	background-color: #e9ecef;
+	border-radius: 0.5rem;
+}
+
+nav a {
+	color: black;
+}
+
+h3 {
+	margin-top: 50px;
+}
+
+.small {
+	font-size: 0.8 rem;
+}
+</style>
 </head>
-<body style="margin:0 200px">
+<body style="margin: 0 200px">
 
-<article>
+	<div class="jumbotron text-center">
+		<h1>Mémo juliette</h1>
+	</div>
+	<nav class="nav justify-content-end">
 
-<h1>Mémo juliette<h1>
+		<ul class="nav flex-column">
+			<li class="nav-item"><a class="nav-link" href="#osiris">1. Osiris - mettre à jour colonnes erronées d'une table</a></li>
+			<li class="nav-item"><a class="nav-link" href="#docker">2. Faire tourner Docker sous Windows</a></li>
+		</ul>
 
-<h2>Contexte</h2>
+	</nav>
+	<div style="clear: both;"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-10">
 
-Travail sur base de donnes de logiciel SQL Server
+				<section>
+					<h1 id="osiris">1. Osiris - mettre à jour colonnes erronées d'une table</h1>
 
-<h2>pb 1 : mettre Ã  jour la colonne d'une table erronÃ©e</h2>
+					Travail sur base de donnes de logiciel SQL Server SELECT [Numid] ,[Date] ,[Heure] ,[Minute] ,[Problème] ,[Obs] ,[Etoile] ,[Interven] ,[Instruct]
+					,[Validité] ,[Code] ,[Horspatien] ,[Codecibl] ,[Definitif] ,[Confiden] ,[Horsfamill] ,[Dat_barre] ,[Pk_obside] <B>,[donnees] ,[actions] ,[resultats]</B>
+					,[fkparent] ,[notlast] ,[dateevt] FROM [SSP_PARIS_OSIRIS].[dbo].[OBSIDE] where date> '2017-05-01' Résultat :
+					{\rtf1\ansi\ansicpg1252\deff0\deflang1036{\fonttbl{\f0\fnil\fcharset0 Arial;}{\f1\fnil Arial;}} \viewkind4\uc1\pard\fs22 Change de protection , pas de
+					selles ,urines++ mis en pyjama.\f1\par } Il y a des caractères d'encodage rtf
 
-
-
-
-SELECT  [Numid]
-      ,[Date]
-      ,[Heure]
-      ,[Minute]
-      ,[ProblÃ¨me]
-      ,[Obs]
-      ,[Etoile]
-      ,[Interven]
-      ,[Instruct]
-      ,[ValiditÃ©]
-      ,[Code]
-      ,[Horspatien]
-      ,[Codecibl]
-      ,[Definitif]
-      ,[Confiden]
-      ,[Horsfamill]
-      ,[Dat_barre]
-      ,[Pk_obside]
-      <B>,[donnees]
-      ,[actions]
-      ,[resultats]</B>
-      ,[fkparent]
-      ,[notlast]
-      ,[dateevt]
-  FROM [SSP_PARIS_OSIRIS].[dbo].[OBSIDE] where date> '2017-05-01'
-  
-  RÃ©sultat : {\rtf1\ansi\ansicpg1252\deff0\deflang1036{\fonttbl{\f0\fnil\fcharset0 Arial;}{\f1\fnil Arial;}}
-\viewkind4\uc1\pard\fs22 Change de protection , pas de selles ,urines++ mis en pyjama.\f1\par
-}
-
-Il y a des caractÃ¨res d'encodage rtf
-
-<h2>Objectif</h2>
-
-Supprimer les caractÃ¨res rtf.
-
-
-  
-<h2>Comment faire ?</h2>  
+					<p>Supprimer les caractères rtf.</p>
 
 
 
-<h3>En java</h3>
- <code>
-
-public class Clean(){
-	
-	
-	
-	// 1. Lecture de la table
-	// ouverture connexion Ã  la base
-	// adresse - login - mdp
-	// ... j'ai ma connection (avec droit lecture & update 
+					<h2>Comment faire ?</h2>
 
 
-	// 2. ItÃ©ration sur les lignes
-	
-	for (String valAvecFormatRtf:liste){
-		
-		
+
+					<h3>En java</h3>
+					<pre>public class Clean(){ // 1. Lecture de la table
+// ouverture connexion à la base
+// adresse - login - mdp
+// ... j'ai ma connection (avec droit lecture &amp; update
+// 2. Itération sur les lignes for (String valAvecFormatRtf:liste){
 		String valClean = clean(valAvecFormatRtf);
-		
-		update(idLigne, valClean);
-		
-		
-		
+		update(idLigne,
+	valClean);
 	}
-		
-	
-	
-	
 	String clean(String str){
-		
 		return "nettoyer";
-		
 	}
-	
-
 	void update(long idLigne, String val){
-		
-		// excute UPDATE obside SET donnees = ' + val + ' WHERE id = ' + idLigne;
+		// excute UPDATE obside SET donnees = ' + val + ' WHERE
+	id = ' + idLigne;
 	}
-	
-	
-}
-</code>
- </article>
- </body>
- </html>
+}</pre>
+
+				</section>
+
+				<section>
+					<h1 id="docker">2. Faire tourner Docker sous Windows</h1>
+
+					<p>On fait ici tourner un MySQL et Apache PHP</p>
+
+					<h2>Installation</h2>
+					<ul>
+						<li>Installer Docker
+						<li>Dém arrer un conteneur "docker run --rm alpine echo DockerRocks"
+						<li>Puis installer *Docker for Windows Shared Drive</li>
+					</ul>
+
+					<p>On va utiliser 2 répertoires</p>
+					<ul>
+						<li>1 pour /www</li>
+						<li>1 pour les données mysql /sqldata</li>
+					</ul>
+
+					Le mysql est accessible sur localhost:8881 Le site php est accessible sur localhost:8890 Le php est en version 7. Le mysql est en version 5.7
+
+
+					<h2>Choix images</h2>
+
+					Après recherche sur [https://hub.docker.com](https://hub.docker.com) on choisit l'image standard php:7.2-apache ``` docker run --rm -p 8888:80 --name
+					my-apache-php-app -v c:/workspace_wamp/php-sql/codephp:/var/www/html php:7.2-apache ``` Test en ouvrant [http://localhost:8888](http://localhost:8888)
+					dans Chrome. OK, la page **index.php** s'affiche comme attendu. Donc on passe à la configuration fichier.
+
+
+					<h2>Configuration de l'image Apache avec docker-compose.yml</h2>
+
+					<pre>version: '3'
+services:
+  monphp:
+    image: php:7.2-apache
+    ports:
+      - "8888:80"
+    volumes:
+      - c:/yann/workspace_wamp/php-sql/codephp:/var/www/html</pre>
+
+					Voilà déjà notre docker Apache.
+
+					<h2>Test de l'image MySQL en ligne de commande</h2>
+
+					De même que pour le choix de l'image Apache, on préfère choisir l'image MySQL standard de l'éditeur plutôt qu'une image d'une origine incertaine.
+
+					<pre>docker run --rm -p 8881:3306 --name mon-mysql -v
+	c:/workspace_leftjoin/php-sql/sqldata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=toto mysql:5.7</pre>
+
+
+					OK, jdbc:mysql://localhost:8881 répond avec le compte *root* password *toto*
+
+
+					<h2>Ecriture du docker-compose.yml parent des deux images</h2>
+
+					Une différence est à noter pour les deux images MySQL et Apache * l'image **mysql:5.7** est déclarée telle quelle dans docker-compose.yml * l'image de
+					**php:7.2-apache** doit être modifié afin de lui ajouter les extensions permettant la connexion MySQL. Alors du coup on crée un Dockerfile qui déclare ces
+					extensions, et docker-compose.yml y fait référence avec la propriété **build:context**
+
+				</section>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
