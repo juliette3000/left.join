@@ -26,7 +26,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="initImage()">
 
 	<!-- Navigation -->
 	<a class="menu-toggle rounded" href="#"> <i class="fas fa-bars"></i>
@@ -44,14 +44,14 @@
 
 	<!-- Header -->
 	<header class="masthead d-flex">
-		<div class="container text-center my-auto">
+		<div class="container text-center my-auto" style="color: white;">
 			<h1 class="mb-1">SamuSocial</h1>
-			<h3 class="mb-5">
+			<h3 class="mb-5" >
 				<em>Enquête flash social &amp; médical</em>
 			</h3>
 			<!--       <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a> -->
 			
-			<button class="btn btn-primary">Click to fade in/out boxes</button>
+			<button class="btn" style="color: white;">Changer l'image de fond</button>
 		</div>
 		<div class="overlay"></div>
 	</header>
@@ -115,15 +115,6 @@
 	    }
 	};		
 
-		
-	/* si une image a été mémorisée, on l'affiche */
-	if($.cookie('remember_select') === undefined || $.cookie('remember_select') === null) {
-		// nothinf to do
-	}
-	else {
-		$(this).css('background-image', 'url(images/' + $.cookie('remember_select') + ')');
-	}
-	
 	$i = 1;
 	
 	$(document).ready(function(){
@@ -132,18 +123,36 @@
 				$img = 'ciel_rose.jpg';
 			}
 			else if ($i == 2){
-				$img = 'ciel-et-nuages.jpg';
-			}
-			else if ($i == 3){
 				$img = 'ciel_contraste.jpg';
-				$i = 0;
 		  	}
+			else if ($i == 3){
+				$img = 'bg-masthead.jpg';
+		  	}
+			else if ($i == 4){
+				$img = 'ciel-et-nuages.jpg';
+				$i = 0;
+			}
+
 			$i = $i + 1;
 			  
 			$('.masthead').css('background-image', 'url(images/' + $img + ')'); 			
 			$.cookie('remember_select', $img, { expires: 90, path: '/'});
 		});
 	});
+	
+	function initImage(){
+		
+		
+		/* si une image a été mémorisée, on l'affiche */
+		if($.cookie('remember_select') === undefined || $.cookie('remember_select') === null) {
+			// nothinf to do
+		}
+		else {
+			$(this).css('background-image', 'url(images/' + $.cookie('remember_select') + ')');
+		}
+		
+	}
+	
 	</script>
 
 </body>
